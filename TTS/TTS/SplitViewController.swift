@@ -29,11 +29,11 @@ class SplitViewController: UISplitViewController {
 
 extension SplitViewController: MenuControllerDelegate {
     func didTapMenuItem(at index: IndexPath, title: String?) {
-        (self.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: false)
+        (self.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: true)
         let vc = UIViewController()
         vc.view.backgroundColor = .systemRed
         vc.title = title
-        (self.viewControllers.last as? UINavigationController)?.pushViewController(vc, animated: false)
+        (self.viewControllers.last as? UINavigationController)?.pushViewController(vc, animated: true)
     }
 }
 
