@@ -22,6 +22,7 @@
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
+		AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
+		AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDescription.swift; sourceTree = "<group>"; };
 		EE7E8794368D33EAE474CCDC /* Pods-TTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS.release.xcconfig"; path = "Target Support Files/Pods-TTS/Pods-TTS.release.xcconfig"; sourceTree = "<group>"; };
 		F8522230136EBF9646E2342F /* Pods_TTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 		7851BD3A28BB2D91006086CB /* TTS */ = {
 			isa = PBXGroup;
 			children = (
+				AFB04DDA28BB3FA400FFA95B /* BuyView */,
 				9F28CEE628BB323800527716 /* API */,
 				7851BD3B28BB2D91006086CB /* AppDelegate.swift */,
 				7851BD3D28BB2D91006086CB /* SceneDelegate.swift */,
@@ -180,6 +183,14 @@
 				21F7D1AC16E0EE0F6CB57C63 /* Pods-TTSTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AFB04DDA28BB3FA400FFA95B /* BuyView */ = {
+			isa = PBXGroup;
+			children = (
+				AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */,
+			);
+			path = BuyView;
 			sourceTree = "<group>";
 		};
 		D03B167EBE870588809989F6 /* Frameworks */ = {
@@ -433,6 +444,7 @@
 				9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */,
 				9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */,
 				7851BD4028BB2D91006086CB /* ViewController.swift in Sources */,
+				AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */,
 				7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */,
 				7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
