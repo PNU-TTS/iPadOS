@@ -11,6 +11,10 @@ import SnapKit
 import RxSwift
 import RxCocoa
 
+extension BuyPopupViewController {
+    static let horizontalInset: CGFloat = 20.0
+}
+
 class BuyPopupViewController: UIViewController {
     struct Input {
         var balance: Int
@@ -26,7 +30,6 @@ class BuyPopupViewController: UIViewController {
     }
     
     lazy var titleLabel = UILabel()
-    
     lazy var balanceLabel = UILabel()
     
     lazy var amountTextField = TextFieldWithDescription(
@@ -73,6 +76,9 @@ extension BuyPopupViewController {
         view.addSubview(totalTextField)
         view.addSubview(buyButton)
         
+        setTitleLabel()
+        setBalanceLabel()
+        
         setAmountTextField()
         setPriceTextField()
         setTotalTextField()
@@ -82,7 +88,9 @@ extension BuyPopupViewController {
     func setTitleLabel() {
         titleLabel.then {
             $0.text = "구매 하기"
+            $0.font = UIFont.boldSystemFont(ofSize: 20)
         }.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
             make.top.equalToSuperview()
         }
     }
@@ -91,7 +99,8 @@ extension BuyPopupViewController {
         balanceLabel.then {
             $0.text = "잔액: \(input.balance) 원"
         }.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.right.equalToSuperview().inset(BuyPopupViewController.horizontalInset)
+            make.top.equalTo(titleLabel.snp.bottom).offset(50)
         }
     }
 
