@@ -12,6 +12,7 @@ target 'TTS' do
   pod 'RxCocoa'
   pod 'RxGesture'
   pod 'Moya/RxSwift'
+  pod 'Charts'
 
   target 'TTSTests' do
     inherit! :search_paths
