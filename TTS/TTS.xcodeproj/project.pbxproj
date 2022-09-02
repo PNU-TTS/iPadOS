@@ -10,6 +10,7 @@
 		0E1100A0743B0488B11D45B4 /* Pods_TTS_TTSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF377D2052D49AD1E9B7EB6 /* Pods_TTS_TTSUITests.framework */; };
 		6248E1211AD3B3B161DB59A3 /* Pods_TTSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1143D4CC6D19DFE83180F4 /* Pods_TTSTests.framework */; };
 		783A8F6D28BB2FE000C525DE /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F6C28BB2FE000C525DE /* SplitViewController.swift */; };
+		783A8F7128BDC06A00C525DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F7028BDC06A00C525DE /* HomeViewController.swift */; };
 		7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3B28BB2D91006086CB /* AppDelegate.swift */; };
 		7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3D28BB2D91006086CB /* SceneDelegate.swift */; };
 		7851BD4028BB2D91006086CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3F28BB2D91006086CB /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		4AF377D2052D49AD1E9B7EB6 /* Pods_TTS_TTSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTS_TTSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1143D4CC6D19DFE83180F4 /* Pods_TTSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		783A8F6C28BB2FE000C525DE /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		783A8F7028BDC06A00C525DE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7851BD3828BB2D91006086CB /* TTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7851BD3B28BB2D91006086CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7851BD3D28BB2D91006086CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				7851BD4428BB2D94006086CB /* Assets.xcassets */,
 				7851BD4628BB2D94006086CB /* LaunchScreen.storyboard */,
 				7851BD4928BB2D94006086CB /* Info.plist */,
+				783A8F7028BDC06A00C525DE /* HomeViewController.swift */,
 			);
 			path = TTS;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				783A8F7128BDC06A00C525DE /* HomeViewController.swift in Sources */,
 				9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */,
 				9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */,
 				7851BD4028BB2D91006086CB /* ViewController.swift in Sources */,
