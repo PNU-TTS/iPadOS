@@ -1,9 +1,5 @@
 PODS:
   - Alamofire (5.6.2)
-  - Charts (4.0.3):
-    - Charts/Core (= 4.0.3)
-  - Charts/Core (4.0.3):
-    - SwiftAlgorithms (~> 1.0)
   - Moya/Core (15.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (15.0.0):
@@ -19,11 +15,9 @@ PODS:
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
   - SnapKit (5.6.0)
-  - SwiftAlgorithms (1.0.0)
   - Then (3.0.0)
 
 DEPENDENCIES:
-  - Charts
   - Moya/RxSwift
   - RxCocoa
   - RxGesture
@@ -34,28 +28,24 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Charts
     - Moya
     - RxCocoa
     - RxGesture
     - RxRelay
     - RxSwift
     - SnapKit
-    - SwiftAlgorithms
     - Then
 
 SPEC CHECKSUMS:
   Alamofire: d368e1ff8a298e6dde360e35a3e68e6c610e7204
-  Charts: d959d6723c8eedfdd0735dfc28cb0a71762ac4d9
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
-  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
   Then: 844265ae87834bbe1147d91d5d41a404da2ec27d
 
-PODFILE CHECKSUM: 0795c70e263cdc4ed9fd1cf95822bee324d6e705
+PODFILE CHECKSUM: e6bf30f8a8deece1a71bb783971d3a333b02da73
 
 COCOAPODS: 1.11.3
