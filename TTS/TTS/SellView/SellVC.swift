@@ -6,13 +6,15 @@
 //
 
 import UIKit
+
+import Charts
 import Then
 import SnapKit
-import RxSwift
-import RxCocoa
+
 
 extension SellVC {
     static let horizontalInset: CGFloat = 20.0
+    static let verticalOffset: CGFloat = 20.0
 }
 
 class SellVC: UIViewController {
@@ -21,41 +23,74 @@ class SellVC: UIViewController {
     }
     
     var input: Input
-    var disposeBag = DisposeBag()
     
-    let numberFormatter = NumberFormatter().then {
-        $0.numberStyle = .decimal
+    var months: [String]!
+    var unitsSold: [Double]!
+    let chartLabelSize = CGFloat(15)
+    
+    lazy var viewChart = UIView()
+    lazy var lineChartView = LineChartView().then {
+//        $0.backgroundColor = .lightGray
+        $0.noDataText = "데이터가 없습니다."
+        $0.noDataFont = .systemFont(ofSize: 20)
+        $0.noDataTextColor = .darkGray
+        $0.doubleTapToZoomEnabled = false
+        $0.legend.enabled = false
+
+        $0.xAxis.labelPosition = .bottom    // X축 레이블 위치 조정
+        $0.xAxis.labelFont = .boldSystemFont(ofSize: chartLabelSize)
+        $0.xAxis.labelTextColor = .gray
+        $0.xAxis.drawGridLinesEnabled = false
+//        $0.xAxis.axisLineColor = .black
+        $0.rightAxis.enabled = false        // 오른쪽 축 제거
+        
+        
+        let yAxis = $0.leftAxis
+        yAxis.labelFont = .boldSystemFont(ofSize: chartLabelSize)
+        yAxis.labelTextColor = .gray
+        yAxis.setLabelCount(8, force: false)
+        yAxis.axisLineColor = .white
+        yAxis.labelPosition = .outsideChart
+        yAxis.labelXOffset = -5
+        
+        let ll = ChartLimitLine(limit: 10.0, label: "average")
+        ll.labelPosition = .leftTop
+        ll.drawLabelEnabled = true
+        ll.lineColor = .gray
+//        ll.lineDashLengths = CGFloat(2)
+        ll.lineDashPhase = CGFloat(2)
+        ll.valueTextColor = .gray
+        $0.leftAxis.addLimitLine(ll)
+        
+//        $0.animate(xAxisDuration: 2)
+
     }
     
-    lazy var titleLabel = UILabel()
-    lazy var balanceLabel = UILabel()
-    
-    lazy var amountTextField = TextFieldWithDescription(
-        input: TextFieldWithDescription.Input(
-            title: "개수",
-            initValue: "0",
-            suffix: "개",
-            isEnabled: true))
-    lazy var priceTextField = TextFieldWithDescription(
-        input: TextFieldWithDescription.Input(
-            title: "개당",
-            initValue: "0",
-            suffix: "원",
-            isEnabled: true))
-    lazy var totalTextField = TextFieldWithDescription(
-        input: TextFieldWithDescription.Input(
-            title: "총",
-            initValue: "0",
-            suffix: "원",
-            isEnabled: false))
-    
-    lazy var buyButton = UIButton()
-    
+    var stackView = UIStackView()
+    var averagePriceView: PriceView
+    var maxPriceView: PriceView
+    var minPriceView: PriceView
+    var sellInputView: SellInputView
     
     init(input: Input) {
         self.input = input
+        averagePriceView = PriceView(
+            input: PriceView.Input(icon: UIImage(systemName: "wonsign.circle.fill"),
+                                   amount: 50000,
+                                   description: "평균가"))
+        maxPriceView = PriceView(
+            input: PriceView.Input(icon: UIImage(systemName: "arrow.up.forward.circle.fill"),
+                                   amount: 80000,
+                                   description: "최고가"))
+        minPriceView = PriceView(
+            input: PriceView.Input(icon: UIImage(systemName: "arrow.down.right.circle.fill"),
+                                   amount: 20000,
+                                   description: "최저가"))
+        sellInputView = SellInputView(input: SellInputView.Input(recBalance: input.recBalance))
+        
         super.init(nibName: nil, bundle: nil)
         setView()
+        title = "판매 등록"
     }
     
     required init?(coder: NSCoder) {
@@ -67,134 +102,103 @@ extension SellVC {
     func setView() {
         view.backgroundColor = .white
         
-        view.addSubview(titleLabel)
-        view.addSubview(balanceLabel)
-        view.addSubview(amountTextField)
-        view.addSubview(priceTextField)
-        view.addSubview(totalTextField)
-        view.addSubview(buyButton)
+        view.addSubview(stackView)
+        view.addSubview(sellInputView)
         
-        setTitleLabel()
-        setBalanceLabel()
-        
-        setAmountTextField()
-        setPriceTextField()
-        setTotalTextField()
-        setBuyButton()
+        setStackView()
+        setSellInputView()
     }
     
-    func setTitleLabel() {
-        titleLabel.then {
-            $0.text = "판매 등록"
-            $0.font = UIFont.boldSystemFont(ofSize: 20)
+    func setStackView() {
+        stackView.addArrangedSubview(averagePriceView)
+        stackView.addArrangedSubview(maxPriceView)
+        stackView.addArrangedSubview(minPriceView)
+        
+        stackView.then {
+            $0.axis = .vertical
+            $0.distribution = .equalSpacing
+            $0.alignment = .center
         }.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalToSuperview()
-        }
-    }
-    
-    func setBalanceLabel() {
-        balanceLabel.then {
-            $0.text = "보유 REC: \(input.recBalance) 개"
-        }.snp.makeConstraints { make in
-            make.right.equalToSuperview().inset(BuyPopupViewController.horizontalInset)
-            make.top.equalTo(titleLabel.snp.bottom).offset(50)
-        }
-    }
-
-    func setAmountTextField() {
-        amountTextField.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.width.equalTo(500)
+            make.left.equalToSuperview().inset(20.0)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(0.4).inset(10.0)
+            make.top.equalTo(view.safeAreaLayoutGuide)
         }
         
-        amountTextField.textField.keyboardType = .numberPad
-        amountTextField.textField.rx.controlEvent([.editingChanged])
-            .subscribe({ [weak self] _ in
-                guard let self = self else { return }
-                if let amountText = self.amountTextField.textField.text?.replacingOccurrences(of: ",", with: ""),
-                   let amount = Int(amountText),
-                   let convertedAmount = self.numberFormatter.string(from: NSNumber(value: amount)),
-                   let priceText = self.priceTextField.textField.text?.replacingOccurrences(of: ",", with: ""),
-                   let price = Int(priceText) {
-                    
-                    if amount > self.input.recBalance {
-                        guard let maxAmount = self.numberFormatter.string(from: NSNumber(value: self.input.recBalance)) else {
-                            self.setDefault()
-                            return
-                        }
-                        self.amountTextField.textField.text = "\(maxAmount)"
-                        self.totalTextField.textField.text = self.numberFormatter.string(from: NSNumber(value: self.input.recBalance * price))
-                        return
-                    }
-                    
-                    self.amountTextField.textField.text = "\(convertedAmount)"
-                    self.totalTextField.textField.text = self.numberFormatter.string(from: NSNumber(value: amount * price))
-                } else {
-                    self.setDefault()
-                }
-            }).disposed(by: disposeBag)
+        stackView.arrangedSubviews.forEach { priceView in
+            priceView.snp.makeConstraints { make in
+                make.height.equalToSuperview().multipliedBy(0.3)
+                make.width.equalToSuperview().inset(20)
+            }
+        }
     }
     
-    func setPriceTextField() {
-        priceTextField.textField.text = "0"
-        priceTextField.snp.makeConstraints { make in
+    func setSellInputView() {
+        sellInputView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.right.equalToSuperview().inset(20.0)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.5)
+            make.width.equalToSuperview().multipliedBy(0.6).inset(10.0)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .white
+        self.title = "home"
+        
+        view.addSubview(viewChart)
+        viewChart.addSubview(lineChartView)
+        
+        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+        
+        
+        viewChart.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(amountTextField.snp.bottom).offset(50)
-            make.width.equalTo(500)
+            make.bottom.equalToSuperview().inset(20)
+            make.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.5)
+            make.width.equalToSuperview().offset(-50)
         }
         
-        priceTextField.textField.keyboardType = .numberPad
-        priceTextField.textField.rx.controlEvent([.editingChanged])
-            .subscribe({ [weak self] _ in
-                guard let self = self else { return }
-                if let amountText = self.amountTextField.textField.text?.replacingOccurrences(of: ",", with: ""),
-                   let amount = Int(amountText),
-                   let priceText = self.priceTextField.textField.text?.replacingOccurrences(of: ",", with: ""),
-                   let price = Int(priceText),
-                   let convertedPrice = self.numberFormatter.string(from: NSNumber(value: price)) {
-                    self.priceTextField.textField.text = "\(convertedPrice)"
-                    self.totalTextField.textField.text = self.numberFormatter.string(from: NSNumber(value: amount * price))
-                } else {
-                    self.setDefault()
-                }
-            }).disposed(by: disposeBag)
-    }
-    
-    func setTotalTextField() {
-        totalTextField.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(priceTextField.snp.bottom).offset(50)
-            make.width.equalTo(500)
-        }
-    }
-    
-    func setBuyButton() {
-        buyButton.then {
-            $0.setTitle("등록하기", for: .normal)
-            $0.backgroundColor = .systemPink
-        }.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(totalTextField.snp.bottom).offset(50)
-            make.width.equalTo(500)
+        lineChartView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
         }
         
-        buyButton.rx.tap
-            .subscribe { [weak self] _ in
-                guard let self = self else { return }
-                if self.totalTextField.textField.text == "0" {
-                    return
-                }
-                if let total = Int(self.totalTextField.textField.text?.replacingOccurrences(of: ",", with: "") ?? "-") {
-                    print(total)
-                }
-            }.disposed(by: disposeBag)
+        setChart(dataPoints: months, values: unitsSold)
     }
     
-    func setDefault() {
-        amountTextField.textField.text = "0"
-        priceTextField.textField.text = "0"
-        totalTextField.textField.text = "0"
+    func setChart(dataPoints: [String], values: [Double]) {
+        // 데이터 생성
+        print(dataPoints)
+        var dataEntries: [ChartDataEntry] = []
+        for i in 0..<dataPoints.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+            print(dataEntry)
+            dataEntries.append(dataEntry)
+        }
+        
+        let chartDataSet = LineChartDataSet(entries: dataEntries, label: "판매량").then {
+            $0.drawCirclesEnabled = false
+            $0.colors = [.systemBlue]
+            $0.lineWidth = 2
+            $0.mode = .linear
+            $0.fill = ColorFill(color: .systemBlue)
+            $0.fillAlpha = 0.5
+            $0.drawFilledEnabled = true
+            $0.drawHorizontalHighlightIndicatorEnabled = false
+            $0.highlightColor = .systemRed
+        }
+        
+        // 데이터 삽입
+        let chartData = LineChartData(dataSet: chartDataSet)
+        chartData.setDrawValues(false)      // value 표시 유무
+        
+        lineChartView.data = chartData
+        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints) // X축 레이블 포맷 지정
+        lineChartView.xAxis.setLabelCount(dataPoints.count-1, force: false)
     }
+    
 }
 
