@@ -9,8 +9,9 @@ import UIKit
 
 extension TextFieldWithDescription {
     static let radius: CGFloat = 5.0
-    static let horizontalInset: CGFloat = 10.0
+    static let horizontalInset: CGFloat = 20.0
     static let verticalInset: CGFloat = 10.0
+    static let fontSize: CGFloat = 21.0
 }
 
 class TextFieldWithDescription: UIView {
@@ -44,10 +45,9 @@ extension TextFieldWithDescription {
         addSubview(textField)
         addSubview(suffixLabel)
         
-        layer.cornerRadius = TextFieldWithDescription.radius
-        layer.borderColor = UIColor.gray.cgColor
-        layer.borderWidth = 2
         
+        backgroundColor = .white
+        setShadow()
         setTitleLabel()
         setTextField()
         setSuffixLabel()
@@ -56,6 +56,9 @@ extension TextFieldWithDescription {
     func setTitleLabel() {
         titleLabel.then {
             $0.text = input.title
+            $0.textColor = .gray
+            $0.font = UIFont.systemFont(ofSize: TextFieldWithDescription.fontSize,
+                                        weight: .bold)
         }.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(TextFieldWithDescription.horizontalInset)
             make.top.bottom.equalToSuperview().inset(TextFieldWithDescription.verticalInset)
@@ -66,6 +69,8 @@ extension TextFieldWithDescription {
         textField.then {
             $0.text = input.initValue
             $0.isEnabled = input.isEnabled
+            $0.font = UIFont.systemFont(ofSize: TextFieldWithDescription.fontSize)
+            $0.textColor = input.isEnabled ? .black : .gray
         }.snp.makeConstraints { make in
             make.left.equalTo(titleLabel.snp.right).offset(TextFieldWithDescription.horizontalInset)
             make.top.bottom.equalToSuperview().inset(TextFieldWithDescription.verticalInset)
@@ -81,6 +86,8 @@ extension TextFieldWithDescription {
     func setSuffixLabel() {
         suffixLabel.then {
             $0.text = input.suffix
+            $0.textColor = .gray
+            $0.font = UIFont.systemFont(ofSize: TextFieldWithDescription.fontSize)
         }.snp.makeConstraints { make in
             make.left.equalTo(textField.snp.right).offset(TextFieldWithDescription.horizontalInset)
             make.right.equalToSuperview().inset(TextFieldWithDescription.horizontalInset)
