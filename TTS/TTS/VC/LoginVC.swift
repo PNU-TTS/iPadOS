@@ -66,7 +66,7 @@ class LoginVC: UIViewController {
     func setLoginButton() {
         loginButton.then {
             $0.setTitle("로그인", for: .normal)
-            $0.backgroundColor = .blue.withAlphaComponent(0.5)
+            $0.backgroundColor = Const.Color.primary
             $0.tintColor = .white
             $0.layer.cornerRadius = 5.0
         }.snp.makeConstraints { make in
