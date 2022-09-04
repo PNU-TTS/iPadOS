@@ -8,6 +8,11 @@
 import UIKit
 
 class SplitVC: UISplitViewController {
+    
+    let tableLabels: [[String]] = [
+        ["계좌잔고", "거래 시장", "판매 등록"],
+        ["승인 대기 목록", "내 거래 내역", "개인 정보"]
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,9 +21,9 @@ class SplitVC: UISplitViewController {
         let menuVC = MenuController(style: .insetGrouped)
         menuVC.delegate = self
         
-//        let secondVC = UIViewController()
+        //        let secondVC = UIViewController()
         let secondVC = HomeVC()
-//        secondVC.view.backgroundColor = .blue
+        //        secondVC.view.backgroundColor = .blue
         secondVC.title = "Home"
         
         self.viewControllers = [
@@ -30,11 +35,26 @@ class SplitVC: UISplitViewController {
 
 extension SplitVC: MenuControllerDelegate {
     func didTapMenuItem(at index: IndexPath, title: String?) {
-        (self.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: true)
-        if title == "판매 등록" {
-            let thirdVC = SellVC(input: SellVC.Input(recBalance: 5000))
-            (self.viewControllers.last as? UINavigationController)?.pushViewController(thirdVC, animated: true)
+        (self.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: false)
+        var vc = UIViewController()
+        vc.view.backgroundColor = .blue
+        switch title {
+        case "계좌잔고":
+            vc.title = "계좌잔고"
+        case "거래 시장":
+            vc.title = "거래 시장"
+        case "판매 등록":
+            vc = SellVC(input: SellVC.Input(recBalance: 5000))
+        case "승인 대기 목록":
+            vc.title = "판매 등록"
+        case "내 거래 내역":
+            vc.title = "내 거래 내역"
+        default:
+            vc.title = "개인 정보"
         }
+        
+        (self.viewControllers.last as? UINavigationController)?.pushViewController(vc, animated: true)
+        
     }
 }
 
