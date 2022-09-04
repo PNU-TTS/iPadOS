@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplitViewController: UISplitViewController {
+class SplitVC: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,7 +17,7 @@ class SplitViewController: UISplitViewController {
         menuVC.delegate = self
         
 //        let secondVC = UIViewController()
-        let secondVC = HomeViewController()
+        let secondVC = HomeVC()
 //        secondVC.view.backgroundColor = .blue
         secondVC.title = "Home"
         
@@ -28,7 +28,7 @@ class SplitViewController: UISplitViewController {
     }
 }
 
-extension SplitViewController: MenuControllerDelegate {
+extension SplitVC: MenuControllerDelegate {
     func didTapMenuItem(at index: IndexPath, title: String?) {
         (self.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: true)
         let vc = UIViewController()

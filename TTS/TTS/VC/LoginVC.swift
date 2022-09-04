@@ -91,7 +91,7 @@ class LoginVC: UIViewController {
         output.isLoginSuccess
             .subscribe(onNext: { result in
                 if result {
-                    let nextVC = SplitViewController()
+                    let nextVC = SplitVC()
                     nextVC.modalTransitionStyle = .crossDissolve
                     nextVC.modalPresentationStyle = .fullScreen
                     self.present(nextVC, animated: true)
