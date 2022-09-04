@@ -21,6 +21,9 @@ class SupplierInfoVC: UIViewController {
     private var balanceView = BalanceView()
     private var recSoldView = RecSoldView()
     
+    private var transactionHeader = TransactionHeader()
+    private var transactionTable = UIStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -28,11 +31,12 @@ class SupplierInfoVC: UIViewController {
     }
     
     func setView() {
-        [balanceView, recSoldView].forEach {
+        [balanceView, recSoldView, transactionHeader, transactionTable].forEach {
             view.addSubview($0)
         }
         setBalanceView()
         setRecSoldView()
+        setTransactionTable()
     }
     
     func setBalanceView() {
@@ -49,6 +53,25 @@ class SupplierInfoVC: UIViewController {
             make.top.equalTo(balanceView)
             make.height.equalTo(SupplierInfoVC.balanceViewHeight)
             make.width.equalTo(SupplierInfoVC.balanceViewWidth)
+        }
+    }
+    
+    func setTransactionTable() {
+        transactionHeader.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(10.0)
+            make.top.equalTo(balanceView.snp.bottom).offset(30.0)
+        }
+        
+        transactionTable.then {
+            $0.axis = .vertical
+            $0.spacing = 1.0
+            $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        }.snp.makeConstraints { make in
+            make.left.right.equalTo(transactionHeader)
+            make.top.equalTo(transactionHeader.snp.bottom)
+        }
+        for _ in 1...10 {
+            transactionTable.addArrangedSubview(TransactionCell())
         }
     }
 }
