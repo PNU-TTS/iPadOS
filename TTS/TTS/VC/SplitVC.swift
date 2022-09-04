@@ -47,7 +47,7 @@ class MenuController: UITableViewController {
     var delegate: MenuControllerDelegate?
     let tableLabels: [[String]] = [
         ["계좌잔고", "거래 시장", "판매 등록"],
-        ["판매 신청 내역", "개인 정보"]
+        ["승인 대기 목록", "내 거래 내역", "개인 정보"]
     ]
     
     override init(style: UITableView.Style) {
