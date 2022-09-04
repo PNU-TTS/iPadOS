@@ -6,5 +6,10 @@
 //
 
 struct Const {
-    
+    struct Font {
+        static let small = 14.0
+        static let normal = 16.0
+        static let big = 21.0
+        static let veryBig = 24.0
+    }
 }
