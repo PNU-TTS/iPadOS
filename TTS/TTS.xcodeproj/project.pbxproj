@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		0E1100A0743B0488B11D45B4 /* Pods_TTS_TTSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AF377D2052D49AD1E9B7EB6 /* Pods_TTS_TTSUITests.framework */; };
 		6248E1211AD3B3B161DB59A3 /* Pods_TTSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1143D4CC6D19DFE83180F4 /* Pods_TTSTests.framework */; };
-		783A8F6D28BB2FE000C525DE /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F6C28BB2FE000C525DE /* SplitViewController.swift */; };
-		783A8F7128BDC06A00C525DE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F7028BDC06A00C525DE /* HomeViewController.swift */; };
+		783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F6C28BB2FE000C525DE /* SplitVC.swift */; };
+		783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F7028BDC06A00C525DE /* HomeVC.swift */; };
 		7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3B28BB2D91006086CB /* AppDelegate.swift */; };
 		7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3D28BB2D91006086CB /* SceneDelegate.swift */; };
-		7851BD4028BB2D91006086CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3F28BB2D91006086CB /* ViewController.swift */; };
 		7851BD4528BB2D94006086CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7851BD4428BB2D94006086CB /* Assets.xcassets */; };
 		7851BD4828BB2D94006086CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7851BD4628BB2D94006086CB /* LaunchScreen.storyboard */; };
 		7851BD5328BB2D94006086CB /* TTSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5228BB2D94006086CB /* TTSTests.swift */; };
@@ -61,12 +60,11 @@
 		33B681E4265F2697BC51D95D /* Pods-TTS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS.debug.xcconfig"; path = "Target Support Files/Pods-TTS/Pods-TTS.debug.xcconfig"; sourceTree = "<group>"; };
 		4AF377D2052D49AD1E9B7EB6 /* Pods_TTS_TTSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTS_TTSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1143D4CC6D19DFE83180F4 /* Pods_TTSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		783A8F6C28BB2FE000C525DE /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
-		783A8F7028BDC06A00C525DE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		783A8F6C28BB2FE000C525DE /* SplitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitVC.swift; sourceTree = "<group>"; };
+		783A8F7028BDC06A00C525DE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		7851BD3828BB2D91006086CB /* TTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7851BD3B28BB2D91006086CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7851BD3D28BB2D91006086CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7851BD3F28BB2D91006086CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7851BD4428BB2D94006086CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7851BD4728BB2D94006086CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7851BD4928BB2D94006086CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,12 +152,9 @@
 				9F19442228C23308009FD556 /* VM */,
 				7851BD3B28BB2D91006086CB /* AppDelegate.swift */,
 				7851BD3D28BB2D91006086CB /* SceneDelegate.swift */,
-				7851BD3F28BB2D91006086CB /* ViewController.swift */,
-				783A8F6C28BB2FE000C525DE /* SplitViewController.swift */,
 				7851BD4428BB2D94006086CB /* Assets.xcassets */,
 				7851BD4628BB2D94006086CB /* LaunchScreen.storyboard */,
 				7851BD4928BB2D94006086CB /* Info.plist */,
-				783A8F7028BDC06A00C525DE /* HomeViewController.swift */,
 			);
 			path = TTS;
 			sourceTree = "<group>";
@@ -203,7 +198,9 @@
 		9F19441F28C226DD009FD556 /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				783A8F7028BDC06A00C525DE /* HomeVC.swift */,
 				9F19442028C226F2009FD556 /* LoginVC.swift */,
+				783A8F6C28BB2FE000C525DE /* SplitVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -509,12 +506,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				783A8F7128BDC06A00C525DE /* HomeViewController.swift in Sources */,
+				783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */,
 				9F19441E28C22649009FD556 /* TokenDB.swift in Sources */,
 				9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */,
 				9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */,
 				9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */,
-				7851BD4028BB2D91006086CB /* ViewController.swift in Sources */,
 				9F19441928C22521009FD556 /* LoginRepository.swift in Sources */,
 				AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */,
 				AFB04DDC28BB3FB300FFA95B /* BuyPopupViewController.swift in Sources */,
@@ -528,7 +524,7 @@
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
-				783A8F6D28BB2FE000C525DE /* SplitViewController.swift in Sources */,
+				783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

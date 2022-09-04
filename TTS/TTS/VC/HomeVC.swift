@@ -10,7 +10,7 @@ import Charts
 import Then
 import SnapKit
 
-class HomeViewController: UIViewController {
+class HomeVC: UIViewController {
     
     var months: [String]!
     var unitsSold: [Double]!
