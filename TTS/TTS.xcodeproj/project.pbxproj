@@ -33,6 +33,8 @@
 		9F19442B28C46AB7009FD556 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19442A28C46AB7009FD556 /* BalanceView.swift */; };
 		9F19442E28C46AFC009FD556 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19442D28C46AFC009FD556 /* Const.swift */; };
 		9F19443028C46B09009FD556 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19442F28C46B09009FD556 /* Color.swift */; };
+		9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19443128C499A2009FD556 /* RecSoldView.swift */; };
+		9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19443428C49B01009FD556 /* UIViewUtility.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -93,6 +95,8 @@
 		9F19442A28C46AB7009FD556 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
 		9F19442D28C46AFC009FD556 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		9F19442F28C46B09009FD556 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9F19443128C499A2009FD556 /* RecSoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecSoldView.swift; sourceTree = "<group>"; };
+		9F19443428C49B01009FD556 /* UIViewUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtility.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 		7851BD3A28BB2D91006086CB /* TTS */ = {
 			isa = PBXGroup;
 			children = (
+				9F19443328C49AF5009FD556 /* Utility */,
 				9F19442C28C46AF4009FD556 /* Const */,
 				AFB1256A28C47103005E8C71 /* SellView */,
 				AFB04DDA28BB3FA400FFA95B /* BuyView */,
@@ -232,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				9F19442A28C46AB7009FD556 /* BalanceView.swift */,
+				9F19443128C499A2009FD556 /* RecSoldView.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -243,6 +249,14 @@
 				9F19442F28C46B09009FD556 /* Color.swift */,
 			);
 			path = Const;
+			sourceTree = "<group>";
+		};
+		9F19443328C49AF5009FD556 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9F19443428C49B01009FD556 /* UIViewUtility.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		9F28CEE628BB323800527716 /* API */ = {
@@ -547,6 +561,8 @@
 			files = (
 				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
 				783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */,
+				9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */,
+				9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */,
 				9F19441E28C22649009FD556 /* TokenDB.swift in Sources */,
 				9F19443028C46B09009FD556 /* Color.swift in Sources */,
 				9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */,

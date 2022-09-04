@@ -1,4 +1,11 @@
 //
+//  RecSoldView.swift
+//  TTS
+//
+//  Created by Lee Jun Young on 2022/09/04.
+//
+
+//
 //  BalanceView.swift
 //  TTS
 //
@@ -10,7 +17,7 @@ import UIKit
 import Then
 import SnapKit
 
-class BalanceView: UIView {
+class RecSoldView: UIView {
     private var iconView = UIImageView()
     private var balanceLabel = UILabel()
     private var balanceDescription = UILabel()
@@ -26,7 +33,6 @@ class BalanceView: UIView {
         }
         self.backgroundColor = .white
         setShadow()
-        
         setIconView()
         setBalanceLabel()
         setBalanceDescription()
@@ -34,7 +40,7 @@ class BalanceView: UIView {
     
     func setIconView() {
         iconView.then {
-            $0.image = UIImage(systemName: "creditcard.fill")
+            $0.image = UIImage(systemName: "wonsign.circle.fill")
             $0.tintColor = Const.Color.primary
             $0.contentMode = .scaleAspectFill
         }.snp.makeConstraints { make in
@@ -45,7 +51,7 @@ class BalanceView: UIView {
     
     func setBalanceLabel() {
         balanceLabel.then {
-            $0.text = "4,234 REC"
+            $0.text = "23,432,684 원"
             $0.font = UIFont.systemFont(ofSize: 22.0)
             $0.textColor = .gray
         }.snp.makeConstraints { make in
@@ -56,7 +62,7 @@ class BalanceView: UIView {
     
     func setBalanceDescription() {
         balanceDescription.then {
-            $0.text = "잔여 REC 공급량 수"
+            $0.text = "총 REC 판매 금액"
             $0.font = UIFont.systemFont(ofSize: 18.0)
             $0.textColor = .lightGray
         }.snp.makeConstraints { make in
@@ -69,3 +75,4 @@ class BalanceView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
