@@ -14,25 +14,12 @@ enum APIEnvironment {
 
 class BaseRepository<API: TargetType> {
     
-    func getProvider(mode: APIEnvironment, debug: Bool) -> MoyaProvider<API> {
-        switch mode {
-        case .test:
-            return getRealProvider(debug)
-        case .real:
-            return getTestProvider(debug)
-        }
-    }
+    private let realProviderWithDebug = MoyaProvider<API>(plugins: [MoyaInterceptor()])
+    private let realProviderWithoutDebug = MoyaProvider<API>()
+    private let testProviderWithDebug: MoyaProvider<API>
+    private let testProviderWithoutDebug: MoyaProvider<API>
     
-    private func getRealProvider(_ debug: Bool) -> MoyaProvider<API> {
-        if debug {
-            return MoyaProvider<API>(plugins: [MoyaInterceptor()])
-        }
-        
-        return MoyaProvider<API>()
-
-    }
-    
-    private func getTestProvider(_ debug: Bool) -> MoyaProvider<API> {
+    init() {
         let customEndpointClosure = { (target: API) -> Endpoint in
             return Endpoint(
                 url: URL(target: target).absoluteString,
@@ -42,15 +29,34 @@ class BaseRepository<API: TargetType> {
                 httpHeaderFields: target.headers)
         }
         
-        if debug {
-            return MoyaProvider<API> (
-                endpointClosure: customEndpointClosure,
-                stubClosure: MoyaProvider.delayedStub(3),
-                plugins: [MoyaInterceptor()])
-        }
-        
-        return MoyaProvider<API> (
+        testProviderWithDebug =  MoyaProvider<API> (
             endpointClosure: customEndpointClosure,
-            stubClosure: MoyaProvider.delayedStub(3))
+            stubClosure: MoyaProvider.delayedStub(0),
+            plugins: [MoyaInterceptor()])
+        
+        testProviderWithoutDebug =  MoyaProvider<API> (
+            endpointClosure: customEndpointClosure,
+            stubClosure: MoyaProvider.delayedStub(0))
+    }
+    
+    func getProvider(mode: APIEnvironment, debug: Bool) -> MoyaProvider<API> {
+        switch mode {
+        case .test:
+            return getTestProvider(debug)
+        case .real:
+            return getRealProvider(debug)
+        }
+    }
+    
+    private func getRealProvider(_ debug: Bool) -> MoyaProvider<API> {
+        if debug { return realProviderWithDebug }
+        
+        return realProviderWithoutDebug
+    }
+    
+    private func getTestProvider(_ debug: Bool) -> MoyaProvider<API> {
+        if debug { return testProviderWithDebug }
+        
+        return testProviderWithoutDebug
     }
 }

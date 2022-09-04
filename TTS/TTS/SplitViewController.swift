@@ -16,8 +16,9 @@ class SplitViewController: UISplitViewController {
         let menuVC = MenuController(style: .insetGrouped)
         menuVC.delegate = self
         
-        let secondVC = UIViewController()
-        secondVC.view.backgroundColor = .blue
+//        let secondVC = UIViewController()
+        let secondVC = HomeViewController()
+//        secondVC.view.backgroundColor = .blue
         secondVC.title = "Home"
         
         self.viewControllers = [

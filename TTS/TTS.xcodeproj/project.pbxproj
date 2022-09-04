@@ -20,6 +20,16 @@
 		7851BD5D28BB2D94006086CB /* TTSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5C28BB2D94006086CB /* TTSUITests.swift */; };
 		7851BD5F28BB2D94006086CB /* TTSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */; };
 		9AE1D26D9F0B16879B490240 /* Pods_TTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8522230136EBF9646E2342F /* Pods_TTS.framework */; };
+		9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441028C220D7009FD556 /* TransactionModel.swift */; };
+		9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441228C22145009FD556 /* TransactionRepository.swift */; };
+		9F19441528C22405009FD556 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441428C22405009FD556 /* LoginModel.swift */; };
+		9F19441728C22483009FD556 /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441628C22483009FD556 /* TokenModel.swift */; };
+		9F19441928C22521009FD556 /* LoginRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441828C22521009FD556 /* LoginRepository.swift */; };
+		9F19441C28C22623009FD556 /* InternalDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441B28C22623009FD556 /* InternalDB.swift */; };
+		9F19441E28C22649009FD556 /* TokenDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441D28C22649009FD556 /* TokenDB.swift */; };
+		9F19442128C226F2009FD556 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19442028C226F2009FD556 /* LoginVC.swift */; };
+		9F19442428C23310009FD556 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19442328C23310009FD556 /* LoginVM.swift */; };
+		9F19442628C3375B009FD556 /* BasicVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19442528C3375B009FD556 /* BasicVM.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -66,6 +76,16 @@
 		7851BD5C28BB2D94006086CB /* TTSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITests.swift; sourceTree = "<group>"; };
 		7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		85721C8EF9BD5353EC1E21C8 /* Pods-TTS-TTSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS-TTSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTS-TTSUITests/Pods-TTS-TTSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F19441028C220D7009FD556 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		9F19441228C22145009FD556 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
+		9F19441428C22405009FD556 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		9F19441628C22483009FD556 /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		9F19441828C22521009FD556 /* LoginRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepository.swift; sourceTree = "<group>"; };
+		9F19441B28C22623009FD556 /* InternalDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalDB.swift; sourceTree = "<group>"; };
+		9F19441D28C22649009FD556 /* TokenDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDB.swift; sourceTree = "<group>"; };
+		9F19442028C226F2009FD556 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		9F19442328C23310009FD556 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
+		9F19442528C3375B009FD556 /* BasicVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicVM.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -130,6 +150,8 @@
 			children = (
 				AFB04DDA28BB3FA400FFA95B /* BuyView */,
 				9F28CEE628BB323800527716 /* API */,
+				9F19441F28C226DD009FD556 /* VC */,
+				9F19442228C23308009FD556 /* VM */,
 				7851BD3B28BB2D91006086CB /* AppDelegate.swift */,
 				7851BD3D28BB2D91006086CB /* SceneDelegate.swift */,
 				7851BD3F28BB2D91006086CB /* ViewController.swift */,
@@ -159,9 +181,47 @@
 			path = TTSUITests;
 			sourceTree = "<group>";
 		};
+		9F19440F28C220CB009FD556 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				9F19441028C220D7009FD556 /* TransactionModel.swift */,
+				9F19441428C22405009FD556 /* LoginModel.swift */,
+				9F19441628C22483009FD556 /* TokenModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		9F19441A28C22615009FD556 /* InternalDB */ = {
+			isa = PBXGroup;
+			children = (
+				9F19441B28C22623009FD556 /* InternalDB.swift */,
+				9F19441D28C22649009FD556 /* TokenDB.swift */,
+			);
+			path = InternalDB;
+			sourceTree = "<group>";
+		};
+		9F19441F28C226DD009FD556 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				9F19442028C226F2009FD556 /* LoginVC.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		9F19442228C23308009FD556 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				9F19442328C23310009FD556 /* LoginVM.swift */,
+				9F19442528C3375B009FD556 /* BasicVM.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
 		9F28CEE628BB323800527716 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				9F19441A28C22615009FD556 /* InternalDB */,
+				9F19440F28C220CB009FD556 /* DataModel */,
 				9F28CEE928BB36C400527716 /* Repository */,
 				9F28CEE728BB324D00527716 /* TTSAPI.swift */,
 				9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */,
@@ -173,6 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				9F28CEEA28BB371600527716 /* BaseRepository.swift */,
+				9F19441228C22145009FD556 /* TransactionRepository.swift */,
+				9F19441828C22521009FD556 /* LoginRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -448,14 +510,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				783A8F7128BDC06A00C525DE /* HomeViewController.swift in Sources */,
+				9F19441E28C22649009FD556 /* TokenDB.swift in Sources */,
+				9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */,
 				9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */,
 				9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */,
 				7851BD4028BB2D91006086CB /* ViewController.swift in Sources */,
+				9F19441928C22521009FD556 /* LoginRepository.swift in Sources */,
 				AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */,
 				AFB04DDC28BB3FB300FFA95B /* BuyPopupViewController.swift in Sources */,
 				7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */,
+				9F19441528C22405009FD556 /* LoginModel.swift in Sources */,
+				9F19441728C22483009FD556 /* TokenModel.swift in Sources */,
+				9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */,
+				9F19442628C3375B009FD556 /* BasicVM.swift in Sources */,
 				7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */,
+				9F19442128C226F2009FD556 /* LoginVC.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
+				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
+				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
 				783A8F6D28BB2FE000C525DE /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
