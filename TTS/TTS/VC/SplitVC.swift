@@ -48,7 +48,8 @@ extension SplitVC: MenuControllerDelegate {
         case "승인 대기 목록":
             vc.title = "판매 등록"
         case "내 거래 내역":
-            vc.title = "내 거래 내역"
+//            vc.title = "내 거래 내역"
+            vc = SupplierInfoVC()
         default:
             vc.title = "개인 정보"
         }
