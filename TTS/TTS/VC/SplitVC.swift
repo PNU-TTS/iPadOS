@@ -31,10 +31,10 @@ class SplitVC: UISplitViewController {
 extension SplitVC: MenuControllerDelegate {
     func didTapMenuItem(at index: IndexPath, title: String?) {
         (self.viewControllers.last as? UINavigationController)?.popToRootViewController(animated: true)
-        let vc = UIViewController()
-        vc.view.backgroundColor = .systemRed
-        vc.title = title
-        (self.viewControllers.last as? UINavigationController)?.pushViewController(vc, animated: true)
+        if title == "판매 등록" {
+            let thirdVC = SellVC(input: SellVC.Input(recBalance: 5000))
+            (self.viewControllers.last as? UINavigationController)?.pushViewController(thirdVC, animated: true)
+        }
     }
 }
 
