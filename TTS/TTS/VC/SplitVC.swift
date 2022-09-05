@@ -51,7 +51,7 @@ extension SplitVC: MenuControllerDelegate {
 //            vc.title = "내 거래 내역"
             vc = SupplierInfoVC()
         default:
-            vc.title = "개인 정보"
+            vc = ProfileVC()
         }
         
         (self.viewControllers.last as? UINavigationController)?.pushViewController(vc, animated: true)

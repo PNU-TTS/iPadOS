@@ -40,7 +40,9 @@
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
-		AFB04DDC28BB3FB300FFA95B /* BuyPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB04DDB28BB3FB300FFA95B /* BuyPopupViewController.swift */; };
+		AF73620628C5D0A8003B72D0 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620528C5D0A8003B72D0 /* ProfileVC.swift */; };
+		AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620828C5E5EB003B72D0 /* ProfileCard.swift */; };
+		AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620A28C5E64C003B72D0 /* SettingCard.swift */; };
 		AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */; };
 		AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1256B28C47110005E8C71 /* SellVC.swift */; };
 		AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */; };
@@ -106,7 +108,9 @@
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
-		AFB04DDB28BB3FB300FFA95B /* BuyPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyPopupViewController.swift; sourceTree = "<group>"; };
+		AF73620528C5D0A8003B72D0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		AF73620828C5E5EB003B72D0 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
+		AF73620A28C5E64C003B72D0 /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDescription.swift; sourceTree = "<group>"; };
 		AFB1256B28C47110005E8C71 /* SellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellInputView.swift; sourceTree = "<group>"; };
@@ -170,8 +174,6 @@
 			children = (
 				9F19443328C49AF5009FD556 /* Utility */,
 				9F19442C28C46AF4009FD556 /* Const */,
-				AFB1256A28C47103005E8C71 /* SellView */,
-				AFB04DDA28BB3FA400FFA95B /* BuyView */,
 				9F28CEE628BB323800527716 /* API */,
 				9F19442928C46AA2009FD556 /* UIComponent */,
 				9F19441F28C226DD009FD556 /* VC */,
@@ -228,6 +230,8 @@
 				9F19442028C226F2009FD556 /* LoginVC.swift */,
 				783A8F6C28BB2FE000C525DE /* SplitVC.swift */,
 				9F19442728C469A6009FD556 /* SupplierInfoVC.swift */,
+				AFB1256B28C47110005E8C71 /* SellVC.swift */,
+				AF73620528C5D0A8003B72D0 /* ProfileVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -244,6 +248,8 @@
 		9F19442928C46AA2009FD556 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				AF73620728C5E5C6003B72D0 /* ProfileView */,
+				AFB1256A28C47103005E8C71 /* SellView */,
 				9F19443628C4A9E4009FD556 /* Transaction */,
 				9F19442A28C46AB7009FD556 /* BalanceView.swift */,
 				9F19443128C499A2009FD556 /* RecSoldView.swift */,
@@ -313,20 +319,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		AFB04DDA28BB3FA400FFA95B /* BuyView */ = {
+		AF73620728C5E5C6003B72D0 /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
-				AFB04DDB28BB3FB300FFA95B /* BuyPopupViewController.swift */,
-				AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */,
+				AF73620828C5E5EB003B72D0 /* ProfileCard.swift */,
+				AF73620A28C5E64C003B72D0 /* SettingCard.swift */,
 			);
-			path = BuyView;
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		AFB1256A28C47103005E8C71 /* SellView */ = {
 			isa = PBXGroup;
 			children = (
-				AFB1256B28C47110005E8C71 /* SellVC.swift */,
 				AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */,
+				AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */,
 			);
 			path = SellView;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
+				AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */,
 				783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */,
 				9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */,
 				9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */,
@@ -594,7 +601,6 @@
 				AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */,
 				AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */,
 				AFC0CFF028C4DD01006F9823 /* PriceView.swift in Sources */,
-				AFB04DDC28BB3FB300FFA95B /* BuyPopupViewController.swift in Sources */,
 				7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */,
 				9F19441528C22405009FD556 /* LoginModel.swift in Sources */,
 				9F19441728C22483009FD556 /* TokenModel.swift in Sources */,
@@ -604,11 +610,13 @@
 				7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */,
 				9F19442828C469A6009FD556 /* SupplierInfoVC.swift in Sources */,
 				9F19442128C226F2009FD556 /* LoginVC.swift in Sources */,
+				AF73620628C5D0A8003B72D0 /* ProfileVC.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
 				783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */,
 				9F19442E28C46AFC009FD556 /* Const.swift in Sources */,
+				AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
