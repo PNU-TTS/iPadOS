@@ -41,6 +41,7 @@
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
 		AF73620628C5D0A8003B72D0 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620528C5D0A8003B72D0 /* ProfileVC.swift */; };
+		AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620828C5E5EB003B72D0 /* ProfileCard.swift */; };
 		AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */; };
 		AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1256B28C47110005E8C71 /* SellVC.swift */; };
 		AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */; };
@@ -107,6 +108,7 @@
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
 		AF73620528C5D0A8003B72D0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		AF73620828C5E5EB003B72D0 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDescription.swift; sourceTree = "<group>"; };
 		AFB1256B28C47110005E8C71 /* SellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellInputView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		9F19442928C46AA2009FD556 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				AF73620728C5E5C6003B72D0 /* ProfileView */,
 				AFB1256A28C47103005E8C71 /* SellView */,
 				9F19443628C4A9E4009FD556 /* Transaction */,
 				9F19442A28C46AB7009FD556 /* BalanceView.swift */,
@@ -312,6 +315,14 @@
 				21F7D1AC16E0EE0F6CB57C63 /* Pods-TTSTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AF73620728C5E5C6003B72D0 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				AF73620828C5E5EB003B72D0 /* ProfileCard.swift */,
+			);
+			path = ProfileView;
 			sourceTree = "<group>";
 		};
 		AFB1256A28C47103005E8C71 /* SellView */ = {
@@ -601,6 +612,7 @@
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
 				783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */,
 				9F19442E28C46AFC009FD556 /* Const.swift in Sources */,
+				AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
