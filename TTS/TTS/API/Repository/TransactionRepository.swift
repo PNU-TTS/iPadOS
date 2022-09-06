@@ -8,11 +8,17 @@
 import Moya
 import RxSwift
 
-class TransactionRepository: BaseRepository<TTSAPI> {
+class TransactionRepository: BaseRepository<FabricAPI> {
     
-    func getAllTransactions() -> Single<[TransactionModel]>{
+    func getAllTransactions() -> Single<[TransactionModel]> {
         return getProvider(mode: .test, debug: false).rx
             .request(.queryAllTransactions)
+            .map([TransactionModel].self)
+    }
+    
+    func getTransactionBySupplier(supplier: Int) -> Single<[TransactionModel]> {
+        return getProvider(mode: .test, debug: true).rx
+            .request(.queryTransactionBySupplier(input: QueryBySupplierModel(supplier: supplier)))
             .map([TransactionModel].self)
     }
     
