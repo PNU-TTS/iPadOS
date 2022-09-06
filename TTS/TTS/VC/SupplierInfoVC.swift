@@ -7,6 +7,7 @@
 
 import UIKit
 
+import RxSwift
 import Then
 import SnapKit
 
@@ -17,12 +18,15 @@ extension SupplierInfoVC {
 }
 
 class SupplierInfoVC: UIViewController {
+    private var disposeBag = DisposeBag()
     
     private var balanceView = BalanceView()
     private var recSoldView = RecSoldView()
     
     private var transactionHeader = TransactionHeader()
     private var transactionTable = UIStackView()
+    
+    private var viewModel = SupplierInfoVM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,7 @@ class SupplierInfoVC: UIViewController {
         setBalanceView()
         setRecSoldView()
         setTransactionTable()
+        setBinding()
     }
     
     func setBalanceView() {
@@ -70,8 +75,16 @@ class SupplierInfoVC: UIViewController {
             make.left.right.equalTo(transactionHeader)
             make.top.equalTo(transactionHeader.snp.bottom)
         }
-        for _ in 1...10 {
-            transactionTable.addArrangedSubview(TransactionCell())
-        }
+
+    }
+    
+    func setBinding() {
+        let output = viewModel.transform(input: SupplierInfoVM.Input(id: 1))
+        
+        output.transactions.subscribe(onNext: { transactions in
+            transactions.forEach { transaciton in
+                self.transactionTable.addArrangedSubview(TransactionCell(input: transaciton))
+            }
+        }).disposed(by: disposeBag)
     }
 }

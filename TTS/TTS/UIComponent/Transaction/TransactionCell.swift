@@ -24,7 +24,11 @@ class TransactionCell: UIView {
     private var quantity = UILabel()
     private var status = UILabel()
     
-    init() {
+    private var input: TransactionModel
+    
+    init(input: TransactionModel) {
+        self.input = input
+        
         super.init(frame: .zero)
         self.backgroundColor = .white
         setView()
@@ -57,7 +61,7 @@ class TransactionCell: UIView {
     
     func setTimeStamp() {
         timeStamp.then {
-            $0.text = "2021년 12월 24일 23:43:99"
+            $0.text = "\(DateTimeConverter.fromInt(input: input.registered_time))"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
