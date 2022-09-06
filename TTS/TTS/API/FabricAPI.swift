@@ -8,6 +8,7 @@
 import Moya
 
 enum FabricAPI {
+    case registerCertificate(input: RegisterCertificateModel)
     case executeTransaction(input: ExecuteTransactionModel)
     case queryTransactionByID(id: Int)
     case queryAllTransactions
@@ -24,6 +25,9 @@ extension FabricAPI: TargetType {
     
     var path: String {
         switch self {
+        case .registerCertificate:
+            return "/certificate/register/"
+            
         case .executeTransaction:
             return "/executeTransaction/"
             
@@ -49,7 +53,8 @@ extension FabricAPI: TargetType {
     
     var method: Method {
         switch self {
-        case .executeTransaction, .queryTransactionBySupplier, .queryTransactionByBuyer:
+        case .executeTransaction, .queryTransactionBySupplier, .queryTransactionByBuyer,
+            .registerCertificate:
             return .post
         default:
             return .get
@@ -68,6 +73,9 @@ extension FabricAPI: TargetType {
     
     var task: Task {
         switch self {
+        case .registerCertificate(let input):
+            return .requestJSONEncodable(input)
+            
         case .executeTransaction(let input):
             return .requestJSONEncodable(input)
             

@@ -8,7 +8,7 @@
 import Foundation
 
 struct TransactionModel: Decodable {
-    @TransactionIDConverter var id: Int
+    var id: String
     
     var target: Int
     var price: Int
@@ -26,7 +26,7 @@ extension TransactionModel {
     """
     [
         {
-            "id": "2",
+            "id": "TRANSACTION_2",
             "price": 123,
             "quantity": 123,
             "registered_time": 123123,
@@ -36,7 +36,7 @@ extension TransactionModel {
             "buyer": null
         },
         {
-            "id": "3",
+            "id": "TRANSACTION_3",
             "price": 123,
             "quantity": 123,
             "registered_time": 123123,
