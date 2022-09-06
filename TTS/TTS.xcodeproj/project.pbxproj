@@ -41,13 +41,14 @@
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
 		9F2FC73628C71F4E008D2DA9 /* DecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC73528C71F4E008D2DA9 /* DecodingError.swift */; };
-		9F2FC73928C71FF9008D2DA9 /* TransactionIDConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC73828C71FF9008D2DA9 /* TransactionIDConverter.swift */; };
 		9F2FC73D28C721AC008D2DA9 /* FabricAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC73C28C721AC008D2DA9 /* FabricAPI.swift */; };
 		9F2FC73F28C7248E008D2DA9 /* ExecuteTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC73E28C7248E008D2DA9 /* ExecuteTransactionModel.swift */; };
 		9F2FC74128C72511008D2DA9 /* QueryBySupplierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74028C72511008D2DA9 /* QueryBySupplierModel.swift */; };
 		9F2FC74328C72565008D2DA9 /* QueryByBuyerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74228C72565008D2DA9 /* QueryByBuyerModel.swift */; };
 		9F2FC74528C726DD008D2DA9 /* SupplierInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74428C726DD008D2DA9 /* SupplierInfoVM.swift */; };
 		9F2FC74728C72CEF008D2DA9 /* DateTimeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74628C72CEF008D2DA9 /* DateTimeConverter.swift */; };
+		9F2FC74928C74235008D2DA9 /* RegisterCertificateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74828C74235008D2DA9 /* RegisterCertificateModel.swift */; };
+		9F2FC74B28C74322008D2DA9 /* CertificateRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74A28C74322008D2DA9 /* CertificateRepository.swift */; };
 		AF73620628C5D0A8003B72D0 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620528C5D0A8003B72D0 /* ProfileVC.swift */; };
 		AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620828C5E5EB003B72D0 /* ProfileCard.swift */; };
 		AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620A28C5E64C003B72D0 /* SettingCard.swift */; };
@@ -117,13 +118,14 @@
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
 		9F2FC73528C71F4E008D2DA9 /* DecodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodingError.swift; sourceTree = "<group>"; };
-		9F2FC73828C71FF9008D2DA9 /* TransactionIDConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionIDConverter.swift; sourceTree = "<group>"; };
 		9F2FC73C28C721AC008D2DA9 /* FabricAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FabricAPI.swift; sourceTree = "<group>"; };
 		9F2FC73E28C7248E008D2DA9 /* ExecuteTransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExecuteTransactionModel.swift; sourceTree = "<group>"; };
 		9F2FC74028C72511008D2DA9 /* QueryBySupplierModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBySupplierModel.swift; sourceTree = "<group>"; };
 		9F2FC74228C72565008D2DA9 /* QueryByBuyerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryByBuyerModel.swift; sourceTree = "<group>"; };
 		9F2FC74428C726DD008D2DA9 /* SupplierInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierInfoVM.swift; sourceTree = "<group>"; };
 		9F2FC74628C72CEF008D2DA9 /* DateTimeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeConverter.swift; sourceTree = "<group>"; };
+		9F2FC74828C74235008D2DA9 /* RegisterCertificateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCertificateModel.swift; sourceTree = "<group>"; };
+		9F2FC74A28C74322008D2DA9 /* CertificateRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CertificateRepository.swift; sourceTree = "<group>"; };
 		AF73620528C5D0A8003B72D0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		AF73620828C5E5EB003B72D0 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		AF73620A28C5E64C003B72D0 /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				9F2FC73E28C7248E008D2DA9 /* ExecuteTransactionModel.swift */,
 				9F2FC74028C72511008D2DA9 /* QueryBySupplierModel.swift */,
 				9F2FC74228C72565008D2DA9 /* QueryByBuyerModel.swift */,
+				9F2FC74828C74235008D2DA9 /* RegisterCertificateModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -308,7 +311,6 @@
 		9F28CEE628BB323800527716 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				9F2FC73728C71FEC008D2DA9 /* PropertyWrapper */,
 				9F2FC73428C71F42008D2DA9 /* ErrorHandler */,
 				9F19441A28C22615009FD556 /* InternalDB */,
 				9F19440F28C220CB009FD556 /* DataModel */,
@@ -326,6 +328,7 @@
 				9F28CEEA28BB371600527716 /* BaseRepository.swift */,
 				9F19441228C22145009FD556 /* TransactionRepository.swift */,
 				9F19441828C22521009FD556 /* LoginRepository.swift */,
+				9F2FC74A28C74322008D2DA9 /* CertificateRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -336,14 +339,6 @@
 				9F2FC73528C71F4E008D2DA9 /* DecodingError.swift */,
 			);
 			path = ErrorHandler;
-			sourceTree = "<group>";
-		};
-		9F2FC73728C71FEC008D2DA9 /* PropertyWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				9F2FC73828C71FF9008D2DA9 /* TransactionIDConverter.swift */,
-			);
-			path = PropertyWrapper;
 			sourceTree = "<group>";
 		};
 		A26C629624DBCA390F5F5418 /* Pods */ = {
@@ -632,7 +627,6 @@
 				9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */,
 				9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */,
 				9F19441E28C22649009FD556 /* TokenDB.swift in Sources */,
-				9F2FC73928C71FF9008D2DA9 /* TransactionIDConverter.swift in Sources */,
 				9F19443828C4A9F4009FD556 /* TransactionCell.swift in Sources */,
 				9F19443028C46B09009FD556 /* Color.swift in Sources */,
 				9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */,
@@ -649,9 +643,11 @@
 				7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */,
 				9F2FC73D28C721AC008D2DA9 /* FabricAPI.swift in Sources */,
 				9F19441528C22405009FD556 /* LoginModel.swift in Sources */,
+				9F2FC74B28C74322008D2DA9 /* CertificateRepository.swift in Sources */,
 				9F19441728C22483009FD556 /* TokenModel.swift in Sources */,
 				9F19443A28C4B022009FD556 /* TransactionHeader.swift in Sources */,
 				9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */,
+				9F2FC74928C74235008D2DA9 /* RegisterCertificateModel.swift in Sources */,
 				9F2FC73628C71F4E008D2DA9 /* DecodingError.swift in Sources */,
 				9F19442628C3375B009FD556 /* BasicVM.swift in Sources */,
 				7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */,
