@@ -9,12 +9,16 @@ import UIKit
 import Charts
 import Then
 import SnapKit
+import RxSwift
 
 class HomeVC: UIViewController {
     
     var months: [String]!
     var unitsSold: [Double]!
     let chartLabelSize = CGFloat(15)
+    
+    private var viewModel = AllTransVM()
+    private var disposeBag = DisposeBag()
     
     lazy var viewChart = UIView()
     lazy var lineChartView = LineChartView().then {
@@ -53,18 +57,35 @@ class HomeVC: UIViewController {
 //        $0.animate(xAxisDuration: 2)
 
     }
+    
+    lazy var allTransactionHeader = TransactionHeader()
+    lazy var allTransactionsTable = UIStackView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .white
-        self.title = "home"
-        
-        view.addSubview(viewChart)
-        viewChart.addSubview(lineChartView)
         
         months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
         
+        self.view.backgroundColor = .white
+        self.title = "home"
+        
+        setView()
+    }
+    
+    func setView() {
+        
+        [viewChart, allTransactionHeader, allTransactionsTable].forEach {
+            view.addSubview($0)
+        }
+        setChartView()
+        setAllTransactionsTable()
+        setChart(dataPoints: months, values: unitsSold)
+        setBinding()
+    }
+    
+    func setChartView() {
+        viewChart.addSubview(lineChartView)
         
         viewChart.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -76,8 +97,33 @@ class HomeVC: UIViewController {
         lineChartView.snp.makeConstraints { make in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
+    }
+    
+    func setAllTransactionsTable() {
         
-        setChart(dataPoints: months, values: unitsSold)
+        allTransactionHeader.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(10.0)
+            make.top.equalTo(viewChart.snp.bottom).offset(30.0)
+        }
+        
+        allTransactionsTable.then {
+            $0.axis = .vertical
+            $0.spacing = 1.0
+            $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        }.snp.makeConstraints { make in
+            make.left.right.equalTo(allTransactionHeader)
+            make.top.equalTo(allTransactionHeader.snp.bottom)
+        }
+    }
+    
+    func setBinding() {
+        let output = viewModel.transform()
+        
+        output.transactions.subscribe(onNext: { transactions in
+            transactions.forEach { transaciton in
+                self.allTransactionsTable.addArrangedSubview(TransactionCell(input: transaciton))
+            }
+        }).disposed(by: disposeBag)
     }
     
     func setChart(dataPoints: [String], values: [Double]) {
@@ -110,7 +156,6 @@ class HomeVC: UIViewController {
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints) // X축 레이블 포맷 지정
         lineChartView.xAxis.setLabelCount(dataPoints.count-1, force: false)
     }
-    
 }
 //
 //extension HomeViewController: ChartViewDelegate {
