@@ -92,7 +92,7 @@ class TransactionHeader: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.1)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
     
@@ -102,7 +102,7 @@ class TransactionHeader: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
     
