@@ -53,7 +53,11 @@
 		9F2FC74D28C8BD35008D2DA9 /* CreateTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74C28C8BD35008D2DA9 /* CreateTransactionModel.swift */; };
 		9F2FC74F28C8BD8F008D2DA9 /* ApproveTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC74E28C8BD8F008D2DA9 /* ApproveTransactionModel.swift */; };
 		9F2FC75228C8C858008D2DA9 /* IntWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75128C8C858008D2DA9 /* IntWrapper.swift */; };
-		AF73620628C5D0A8003B72D0 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620528C5D0A8003B72D0 /* ProfileVC.swift */; };
+		9F2FC75428C8E64F008D2DA9 /* SupplierModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75328C8E64F008D2DA9 /* SupplierModel.swift */; };
+		9F2FC75628C8E66A008D2DA9 /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */; };
+		9F2FC75828C8E7AE008D2DA9 /* SupplierRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */; };
+		9F2FC75A28C8ED00008D2DA9 /* ProfileDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75928C8ED00008D2DA9 /* ProfileDB.swift */; };
+		AF73620628C5D0A8003B72D0 /* SupplierProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */; };
 		AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620828C5E5EB003B72D0 /* ProfileCard.swift */; };
 		AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620A28C5E64C003B72D0 /* SettingCard.swift */; };
 		AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */; };
@@ -134,7 +138,11 @@
 		9F2FC74C28C8BD35008D2DA9 /* CreateTransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransactionModel.swift; sourceTree = "<group>"; };
 		9F2FC74E28C8BD8F008D2DA9 /* ApproveTransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApproveTransactionModel.swift; sourceTree = "<group>"; };
 		9F2FC75128C8C858008D2DA9 /* IntWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntWrapper.swift; sourceTree = "<group>"; };
-		AF73620528C5D0A8003B72D0 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		9F2FC75328C8E64F008D2DA9 /* SupplierModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierModel.swift; sourceTree = "<group>"; };
+		9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
+		9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierRepository.swift; sourceTree = "<group>"; };
+		9F2FC75928C8ED00008D2DA9 /* ProfileDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDB.swift; sourceTree = "<group>"; };
+		AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierProfileVC.swift; sourceTree = "<group>"; };
 		AF73620828C5E5EB003B72D0 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		AF73620A28C5E64C003B72D0 /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDescription.swift; sourceTree = "<group>"; };
@@ -242,6 +250,8 @@
 				9F2FC74828C74235008D2DA9 /* RegisterCertificateModel.swift */,
 				9F2FC74C28C8BD35008D2DA9 /* CreateTransactionModel.swift */,
 				9F2FC74E28C8BD8F008D2DA9 /* ApproveTransactionModel.swift */,
+				9F2FC75328C8E64F008D2DA9 /* SupplierModel.swift */,
+				9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -251,6 +261,7 @@
 			children = (
 				9F19441B28C22623009FD556 /* InternalDB.swift */,
 				9F19441D28C22649009FD556 /* TokenDB.swift */,
+				9F2FC75928C8ED00008D2DA9 /* ProfileDB.swift */,
 			);
 			path = InternalDB;
 			sourceTree = "<group>";
@@ -263,7 +274,7 @@
 				783A8F6C28BB2FE000C525DE /* SplitVC.swift */,
 				9F19442728C469A6009FD556 /* SupplierInfoVC.swift */,
 				AFB1256B28C47110005E8C71 /* SellVC.swift */,
-				AF73620528C5D0A8003B72D0 /* ProfileVC.swift */,
+				AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -341,6 +352,7 @@
 				9F19441228C22145009FD556 /* TransactionRepository.swift */,
 				9F19441828C22521009FD556 /* LoginRepository.swift */,
 				9F2FC74A28C74322008D2DA9 /* CertificateRepository.swift */,
+				9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -645,6 +657,7 @@
 				9F2FC74F28C8BD8F008D2DA9 /* ApproveTransactionModel.swift in Sources */,
 				784908D028C8BE2A00E32A77 /* AllTransVM.swift in Sources */,
 				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
+				9F2FC75428C8E64F008D2DA9 /* SupplierModel.swift in Sources */,
 				AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */,
 				783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */,
 				9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */,
@@ -670,6 +683,7 @@
 				9F2FC74B28C74322008D2DA9 /* CertificateRepository.swift in Sources */,
 				9F19441728C22483009FD556 /* TokenModel.swift in Sources */,
 				9F19443A28C4B022009FD556 /* TransactionHeader.swift in Sources */,
+				9F2FC75628C8E66A008D2DA9 /* BankAccountModel.swift in Sources */,
 				9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */,
 				9F2FC74928C74235008D2DA9 /* RegisterCertificateModel.swift in Sources */,
 				9F2FC73628C71F4E008D2DA9 /* DecodingError.swift in Sources */,
@@ -677,13 +691,15 @@
 				7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */,
 				9F19442828C469A6009FD556 /* SupplierInfoVC.swift in Sources */,
 				9F19442128C226F2009FD556 /* LoginVC.swift in Sources */,
-				AF73620628C5D0A8003B72D0 /* ProfileVC.swift in Sources */,
+				AF73620628C5D0A8003B72D0 /* SupplierProfileVC.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
 				783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */,
+				9F2FC75A28C8ED00008D2DA9 /* ProfileDB.swift in Sources */,
 				9F19442E28C46AFC009FD556 /* Const.swift in Sources */,
 				AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */,
+				9F2FC75828C8E7AE008D2DA9 /* SupplierRepository.swift in Sources */,
 				9F2FC74528C726DD008D2DA9 /* SupplierInfoVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
