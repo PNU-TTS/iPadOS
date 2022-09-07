@@ -50,6 +50,17 @@ extension TransactionModel {
             "target": "CERTIFICATE_23782374",
             "supplier": "2",
             "buyer": "1",
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_4",
+            "price": "3848",
+            "quantity": "37",
+            "registeredDate": 234234235,
+            "executedDate": 435234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
             "is_confirmed": true
         }}
     ]

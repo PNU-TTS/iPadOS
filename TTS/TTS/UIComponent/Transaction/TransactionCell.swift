@@ -22,7 +22,7 @@ class TransactionCell: UIView {
     private var receiver = UILabel()
     private var pricePerREC = UILabel()
     private var quantity = UILabel()
-    private var status = UILabel()
+    private var status = UIView()
     
     private var input: TransactionModel.InnerModel
     
@@ -111,16 +111,37 @@ class TransactionCell: UIView {
     }
     
     func setStatus() {
+        let statusLabel = BasePaddingLabel()
+        status.snp.makeConstraints { make in
+            make.height.equalTo(quantity)
+            make.width.equalToSuperview().multipliedBy(0.175)
+        }
+        
+        status.addSubview(statusLabel)
+        
         var text = "거래 대금 확인 중"
+        var textColor = Const.Color.semanticYellow2
+        var backgroundColor = Const.Color.semanticYellow1
         if input.buyer == nil {
             text = "미체결"
+            textColor = Const.Color.semanticRed2
+            backgroundColor = Const.Color.semanticRed1
+        } else if input.is_confirmed {
+            text = "거래 완료"
+            textColor = Const.Color.semanticGreen2
+            backgroundColor = Const.Color.semanticGreen1
         }
-        status.then {
+        
+        statusLabel.then {
             $0.text = text
-            $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.textColor = textColor
+            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize, weight: .bold)
+            $0.backgroundColor = backgroundColor
+            $0.layer.cornerRadius = 5.0
+            $0.layer.masksToBounds = true
+
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.175)
+            make.left.centerY.equalToSuperview()
         }
     }
     

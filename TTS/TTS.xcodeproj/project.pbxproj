@@ -38,6 +38,7 @@
 		9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19443428C49B01009FD556 /* UIViewUtility.swift */; };
 		9F19443828C4A9F4009FD556 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19443728C4A9F4009FD556 /* TransactionCell.swift */; };
 		9F19443A28C4B022009FD556 /* TransactionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19443928C4B022009FD556 /* TransactionHeader.swift */; };
+		9F2654B028C8FB4E00DC62AE /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654AF28C8FB4E00DC62AE /* BasePaddingLabel.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -57,6 +58,7 @@
 		9F2FC75628C8E66A008D2DA9 /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */; };
 		9F2FC75828C8E7AE008D2DA9 /* SupplierRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */; };
 		9F2FC75A28C8ED00008D2DA9 /* ProfileDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75928C8ED00008D2DA9 /* ProfileDB.swift */; };
+		9F2FC75C28C8F20A008D2DA9 /* RecVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */; };
 		AF73620628C5D0A8003B72D0 /* SupplierProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */; };
 		AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620828C5E5EB003B72D0 /* ProfileCard.swift */; };
 		AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620A28C5E64C003B72D0 /* SettingCard.swift */; };
@@ -123,6 +125,7 @@
 		9F19443428C49B01009FD556 /* UIViewUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewUtility.swift; sourceTree = "<group>"; };
 		9F19443728C4A9F4009FD556 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		9F19443928C4B022009FD556 /* TransactionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeader.swift; sourceTree = "<group>"; };
+		9F2654AF28C8FB4E00DC62AE /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
 		9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierRepository.swift; sourceTree = "<group>"; };
 		9F2FC75928C8ED00008D2DA9 /* ProfileDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDB.swift; sourceTree = "<group>"; };
+		9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecVC.swift; sourceTree = "<group>"; };
 		AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierProfileVC.swift; sourceTree = "<group>"; };
 		AF73620828C5E5EB003B72D0 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		AF73620A28C5E64C003B72D0 /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
@@ -275,6 +279,7 @@
 				9F19442728C469A6009FD556 /* SupplierInfoVC.swift */,
 				AFB1256B28C47110005E8C71 /* SellVC.swift */,
 				AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */,
+				9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -299,6 +304,7 @@
 				9F19442A28C46AB7009FD556 /* BalanceView.swift */,
 				9F19443128C499A2009FD556 /* RecSoldView.swift */,
 				AFC0CFEF28C4DD01006F9823 /* PriceView.swift */,
+				9F2654AF28C8FB4E00DC62AE /* BasePaddingLabel.swift */,
 			);
 			path = UIComponent;
 			sourceTree = "<group>";
@@ -657,8 +663,10 @@
 				9F2FC74F28C8BD8F008D2DA9 /* ApproveTransactionModel.swift in Sources */,
 				784908D028C8BE2A00E32A77 /* AllTransVM.swift in Sources */,
 				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
+				9F2654B028C8FB4E00DC62AE /* BasePaddingLabel.swift in Sources */,
 				9F2FC75428C8E64F008D2DA9 /* SupplierModel.swift in Sources */,
 				AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */,
+				9F2FC75C28C8F20A008D2DA9 /* RecVC.swift in Sources */,
 				783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */,
 				9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */,
 				9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */,
