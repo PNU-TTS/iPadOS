@@ -7,12 +7,18 @@
 
 import UIKit
 
-extension ProfileVC {
+import RxSwift
+import Then
+import SnapKit
+
+
+extension SupplierProfileVC {
     static let horizontalInset: CGFloat = 20.0
     static let verticalOffset: CGFloat = 20.0
 }
 
-class ProfileVC: UIViewController {
+class SupplierProfileVC: UIViewController {
+    private var disposeBag = DisposeBag()
     
     var profileView: ProfileCard
     
@@ -22,9 +28,12 @@ class ProfileVC: UIViewController {
     var logoutCard = SettingCard(input: SettingCard.Input(title: "로그아웃", image: nil))
     var askCard = SettingCard(input: SettingCard.Input(title: "문의하기", image: UIImage(systemName: "envelope.fill")))
     
-    init() {
+    private var repository = SupplierRepository()
+    private var id: Int
+    
+    init(id: Int) {
+        self.id = id
         profileView = ProfileCard(input: ProfileCard.sampleInput)
-        
         super.init(nibName: nil, bundle: nil)
         
     }
@@ -42,19 +51,18 @@ class ProfileVC: UIViewController {
     
 }
 
-extension ProfileVC {
+extension SupplierProfileVC {
     func setView() {
         view.backgroundColor = .white
-        setProfileView()
-        setStackView()
+        setBinding()
     }
     
     func setProfileView() {
         view.addSubview(profileView)
         profileView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(ProfileVC.verticalOffset)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(SupplierProfileVC.verticalOffset)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().inset(ProfileVC.horizontalInset)
+            make.width.equalToSuperview().inset(SupplierProfileVC.horizontalInset)
         }
     }
     
@@ -67,11 +75,11 @@ extension ProfileVC {
         stackView.then {
             $0.axis = .vertical
             $0.alignment = .center
-            $0.spacing = ProfileVC.verticalOffset
+            $0.spacing = SupplierProfileVC.verticalOffset
         }.snp.makeConstraints { make in
-            make.top.equalTo(profileView.snp.bottom).offset(ProfileVC.verticalOffset)
+            make.top.equalTo(profileView.snp.bottom).offset(SupplierProfileVC.verticalOffset)
             make.centerX.equalToSuperview()
-            make.width.equalToSuperview().inset(ProfileVC.horizontalInset)
+            make.width.equalToSuperview().inset(SupplierProfileVC.horizontalInset)
         }
         
         stackView.arrangedSubviews.forEach { subview in
@@ -79,5 +87,22 @@ extension ProfileVC {
                 make.width.equalToSuperview()
             }
         }
+    }
+    
+    func setBinding() {
+        repository.getSupplierInfo(id: id)
+            .subscribe(onSuccess: { result in
+                let username = ProfileDB.shared.get().email.components(separatedBy: "@").first ?? "-"
+                
+                self.profileView = ProfileCard(
+                    input: ProfileCard.Input(
+                        name: username,
+                        role: "발전 사업자",
+                        company: result.name,
+                        walletID: "feswjfhdsifweiun")
+                )
+                self.setProfileView()
+                self.setStackView()
+            }).disposed(by: disposeBag)
     }
 }
