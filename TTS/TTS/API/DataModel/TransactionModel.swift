@@ -8,19 +8,22 @@
 import Foundation
 
 struct TransactionModel: Decodable {
-    var id: String
-    
-    var target: Int
-    var price: Int
-    var quantity: Int
-    
-    var registered_time: Int
-    var executed_time: Int?
-    
-    var supplier: Int
-    var buyer: Int?
-    
-    var is_confirmed: Bool
+    struct InnerModel: Decodable {
+        var id: String
+        
+        var target: String
+        @IntWrapper var price: Int
+        @IntWrapper var quantity: Int
+        
+        var registeredDate: Int
+        var executedDate: Int?
+        
+        var supplier: String
+        var buyer: String?
+        
+        var is_confirmed: Bool
+    }
+    var Transaction: InnerModel
 }
 
 extension TransactionModel {
