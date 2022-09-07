@@ -19,6 +19,8 @@ struct TransactionModel: Decodable {
     
     var supplier: Int
     var buyer: Int?
+    
+    var is_confirmed: Bool
 }
 
 extension TransactionModel {
@@ -33,7 +35,8 @@ extension TransactionModel {
             "executed_time": null,
             "target": 1,
             "supplier": 2,
-            "buyer": null
+            "buyer": null,
+            "is_confirmed": false
         },
         {
             "id": "TRANSACTION_3",
@@ -43,7 +46,8 @@ extension TransactionModel {
             "executed_time": 234234,
             "target": 1,
             "supplier": 2,
-            "buyer": 1
+            "buyer": 1,
+            "is_confirmed": true
         }
     ]
     """

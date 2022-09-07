@@ -52,7 +52,7 @@ class TransactionCell: UIView {
         
         cell.then {
             $0.axis = .horizontal
-            $0.alignment = .leading
+            $0.alignment = .firstBaseline
         }.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.left.right.equalToSuperview().inset(10.0)
@@ -92,27 +92,31 @@ class TransactionCell: UIView {
     
     func setPricePerREC() {
         pricePerREC.then {
-            $0.text = "5,352원"
+            $0.text = "\(input.price)원"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
     
     func setQuantity() {
         quantity.then {
-            $0.text = "43개"
+            $0.text = "\(input.quantity)개"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.1)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
     
     func setStatus() {
+        var text = "거래 대금 확인 중"
+        if input.buyer == nil {
+            text = "미체결"
+        }
         status.then {
-            $0.text = "대금 수령 확인 중"
+            $0.text = text
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
