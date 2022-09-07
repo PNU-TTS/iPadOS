@@ -83,7 +83,7 @@ class SupplierInfoVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.transactionTable.addArrangedSubview(TransactionCell(input: transaciton))
+                self.transactionTable.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
             }
         }).disposed(by: disposeBag)
     }
