@@ -17,7 +17,7 @@ class TransactionRepository: BaseRepository<FabricAPI> {
     }
     
     func getTransactionBySupplier(supplier: Int) -> Single<[TransactionModel]> {
-        return getProvider(mode: .real, debug: true).rx
+        return getProvider(mode: .test, debug: true).rx
             .request(.queryTransactionBySupplier(input: QueryBySupplierModel(supplier: supplier)))
             .map([TransactionModel].self)
     }
