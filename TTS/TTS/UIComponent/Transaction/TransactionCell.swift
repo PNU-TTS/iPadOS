@@ -24,9 +24,9 @@ class TransactionCell: UIView {
     private var quantity = UILabel()
     private var status = UILabel()
     
-    private var input: TransactionModel
+    private var input: TransactionModel.InnerModel
     
-    init(input: TransactionModel) {
+    init(input: TransactionModel.InnerModel) {
         self.input = input
         
         super.init(frame: .zero)
@@ -61,7 +61,7 @@ class TransactionCell: UIView {
     
     func setTimeStamp() {
         timeStamp.then {
-            $0.text = "\(DateTimeConverter.fromInt(input: input.registered_time))"
+            $0.text = "\(DateTimeConverter.fromInt(input: input.registeredDate))"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
