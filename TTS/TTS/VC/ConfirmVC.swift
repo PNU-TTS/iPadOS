@@ -54,7 +54,7 @@ class ConfirmVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.confirmTable.addArrangedSubview(ConfirmCell(input: transaciton))
+                self.confirmTable.addArrangedSubview(ConfirmCell(input: transaciton.Transaction))
             }
         }).disposed(by: disposeBag)
         
