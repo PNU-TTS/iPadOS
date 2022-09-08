@@ -12,6 +12,10 @@
 		783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F6C28BB2FE000C525DE /* SplitVC.swift */; };
 		783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783A8F7028BDC06A00C525DE /* HomeVC.swift */; };
 		784908D028C8BE2A00E32A77 /* AllTransVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908CF28C8BE2A00E32A77 /* AllTransVM.swift */; };
+		784908D228C969AA00E32A77 /* ConfirmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908D128C969AA00E32A77 /* ConfirmVC.swift */; };
+		784908D428C96AD900E32A77 /* ConfirmVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908D328C96AD900E32A77 /* ConfirmVM.swift */; };
+		784908D728C96E7600E32A77 /* ConfirmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908D628C96E7600E32A77 /* ConfirmCell.swift */; };
+		784908D928C96E8000E32A77 /* ConfirmHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908D828C96E8000E32A77 /* ConfirmHeader.swift */; };
 		7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3B28BB2D91006086CB /* AppDelegate.swift */; };
 		7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3D28BB2D91006086CB /* SceneDelegate.swift */; };
 		7851BD4528BB2D94006086CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7851BD4428BB2D94006086CB /* Assets.xcassets */; };
@@ -95,6 +99,10 @@
 		783A8F6C28BB2FE000C525DE /* SplitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitVC.swift; sourceTree = "<group>"; };
 		783A8F7028BDC06A00C525DE /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		784908CF28C8BE2A00E32A77 /* AllTransVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransVM.swift; sourceTree = "<group>"; };
+		784908D128C969AA00E32A77 /* ConfirmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVC.swift; sourceTree = "<group>"; };
+		784908D328C96AD900E32A77 /* ConfirmVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmVM.swift; sourceTree = "<group>"; };
+		784908D628C96E7600E32A77 /* ConfirmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmCell.swift; sourceTree = "<group>"; };
+		784908D828C96E8000E32A77 /* ConfirmHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmHeader.swift; sourceTree = "<group>"; };
 		7851BD3828BB2D91006086CB /* TTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7851BD3B28BB2D91006086CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7851BD3D28BB2D91006086CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +193,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		784908D528C96E6900E32A77 /* Confirm */ = {
+			isa = PBXGroup;
+			children = (
+				784908D628C96E7600E32A77 /* ConfirmCell.swift */,
+				784908D828C96E8000E32A77 /* ConfirmHeader.swift */,
+			);
+			path = Confirm;
+			sourceTree = "<group>";
+		};
 		7851BD2F28BB2D91006086CB = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +295,7 @@
 				783A8F6C28BB2FE000C525DE /* SplitVC.swift */,
 				9F19442728C469A6009FD556 /* SupplierInfoVC.swift */,
 				AFB1256B28C47110005E8C71 /* SellVC.swift */,
+				784908D128C969AA00E32A77 /* ConfirmVC.swift */,
 				AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */,
 				9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */,
 			);
@@ -291,6 +309,7 @@
 				9F19442528C3375B009FD556 /* BasicVM.swift */,
 				9F2FC74428C726DD008D2DA9 /* SupplierInfoVM.swift */,
 				784908CF28C8BE2A00E32A77 /* AllTransVM.swift */,
+				784908D328C96AD900E32A77 /* ConfirmVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -298,6 +317,7 @@
 		9F19442928C46AA2009FD556 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				784908D528C96E6900E32A77 /* Confirm */,
 				AF73620728C5E5C6003B72D0 /* ProfileView */,
 				AFB1256A28C47103005E8C71 /* SellView */,
 				9F19443628C4A9E4009FD556 /* Transaction */,
@@ -663,6 +683,7 @@
 				9F2FC74F28C8BD8F008D2DA9 /* ApproveTransactionModel.swift in Sources */,
 				784908D028C8BE2A00E32A77 /* AllTransVM.swift in Sources */,
 				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
+				784908D428C96AD900E32A77 /* ConfirmVM.swift in Sources */,
 				9F2654B028C8FB4E00DC62AE /* BasePaddingLabel.swift in Sources */,
 				9F2FC75428C8E64F008D2DA9 /* SupplierModel.swift in Sources */,
 				AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */,
@@ -672,6 +693,7 @@
 				9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */,
 				9F19441E28C22649009FD556 /* TokenDB.swift in Sources */,
 				9F19443828C4A9F4009FD556 /* TransactionCell.swift in Sources */,
+				784908D728C96E7600E32A77 /* ConfirmCell.swift in Sources */,
 				9F19443028C46B09009FD556 /* Color.swift in Sources */,
 				9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */,
 				9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */,
@@ -699,10 +721,12 @@
 				7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */,
 				9F19442828C469A6009FD556 /* SupplierInfoVC.swift in Sources */,
 				9F19442128C226F2009FD556 /* LoginVC.swift in Sources */,
+				784908D928C96E8000E32A77 /* ConfirmHeader.swift in Sources */,
 				AF73620628C5D0A8003B72D0 /* SupplierProfileVC.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
+				784908D228C969AA00E32A77 /* ConfirmVC.swift in Sources */,
 				783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */,
 				9F2FC75A28C8ED00008D2DA9 /* ProfileDB.swift in Sources */,
 				9F19442E28C46AFC009FD556 /* Const.swift in Sources */,
