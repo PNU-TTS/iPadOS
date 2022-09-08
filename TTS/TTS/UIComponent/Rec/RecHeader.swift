@@ -57,7 +57,7 @@ class RecHeader: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().multipliedBy(0.35)
             make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
@@ -78,7 +78,7 @@ class RecHeader: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
     
@@ -88,7 +88,7 @@ class RecHeader: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
     
