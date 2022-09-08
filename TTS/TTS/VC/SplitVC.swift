@@ -42,7 +42,8 @@ extension SplitVC: MenuControllerDelegate {
         case "계좌잔고":
             vc.title = "계좌잔고"
         case "거래 시장":
-            vc.title = "거래 시장"
+//            vc.title = "거래 시장"
+            vc = TradeVC()
         case "판매 등록":
             vc = SellVC(input: SellVC.Input(recBalance: 5000))
         case "승인 대기 목록":
