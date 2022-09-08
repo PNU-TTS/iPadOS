@@ -26,7 +26,7 @@ enum FabricAPI {
 
 extension FabricAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://192.168.0.2:8080")!
+        return URL(string: "http://192.168.0.19:8080")!
     }
     
     var path: String {
@@ -88,6 +88,9 @@ extension FabricAPI: TargetType {
         switch self {
         case .queryAllTransactions, .queryTransactionBySupplier, .queryTransactionByBuyer, .queryNotConfirmedBySupplier:
             return Data(TransactionModel.sampleData.utf8)
+            
+        case .queryCertificateBySupplier:
+            return Data(RecModel.sampleData.utf8)
             
         default:
             return Data()
