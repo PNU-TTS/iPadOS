@@ -16,11 +16,11 @@ extension TradeHeader {
 class TradeHeader: UIView {
     private var cell = UIStackView()
     
-    private var timeStamp = UILabel()
-    private var receiver = UILabel()
+//    private var timeStamp = UILabel()
+    private var sender = UILabel()
     private var pricePerREC = UILabel()
     private var quantity = UILabel()
-    private var confirm = UILabel()
+    private var buy = UILabel()
     
     init() {
         super.init(frame: .zero)
@@ -31,15 +31,15 @@ class TradeHeader: UIView {
     func setView() {
         self.addSubview(cell)
         setCell()
-        setTimeStamp()
-        setReceiver()
+//        setTimeStamp()
+        setSender()
         setPricePerREC()
         setQuantity()
-        setConfirm()
+        setBuy()
     }
     
     func setCell() {
-        [timeStamp, receiver, pricePerREC, quantity, confirm].forEach {
+        [sender, pricePerREC, quantity, buy].forEach {
             cell.addArrangedSubview($0)
         }
         
@@ -52,26 +52,27 @@ class TradeHeader: UIView {
         }
     }
     
-    func setTimeStamp() {
-        timeStamp.then {
-            $0.text = "거래 일시"
-            $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
-            $0.textAlignment = .center
-        }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.325)
-            make.top.bottom.equalToSuperview().inset(12.0)
-        }
-    }
+//    func setTimeStamp() {
+//        timeStamp.then {
+//            $0.text = "거래 일시"
+//            $0.textColor = .darkGray
+//            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
+//            $0.textAlignment = .center
+//        }.snp.makeConstraints { make in
+//            make.width.equalToSuperview().multipliedBy(0.325)
+//            make.top.bottom.equalToSuperview().inset(12.0)
+//        }
+//    }
         
-    func setReceiver() {
-        receiver.then {
-            $0.text = "구매자"
+    func setSender() {
+        sender.then {
+            $0.text = "판매자"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.25)
+            make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
     
@@ -79,10 +80,10 @@ class TradeHeader: UIView {
         pricePerREC.then {
             $0.text = "개당 금액"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.15)
+            make.width.equalToSuperview().multipliedBy(0.25)
         }
     }
     
@@ -90,21 +91,21 @@ class TradeHeader: UIView {
         quantity.then {
             $0.text = "거래 수량"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.15)
+            make.width.equalToSuperview().multipliedBy(0.25)
         }
     }
     
-    func setConfirm() {
-        confirm.then {
-            $0.text = "거래 승인"
+    func setBuy() {
+        buy.then {
+            $0.text = "구매하기"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.175)
+            make.width.equalToSuperview().multipliedBy(0.25)
         }
     }
     
