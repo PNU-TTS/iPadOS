@@ -47,6 +47,12 @@
 		9F19443828C4A9F4009FD556 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19443728C4A9F4009FD556 /* TransactionCell.swift */; };
 		9F19443A28C4B022009FD556 /* TransactionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19443928C4B022009FD556 /* TransactionHeader.swift */; };
 		9F2654B028C8FB4E00DC62AE /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654AF28C8FB4E00DC62AE /* BasePaddingLabel.swift */; };
+		9F2654C428CA054700DC62AE /* RecModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654C328CA054700DC62AE /* RecModel.swift */; };
+		9F2654C828CA057900DC62AE /* RecHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654C628CA057900DC62AE /* RecHeader.swift */; };
+		9F2654C928CA057900DC62AE /* RecCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654C728CA057900DC62AE /* RecCell.swift */; };
+		9F2654CB28CA057D00DC62AE /* RecListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654CA28CA057D00DC62AE /* RecListVC.swift */; };
+		9F2654CD28CA080700DC62AE /* RecListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654CC28CA080700DC62AE /* RecListVM.swift */; };
+		9F2654CF28CA08B300DC62AE /* RecListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654CE28CA08B300DC62AE /* RecListRepository.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -142,6 +148,12 @@
 		9F19443728C4A9F4009FD556 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		9F19443928C4B022009FD556 /* TransactionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionHeader.swift; sourceTree = "<group>"; };
 		9F2654AF28C8FB4E00DC62AE /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
+		9F2654C328CA054700DC62AE /* RecModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecModel.swift; sourceTree = "<group>"; };
+		9F2654C628CA057900DC62AE /* RecHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecHeader.swift; sourceTree = "<group>"; };
+		9F2654C728CA057900DC62AE /* RecCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecCell.swift; sourceTree = "<group>"; };
+		9F2654CA28CA057D00DC62AE /* RecListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecListVC.swift; sourceTree = "<group>"; };
+		9F2654CC28CA080700DC62AE /* RecListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecListVM.swift; sourceTree = "<group>"; };
+		9F2654CE28CA08B300DC62AE /* RecListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecListRepository.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -279,6 +291,7 @@
 		9F19440F28C220CB009FD556 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				9F2654C328CA054700DC62AE /* RecModel.swift */,
 				9F19441028C220D7009FD556 /* TransactionModel.swift */,
 				9F19441428C22405009FD556 /* LoginModel.swift */,
 				9F19441628C22483009FD556 /* TokenModel.swift */,
@@ -316,6 +329,7 @@
 				AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */,
 				9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */,
 				784908DA28C99E8F00E32A77 /* TradeVC.swift */,
+				9F2654CA28CA057D00DC62AE /* RecListVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -329,6 +343,7 @@
 				784908CF28C8BE2A00E32A77 /* AllTransVM.swift */,
 				784908D328C96AD900E32A77 /* ConfirmVM.swift */,
 				784908E128C9A23300E32A77 /* TradeVM.swift */,
+				9F2654CC28CA080700DC62AE /* RecListVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -336,6 +351,7 @@
 		9F19442928C46AA2009FD556 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				9F2654C528CA056D00DC62AE /* Rec */,
 				784908DC28C9A10300E32A77 /* Trade */,
 				784908D528C96E6900E32A77 /* Confirm */,
 				AF73620728C5E5C6003B72D0 /* ProfileView */,
@@ -376,6 +392,15 @@
 			path = Transaction;
 			sourceTree = "<group>";
 		};
+		9F2654C528CA056D00DC62AE /* Rec */ = {
+			isa = PBXGroup;
+			children = (
+				9F2654C728CA057900DC62AE /* RecCell.swift */,
+				9F2654C628CA057900DC62AE /* RecHeader.swift */,
+			);
+			path = Rec;
+			sourceTree = "<group>";
+		};
 		9F28CEE628BB323800527716 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -399,6 +424,7 @@
 				9F19441828C22521009FD556 /* LoginRepository.swift */,
 				9F2FC74A28C74322008D2DA9 /* CertificateRepository.swift */,
 				9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */,
+				9F2654CE28CA08B300DC62AE /* RecListRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -701,6 +727,8 @@
 				9F2FC74D28C8BD35008D2DA9 /* CreateTransactionModel.swift in Sources */,
 				9F2FC74328C72565008D2DA9 /* QueryByBuyerModel.swift in Sources */,
 				9F2FC74F28C8BD8F008D2DA9 /* ApproveTransactionModel.swift in Sources */,
+				9F2654CD28CA080700DC62AE /* RecListVM.swift in Sources */,
+				9F2654C828CA057900DC62AE /* RecHeader.swift in Sources */,
 				784908D028C8BE2A00E32A77 /* AllTransVM.swift in Sources */,
 				784908E228C9A23300E32A77 /* TradeVM.swift in Sources */,
 				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
@@ -721,6 +749,7 @@
 				9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */,
 				9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */,
 				9F19441928C22521009FD556 /* LoginRepository.swift in Sources */,
+				9F2654CB28CA057D00DC62AE /* RecListVC.swift in Sources */,
 				9F19442B28C46AB7009FD556 /* BalanceView.swift in Sources */,
 				9F2FC74728C72CEF008D2DA9 /* DateTimeConverter.swift in Sources */,
 				AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */,
@@ -733,6 +762,7 @@
 				9F2FC73D28C721AC008D2DA9 /* FabricAPI.swift in Sources */,
 				9F19441528C22405009FD556 /* LoginModel.swift in Sources */,
 				9F2FC74B28C74322008D2DA9 /* CertificateRepository.swift in Sources */,
+				9F2654C928CA057900DC62AE /* RecCell.swift in Sources */,
 				9F19441728C22483009FD556 /* TokenModel.swift in Sources */,
 				9F19443A28C4B022009FD556 /* TransactionHeader.swift in Sources */,
 				9F2FC75628C8E66A008D2DA9 /* BankAccountModel.swift in Sources */,
@@ -749,7 +779,9 @@
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				784908DE28C9A11700E32A77 /* TradeHeader.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
+				9F2654CF28CA08B300DC62AE /* RecListRepository.swift in Sources */,
 				784908D228C969AA00E32A77 /* ConfirmVC.swift in Sources */,
+				9F2654C428CA054700DC62AE /* RecModel.swift in Sources */,
 				784908DB28C99E8F00E32A77 /* TradeVC.swift in Sources */,
 				783A8F6D28BB2FE000C525DE /* SplitVC.swift in Sources */,
 				9F2FC75A28C8ED00008D2DA9 /* ProfileDB.swift in Sources */,
