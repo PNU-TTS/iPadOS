@@ -60,14 +60,14 @@ class RecCell: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().multipliedBy(0.35)
             make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
     
     func setExpireDate() {
         expireDate.then {
-            $0.text = "\(DateTimeConverter.fromInt(input: input.expireDate))"
+            $0.text = "\(DateTimeConverter.fromInt(input: input.expire_date))"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
@@ -82,7 +82,7 @@ class RecCell: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
     
@@ -91,7 +91,7 @@ class RecCell: UIView {
         
         is_jeju.snp.makeConstraints { make in
             make.height.equalTo(quantity)
-            make.width.equalToSuperview().multipliedBy(0.2)
+            make.width.equalToSuperview().multipliedBy(0.15)
         }
         
         is_jeju.addSubview(jejuLabel)
