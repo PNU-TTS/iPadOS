@@ -48,13 +48,14 @@ class HomeVC: UIViewController {
         let ll = ChartLimitLine(limit: 10.0, label: "average")
         ll.labelPosition = .leftTop
         ll.drawLabelEnabled = true
-        ll.lineColor = .gray
+        ll.lineColor = .gray.withAlphaComponent(0.3)
+        ll.lineDashLengths = [5, 5, 0]
 //        ll.lineDashLengths = CGFloat(2)
-        ll.lineDashPhase = CGFloat(2)
+//        ll.lineDashPhase = CGFloat(2)
         ll.valueTextColor = .gray
         $0.leftAxis.addLimitLine(ll)
         
-//        $0.animate(xAxisDuration: 2)
+        $0.animate(yAxisDuration: 1)
 
     }
     
@@ -90,7 +91,7 @@ class HomeVC: UIViewController {
         viewChart.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(100)
-            make.height.equalTo(500)
+            make.height.equalTo(350)
             make.width.equalToSuperview().offset(-50)
         }
         
@@ -138,11 +139,20 @@ class HomeVC: UIViewController {
         
         let chartDataSet = LineChartDataSet(entries: dataEntries, label: "판매량").then {
             $0.drawCirclesEnabled = false
+//            $0.colors = [ChartColorTemplates.colorFromString("#ff0000ff")]
             $0.colors = [.systemBlue]
             $0.lineWidth = 2
             $0.mode = .linear
-            $0.fill = ColorFill(color: .systemBlue)
-            $0.fillAlpha = 0.5
+//            let gradientColors = [ChartColorTemplates.colorFromString("#000000ff").cgColor,
+//                                  ChartColorTemplates.colorFromString("#ff0000ff").cgColor]
+            let gradientColors = [UIColor.systemBlue.withAlphaComponent(0).cgColor,
+                                  UIColor.systemBlue.withAlphaComponent(1).cgColor]
+            let gradient = CGGradient(colorsSpace: nil, colors: gradientColors as CFArray, locations: nil)!
+            
+            $0.fill = LinearGradientFill(gradient: gradient, angle: 90)
+            $0.fillAlpha = 0.8
+//            $0.fill = ColorFill(color: .systemBlue)
+//            $0.fillAlpha = 0.5
             $0.drawFilledEnabled = true
             $0.drawHorizontalHighlightIndicatorEnabled = false
             $0.highlightColor = .systemRed
