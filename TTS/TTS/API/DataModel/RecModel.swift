@@ -11,19 +11,19 @@ struct RecModel: Decodable {
     struct InnerModel: Decodable {
         var id: String
         var supplier: String
-        @IntWrapper var quantity: Int
+        var quantity: Int
         var is_jeju: Bool
-        var supplyDate: Int
-        var expireDate: Int
+        var supply_date: Int
+        var expire_date: Int
     }
-    var Transaction: InnerModel
+    var Certificate: InnerModel
 }
 
 extension RecModel {
     static let sampleData: String =
     """
     [
-        {"Transaction": {
+        {"Certificate": {
             "id": "CERTIFICATE_123",
             "supplier": "1",
             "quantity": "100",
@@ -31,7 +31,7 @@ extension RecModel {
             "supplyDate": 2736262,
             "expireDate": 3838243
         }},
-        {"Transaction": {
+        {"Certificate": {
             "id": "CERTIFICATE_456",
             "supplier": "1",
             "quantity": "100",
