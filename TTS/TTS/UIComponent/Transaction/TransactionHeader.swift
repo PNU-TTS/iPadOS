@@ -26,7 +26,7 @@ class TransactionHeader: UIView {
     
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        self.backgroundColor = .lightGray.withAlphaComponent(0.15)
         setView()
     }
     

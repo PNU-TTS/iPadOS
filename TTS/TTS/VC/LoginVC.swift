@@ -91,6 +91,8 @@ class LoginVC: UIViewController {
         output.isLoginSuccess
             .subscribe(onNext: { result in
                 if result {
+                    ProfileDB.shared.save(profile: ProfileData(email: self.emailField.text!))
+                    
                     let nextVC = SplitVC()
                     nextVC.modalTransitionStyle = .crossDissolve
                     nextVC.modalPresentationStyle = .fullScreen

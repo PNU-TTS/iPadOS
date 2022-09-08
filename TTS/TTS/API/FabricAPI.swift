@@ -9,7 +9,12 @@ import Moya
 
 enum FabricAPI {
     case registerCertificate(input: RegisterCertificateModel)
+    case queryCertificateBySupplier(id: Int)
+    
+    case createTransaction(input: CreateTransactionModel)
     case executeTransaction(input: ExecuteTransactionModel)
+    case approveTransaction(input: ApproveTransactionModel)
+    
     case queryTransactionByID(id: Int)
     case queryAllTransactions
     case queryUnexecutedTransactions
@@ -21,7 +26,7 @@ enum FabricAPI {
 
 extension FabricAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://test.com")!
+        return URL(string: "http://192.168.0.2:8080")!
     }
     
     var path: String {
@@ -29,26 +34,39 @@ extension FabricAPI: TargetType {
         case .registerCertificate:
             return "/certificate/register/"
             
+        case .queryCertificateBySupplier(let id):
+            return "/certificate/query/\(id)"
+            
+            
+        case .createTransaction:
+            return "/transaction/create/"
+            
         case .executeTransaction:
-            return "/executeTransaction/"
+            return "/transaction/execute/"
+            
+        case .approveTransaction:
+            return "/transaction/approve/"
+            
+            
             
         case .queryTransactionByID(let id):
-            return "/query/transaction/\(id)"
+            return "/transaction/query/\(id)"
             
         case .queryAllTransactions:
-            return "/query/allTransactions/"
+            return "/transaction/query-all/"
             
         case .queryUnexecutedTransactions:
-            return "/queryUnexecutedTransactions/"
+            return "/transaction/query-nonexecuted/"
             
         case .queryExecutedTransactions:
-            return "/query/executedTransactions/"
+            return "/transaction/query-executed/"
+            
             
         case .queryTransactionBySupplier:
-            return "/query/transaction/by-supplier/"
+            return "/transaction/query-by-supplier/"
             
         case .queryTransactionByBuyer:
-            return "/query/transaction/by-buyer/"
+            return "/transaction/query-by-buyer/"
             
         // add API
         case .queryNotConfirmedBySupplier:
@@ -58,8 +76,8 @@ extension FabricAPI: TargetType {
     
     var method: Method {
         switch self {
-        case .executeTransaction, .queryTransactionBySupplier, .queryTransactionByBuyer,
-                .registerCertificate, .queryNotConfirmedBySupplier:
+        case .createTransaction, .executeTransaction, .approveTransaction,
+                .queryTransactionBySupplier, .queryTransactionByBuyer, .registerCertificate, .queryNotConfirmedBySupplier:
             return .post
         default:
             return .get
@@ -81,8 +99,19 @@ extension FabricAPI: TargetType {
         case .registerCertificate(let input):
             return .requestJSONEncodable(input)
             
+        case .queryCertificateBySupplier:
+            return .requestPlain
+            
+            
+        case .createTransaction(let input):
+            return .requestJSONEncodable(input)
+            
         case .executeTransaction(let input):
             return .requestJSONEncodable(input)
+            
+        case .approveTransaction(let input):
+            return .requestJSONEncodable(input)
+            
             
         case .queryTransactionByID:
             return .requestPlain

@@ -10,6 +10,8 @@ import Moya
 enum TTSAPI {
     case queryAllTransactions
     case login(input: LoginModel)
+    
+    case getSupplierInfo(id: Int)
 }
 
 extension TTSAPI: TargetType {
@@ -23,13 +25,16 @@ extension TTSAPI: TargetType {
             return "/query/allTransactions"
         case .login:
             return "/account/login/"
+        case .getSupplierInfo(let id):
+            return "/powerplant/\(id)"
         }
     }
     
     var method: Method {
         switch self {
-        case .queryAllTransactions:
+        case .queryAllTransactions, .getSupplierInfo:
             return .get
+            
         case .login:
             return .post
         }
@@ -48,8 +53,12 @@ extension TTSAPI: TargetType {
         switch self {
         case .queryAllTransactions:
             return .requestPlain
+            
         case .login(let input):
             return .requestJSONEncodable(input)
+            
+        case .getSupplierInfo:
+            return .requestPlain
         }
     }
     
