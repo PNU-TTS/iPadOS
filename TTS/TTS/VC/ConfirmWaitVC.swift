@@ -10,7 +10,7 @@ import Then
 import SnapKit
 import RxSwift
 
-class ConfirmVC: UIViewController {
+class ConfirmWaitVC: UIViewController {
     
     private var viewModel = ConfirmVM()
     private var disposeBag = DisposeBag()
@@ -54,7 +54,11 @@ class ConfirmVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.confirmTable.addArrangedSubview(ConfirmCell(input: transaciton.Transaction))
+                let nextVC = ConfirmCell(input: transaciton.Transaction)
+                nextVC.setConfirmButtomCommand {
+                    self.present(ConfirmTransactionVC(), animated: true)
+                }
+                self.confirmTable.addArrangedSubview(nextVC)
             }
         }).disposed(by: disposeBag)
         

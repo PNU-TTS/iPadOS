@@ -46,7 +46,7 @@ extension SplitVC: MenuControllerDelegate {
 //            vc = SellVC(input: SellVC.Input(recBalance: 5000))
             vc = RecListVC()
         case "⏸️ 승인 대기 목록":
-            vc = ConfirmVC()
+            vc = ConfirmWaitVC()
         case "🧾 내 거래 내역":
 //            vc.title = "내 거래 내역"
             vc = SupplierInfoVC()
