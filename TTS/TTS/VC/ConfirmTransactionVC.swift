@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 import RxSwift
 import RxGesture
@@ -20,6 +21,7 @@ extension ConfirmTransactionVC {
 
 class ConfirmTransactionVC: UIViewController {
     private var disposeBag = DisposeBag()
+    private var authContext = LAContext()
     
     private var titleLabel = UILabel()
     
@@ -109,7 +111,20 @@ class ConfirmTransactionVC: UIViewController {
             make.left.right.equalToSuperview().inset(15.0)
             make.height.equalTo(ConfirmTransactionVC.buttonHeight)
         }
+        
+        confirmButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { _ in
+                self.authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "인증", reply: { (success, error) in
+                    if !success { return }
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true)
+                    }
+                })
+            }).disposed(by: disposeBag)
+        
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
