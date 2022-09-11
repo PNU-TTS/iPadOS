@@ -11,7 +11,7 @@ import RxSwift
 class ChartRepository: BaseRepository<FabricAPI> {
     
     func getChartData(type: Int) -> Single<ChartModel> {
-        return getProvider(mode: .test, debug: false).rx
+        return getProvider(mode: .test, debug: true).rx
             .request(.queryChartData(type: type))
             .map(ChartModel.self)
     }

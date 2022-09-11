@@ -19,6 +19,7 @@ class HomeVC: UIViewController {
 
     private var viewModel = HomeVM()
     private var disposeBag = DisposeBag()
+    private let chartRepo = ChartRepository()
     
     private var dailyChartButton = UIButton()
     private var weeklyChartButton = UIButton()
@@ -45,7 +46,7 @@ class HomeVC: UIViewController {
         setChartView()
         setAllTransactionsTable()
         setBinding()
-        ChartRepository().getChartData(type: 2)
+        chartRepo.getChartData(type: 2)
             .subscribe(onSuccess: { ChartModel in
                 self.setChartData(dataPoints: ChartModel.xData, values: ChartModel.yData, limit: ChartModel.average)
             }).disposed(by: disposeBag)
