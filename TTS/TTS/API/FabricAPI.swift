@@ -22,6 +22,7 @@ enum FabricAPI {
     case queryTransactionBySupplier(input: QueryBySupplierModel)
     case queryTransactionByBuyer(input: QueryByBuyerModel)
     case queryNotConfirmedBySupplier(input: QueryBySupplierModel)
+    case queryChartData(type: Int)
 }
 
 extension FabricAPI: TargetType {
@@ -68,16 +69,19 @@ extension FabricAPI: TargetType {
         case .queryTransactionByBuyer:
             return "/transaction/query-by-buyer/"
             
-        // add API
+            // add API
         case .queryNotConfirmedBySupplier:
-            return "/query/transaction/by-supplier/non-confirmed"
+            return "/query/transaction/by-supplier/non-confirmed/"
+            
+        case .queryChartData(let type):
+            return "/query/chart/\(type)"
         }
     }
     
     var method: Method {
         switch self {
         case .createTransaction, .executeTransaction, .approveTransaction,
-                .queryTransactionBySupplier, .queryTransactionByBuyer, .registerCertificate, .queryNotConfirmedBySupplier:
+                .queryTransactionBySupplier, .queryTransactionByBuyer, .registerCertificate, .queryNotConfirmedBySupplier, .queryChartData:
             return .post
         default:
             return .get
@@ -91,6 +95,9 @@ extension FabricAPI: TargetType {
             
         case .queryCertificateBySupplier:
             return Data(RecModel.sampleData.utf8)
+            
+        case .queryChartData:
+            return Data(ChartModel.sampleData.utf8)
             
         default:
             return Data()
@@ -136,12 +143,14 @@ extension FabricAPI: TargetType {
             
         case .queryNotConfirmedBySupplier(let input):
             return .requestJSONEncodable(input)
+            
+        case .queryChartData:
+            return .requestPlain
         }
-        
     }
+    
     
     var headers: [String: String]? {
         return [:]
     }
 }
-

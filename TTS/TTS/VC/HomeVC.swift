@@ -13,59 +13,24 @@ import RxSwift
 
 class HomeVC: UIViewController {
     
-    var months: [String]!
-    var unitsSold: [Double]!
+    var xData: [String]!
+    var yData: [Double]!
     let chartLabelSize = CGFloat(15)
-    
-    private var viewModel = AllTransVM()
+
+    private var viewModel = HomeVM()
     private var disposeBag = DisposeBag()
     
-    lazy var viewChart = UIView()
-    lazy var lineChartView = LineChartView().then {
-//        $0.backgroundColor = .lightGray
-        $0.noDataText = "데이터가 없습니다."
-        $0.noDataFont = .systemFont(ofSize: 20)
-        $0.noDataTextColor = .darkGray
-        $0.doubleTapToZoomEnabled = false
-        $0.legend.enabled = false
-
-        $0.xAxis.labelPosition = .bottom    // X축 레이블 위치 조정
-        $0.xAxis.labelFont = .boldSystemFont(ofSize: chartLabelSize)
-        $0.xAxis.labelTextColor = .gray
-        $0.xAxis.drawGridLinesEnabled = false
-//        $0.xAxis.axisLineColor = .black
-        $0.rightAxis.enabled = false        // 오른쪽 축 제거
-        
-        
-        let yAxis = $0.leftAxis
-        yAxis.labelFont = .boldSystemFont(ofSize: chartLabelSize)
-        yAxis.labelTextColor = .gray
-        yAxis.setLabelCount(8, force: false)
-        yAxis.axisLineColor = .white
-        yAxis.labelPosition = .outsideChart
-        yAxis.labelXOffset = -5
-        
-        let ll = ChartLimitLine(limit: 10.0, label: "average")
-        ll.labelPosition = .leftTop
-        ll.drawLabelEnabled = true
-        ll.lineColor = .gray
-//        ll.lineDashLengths = CGFloat(2)
-        ll.lineDashPhase = CGFloat(2)
-        ll.valueTextColor = .gray
-        $0.leftAxis.addLimitLine(ll)
-        
-//        $0.animate(xAxisDuration: 2)
-
-    }
+    private var dailyChartButton = UIButton()
+    private var weeklyChartButton = UIButton()
+    private var monthlyChartButton = UIButton()
     
-    lazy var allTransactionHeader = TransactionHeader()
-    lazy var allTransactionsTable = UIStackView()
+    private var viewChart = UIView()
+    private var lineChartView = ChartView()
+    private var allTransactionHeader = TransactionHeader()
+    private var allTransactionsTable = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
         
         self.view.backgroundColor = .white
         self.title = "home"
@@ -74,33 +39,89 @@ class HomeVC: UIViewController {
     }
     
     func setView() {
-        
         [viewChart, allTransactionHeader, allTransactionsTable].forEach {
             view.addSubview($0)
         }
         setChartView()
         setAllTransactionsTable()
-        setChart(dataPoints: months, values: unitsSold)
         setBinding()
+        ChartRepository().getChartData(type: 2)
+            .subscribe(onSuccess: { ChartModel in
+                self.setChartData(dataPoints: ChartModel.xData, values: ChartModel.yData)
+            }).disposed(by: disposeBag)
     }
     
     func setChartView() {
-        viewChart.addSubview(lineChartView)
+        [
+            lineChartView,
+            dailyChartButton,
+            weeklyChartButton,
+            monthlyChartButton
+        ].forEach { view in
+            viewChart.addSubview(view)
+        }
         
         viewChart.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(100)
-            make.height.equalTo(500)
+            make.height.equalTo(350)
             make.width.equalToSuperview().offset(-50)
         }
+        setButtons()
+        setChart()
+    }
+    
+    func setButtons() {
+        dailyChartButton.then {
+            $0.setTitle("Day", for: .normal)
+            $0.backgroundColor = Const.Color.primary
+            $0.tintColor = .white
+            $0.layer.cornerRadius = 5.0
+        }.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(5)
+            make.height.equalTo(30)
+            make.width.equalTo(60)
+        }
+
+        weeklyChartButton.then {
+            $0.setTitle("Week", for: .normal)
+            $0.backgroundColor = Const.Color.primary
+            $0.tintColor = .white
+            $0.layer.cornerRadius = 5.0
+        }.snp.makeConstraints { make in
+            make.top.width.height.equalTo(dailyChartButton)
+            make.leading.equalTo(dailyChartButton.snp.trailing).offset(5)
+        }
         
-        lineChartView.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalToSuperview()
+        monthlyChartButton.then {
+            $0.setTitle("Month", for: .normal)
+            $0.backgroundColor = Const.Color.primary
+            $0.tintColor = .white
+            $0.layer.cornerRadius = 5.0
+        }.snp.makeConstraints { make in
+            make.top.width.height.equalTo(weeklyChartButton)
+            make.leading.equalTo(weeklyChartButton.snp.trailing).offset(5)
+        }
+    }
+    func setChart() {
+        lineChartView.then {
+            let ll = ChartLimitLine(limit: 10.0, label: "average")
+            ll.labelPosition = .leftTop
+            ll.drawLabelEnabled = true
+            ll.lineColor = .gray.withAlphaComponent(0.3)
+            ll.lineDashLengths = [5, 5, 0]
+            ll.valueTextColor = .gray
+            $0.leftAxis.addLimitLine(ll)
+            
+            $0.animate(yAxisDuration: 1)
+        }.snp.makeConstraints { make in
+            make.top.equalTo(dailyChartButton.snp.bottom).offset(5)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
     func setAllTransactionsTable() {
-        
         allTransactionHeader.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(10.0)
             make.top.equalTo(viewChart.snp.bottom).offset(30.0)
@@ -117,22 +138,28 @@ class HomeVC: UIViewController {
     }
     
     func setBinding() {
-        let output = viewModel.transform()
+        let output = viewModel.transform(input: HomeVM.Input(
+            isDailyTapped: dailyChartButton.rx.tapGesture().when(.recognized).asObservable(),
+            isWeeklyTapped: weeklyChartButton.rx.tapGesture().when(.recognized).asObservable(),
+            isMonthlyTapped: monthlyChartButton.rx.tapGesture().when(.recognized).asObservable()
+        ))
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
                 self.allTransactionsTable.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
             }
         }).disposed(by: disposeBag)
+        
+        output.chartData.subscribe(onNext: { chartData in
+            self.setChartData(dataPoints: chartData.xData, values: chartData.yData)
+        }).disposed(by: disposeBag)
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChartData(dataPoints: [String], values: [Double]) {
         // 데이터 생성
-        print(dataPoints)
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
             let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
-            print(dataEntry)
             dataEntries.append(dataEntry)
         }
         
@@ -141,8 +168,18 @@ class HomeVC: UIViewController {
             $0.colors = [.systemBlue]
             $0.lineWidth = 2
             $0.mode = .linear
-            $0.fill = ColorFill(color: .systemBlue)
-            $0.fillAlpha = 0.5
+            let gradientColors = [
+                UIColor.systemBlue.withAlphaComponent(0).cgColor,
+                UIColor.systemBlue.withAlphaComponent(1).cgColor
+            ]
+            let gradient = CGGradient(
+                colorsSpace: nil,
+                colors: gradientColors as CFArray,
+                locations: nil
+            )!
+            
+            $0.fill = LinearGradientFill(gradient: gradient, angle: 90)
+            $0.fillAlpha = 0.8
             $0.drawFilledEnabled = true
             $0.drawHorizontalHighlightIndicatorEnabled = false
             $0.highlightColor = .systemRed
@@ -155,11 +192,6 @@ class HomeVC: UIViewController {
         lineChartView.data = chartData
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints) // X축 레이블 포맷 지정
         lineChartView.xAxis.setLabelCount(dataPoints.count-1, force: false)
+        lineChartView.animate(yAxisDuration: 0.25, easing: .none)
     }
 }
-//
-//extension HomeViewController: ChartViewDelegate {
-//    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-//        print(entry)
-//    }
-//}
