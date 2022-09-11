@@ -6,6 +6,9 @@
 //
 
 import UIKit
+
+import RxSwift
+import RxGesture
 import Then
 import SnapKit
 
@@ -14,6 +17,8 @@ extension ConfirmCell {
 }
 
 class ConfirmCell: UIView {
+    private var disposeBag = DisposeBag()
+    
     private var cell = UIStackView()
     
     private var timeStamp = UILabel()
@@ -102,20 +107,6 @@ class ConfirmCell: UIView {
         }
     }
     
-//    func setStatus() {
-//        var text = "거래 대금 확인 중"
-//        if input.buyer == nil {
-//            text = "미체결"
-//        }
-//        status.then {
-//            $0.text = text
-//            $0.textColor = .darkGray
-//            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
-//        }.snp.makeConstraints { make in
-//            make.width.equalToSuperview().multipliedBy(0.175)
-//        }
-//    }
-    
     func setConfirmButton() {
         confirmButton.then {
             $0.setTitle("승인", for: .normal)
@@ -125,7 +116,14 @@ class ConfirmCell: UIView {
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.175)
         }
-
+    }
+    
+    func setConfirmButtomCommand(command: @escaping (() -> Void)) {
+        confirmButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { _ in
+                command()
+            }).disposed(by: disposeBag)
     }
     
     
