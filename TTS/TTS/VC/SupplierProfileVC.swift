@@ -20,6 +20,8 @@ extension SupplierProfileVC {
 class SupplierProfileVC: UIViewController {
     private var disposeBag = DisposeBag()
     
+    private var titleLabel = UILabel()
+    
     var profileView: ProfileCard
     
     var stackView = UIStackView()
@@ -44,8 +46,9 @@ class SupplierProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "개인 정보"
-        
+        [titleLabel].forEach {
+            view.addSubview($0)
+        }
         setView()
     }
     
@@ -53,14 +56,26 @@ class SupplierProfileVC: UIViewController {
 
 extension SupplierProfileVC {
     func setView() {
-        view.backgroundColor = .white
+        view.backgroundColor = Const.Color.backgroundColor
+        setTitleLabel()
         setBinding()
+    }
+    
+    func setTitleLabel() {
+        titleLabel.then {
+            $0.text = "🔑 개인 정보"
+            $0.textColor = Const.Color.textColor
+            $0.font = UIFont.systemFont(ofSize: 40.0, weight: .bold)
+        }.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(30.0)
+            make.left.equalToSuperview().inset(10.0)
+        }
     }
     
     func setProfileView() {
         view.addSubview(profileView)
         profileView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(SupplierProfileVC.verticalOffset)
+            make.top.equalTo(titleLabel.snp.bottom).offset(SupplierProfileVC.verticalOffset)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().inset(SupplierProfileVC.horizontalInset)
         }
@@ -68,9 +83,9 @@ extension SupplierProfileVC {
     
     func setStackView() {
         view.addSubview(stackView)
-        stackView.addArrangedSubview(editCard)
-        stackView.addArrangedSubview(askCard)
-        stackView.addArrangedSubview(logoutCard)
+        [editCard, askCard, logoutCard].forEach {
+            stackView.addArrangedSubview($0)
+        }
         
         stackView.then {
             $0.axis = .vertical
