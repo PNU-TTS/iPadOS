@@ -26,18 +26,18 @@ extension RecModel {
         {"Certificate": {
             "id": "CERTIFICATE_123",
             "supplier": "1",
-            "quantity": "100",
+            "quantity": 100,
             "is_jeju": true,
-            "supplyDate": 2736262,
-            "expireDate": 3838243
+            "supply_date": 2736262,
+            "expire_date": 3838243
         }},
         {"Certificate": {
             "id": "CERTIFICATE_456",
             "supplier": "1",
-            "quantity": "100",
+            "quantity": 100,
             "is_jeju": false,
-            "supplyDate": 2736262,
-            "expireDate": 3838243
+            "supply_date": 2736262,
+            "expire_date": 3838243
         }}
     ]
     """

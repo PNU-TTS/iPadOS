@@ -21,6 +21,7 @@ class RecHeader: UIView {
     private var expireDate = UILabel()
     private var quantity = UILabel()
     private var is_jeju = UILabel()
+    private var sellButton = UILabel()
     
     init() {
         super.init(frame: .zero)
@@ -35,10 +36,11 @@ class RecHeader: UIView {
         setExpireDate()
         setQuantity()
         setIsJeju()
+        setSellButton()
     }
     
     func setCell() {
-        [recId, expireDate, quantity, is_jeju].forEach {
+        [recId, expireDate, quantity, is_jeju, sellButton].forEach {
             cell.addArrangedSubview($0)
         }
         
@@ -57,7 +59,7 @@ class RecHeader: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.35)
+            make.width.equalToSuperview().multipliedBy(0.25)
             make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
@@ -68,7 +70,7 @@ class RecHeader: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.35)
+            make.width.equalToSuperview().multipliedBy(0.3)
         }
     }
     
@@ -85,6 +87,16 @@ class RecHeader: UIView {
     func setIsJeju() {
         is_jeju.then {
             $0.text = "발전 지역"
+            $0.textColor = .darkGray
+            $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+        }.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.15)
+        }
+    }
+    
+    func setSellButton() {
+        sellButton.then {
+            $0.text = ""
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in

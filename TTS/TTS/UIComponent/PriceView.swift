@@ -15,7 +15,9 @@ class PriceView: UIView {
     struct Input {
         var icon: UIImage?
         var amount: Int
+        var unit: String = "원"
         var description: String
+        var tintColor: UIColor = Const.Color.primary
     }
     
     var input: Input
@@ -50,7 +52,7 @@ class PriceView: UIView {
     func setIconView() {
         iconView.then {
             $0.image = input.icon
-            $0.tintColor = Const.Color.primary
+            $0.tintColor = input.tintColor
             $0.contentMode = .scaleAspectFill
         }.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(20.0)
@@ -61,8 +63,8 @@ class PriceView: UIView {
     
     func setLabel() {
         label.then {
-            $0.text = "\(numberFormatter.string(from: NSNumber(value: input.amount))!) 원"
-            $0.font = UIFont.systemFont(ofSize: 32.0)
+            $0.text = "\(numberFormatter.string(from: NSNumber(value: input.amount))!) \(input.unit)"
+            $0.font = UIFont.systemFont(ofSize: 25.0)
             $0.textColor = .gray
         }.snp.makeConstraints { make in
             make.left.equalTo(iconView.snp.right).offset(20.0)

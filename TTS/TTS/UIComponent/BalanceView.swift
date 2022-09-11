@@ -38,7 +38,8 @@ class BalanceView: UIView {
             $0.tintColor = Const.Color.primary
             $0.contentMode = .scaleAspectFill
         }.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().offset(10.0)
+            make.top.equalToSuperview().offset(25.0)
+            make.left.equalToSuperview().offset(10.0)
             make.height.width.equalToSuperview().multipliedBy(0.2)
         }
     }

@@ -31,7 +31,7 @@ class SellInputView: UIView {
     
     var stackView = UIStackView()
     
-    var balanceView: BalanceView
+    var balanceView: PriceView
     
     lazy var label = UILabel()
     
@@ -41,12 +41,14 @@ class SellInputView: UIView {
             initValue: "0",
             suffix: "개",
             isEnabled: true))
+    
     lazy var priceTextField = TextFieldWithDescription(
         input: TextFieldWithDescription.Input(
             title: "개당",
             initValue: "0",
             suffix: "원",
             isEnabled: true))
+    
     lazy var totalTextField = TextFieldWithDescription(
         input: TextFieldWithDescription.Input(
             title: "총",
@@ -56,10 +58,14 @@ class SellInputView: UIView {
     
     lazy var buyButton = UIButton()
     
-    
     init(input: Input) {
         self.input = input
-        balanceView = BalanceView()
+        balanceView = PriceView(input: PriceView.Input(
+            icon: Const.Icon.balance,
+            amount: input.recBalance,
+            unit: "REC",
+            description: "잔여 REC 공급량 수",
+            tintColor: Const.Color.semanticYellow2))
         
         super.init(frame: .zero)
         setView()
@@ -72,7 +78,7 @@ class SellInputView: UIView {
 
 extension SellInputView {
     func setView() {
-        backgroundColor = .white
+        backgroundColor = Const.Color.backgroundColor
         
         addSubview(stackView)
         addSubview(balanceView)
@@ -114,10 +120,10 @@ extension SellInputView {
     
     func setLabel() {
         _ = label.then {
-            $0.text = "정보 입력"
+            $0.text = "매도 정보 입력"
             $0.textAlignment = .center
-            $0.textColor = .systemOrange
-            $0.backgroundColor = .systemYellow.withAlphaComponent(0.3)
+            $0.textColor = .white
+            $0.backgroundColor = Const.Color.primary
             $0.font = UIFont.systemFont(ofSize: Const.Font.veryBig, weight: .bold)
         }
     }
@@ -142,9 +148,10 @@ extension SellInputView {
     
     func setBalanceView() {
         balanceView.snp.makeConstraints { make in
+            make.top.equalTo(stackView.snp.bottom).offset(30.0)
             make.bottom.equalToSuperview()
             make.left.equalToSuperview().inset(SellInputView.horizontalInset)
-            make.height.equalTo(SupplierInfoVC.balanceViewHeight)
+            make.height.equalTo(SupplierInfoVC.balanceViewHeight * 1.25)
             make.width.equalToSuperview().multipliedBy(0.5).inset(SellInputView.horizontalInset)
         }
     }
@@ -157,9 +164,10 @@ extension SellInputView {
             $0.tintColor = .white
             $0.setShadow()
         }.snp.makeConstraints { make in
+            make.top.equalTo(balanceView)
             make.bottom.equalToSuperview()
             make.right.equalToSuperview().inset(SellInputView.horizontalInset)
-            make.height.equalTo(SupplierInfoVC.balanceViewHeight)
+            make.height.equalTo(SupplierInfoVC.balanceViewHeight * 1.25)
             make.width.equalToSuperview().multipliedBy(0.5).inset(SellInputView.horizontalInset)
         }
         

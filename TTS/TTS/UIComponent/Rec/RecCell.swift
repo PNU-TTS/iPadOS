@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxSwift
+import RxGesture
 import Then
 import SnapKit
 
@@ -15,12 +17,16 @@ extension RecCell {
 }
 
 class RecCell: UIView {
+    private var disposeBag = DisposeBag()
+    
     private var cell = UIStackView()
     
     private var recId = UILabel()
     private var expireDate = UILabel()
     private var quantity = UILabel()
     private var is_jeju = UIView()
+    
+    var sellButton = UIButton()
     
     private var input: RecModel.InnerModel
     
@@ -38,10 +44,11 @@ class RecCell: UIView {
         setExpireDate()
         setQuantity()
         setIsJeju()
+        setSellButton()
     }
     
     func setCell() {
-        [recId, expireDate, quantity, is_jeju].forEach {
+        [recId, expireDate, quantity, is_jeju, sellButton].forEach {
             cell.addArrangedSubview($0)
         }
         
@@ -60,7 +67,7 @@ class RecCell: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.35)
+            make.width.equalToSuperview().multipliedBy(0.25)
             make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
@@ -71,7 +78,7 @@ class RecCell: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.35)
+            make.width.equalToSuperview().multipliedBy(0.3)
             make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
@@ -82,6 +89,7 @@ class RecCell: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
         }.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(12.0)
             make.width.equalToSuperview().multipliedBy(0.15)
         }
     }
@@ -90,7 +98,7 @@ class RecCell: UIView {
         let jejuLabel = BasePaddingLabel()
         
         is_jeju.snp.makeConstraints { make in
-            make.height.equalTo(quantity)
+            make.top.bottom.equalToSuperview().inset(12.0)
             make.width.equalToSuperview().multipliedBy(0.15)
         }
         
@@ -117,6 +125,27 @@ class RecCell: UIView {
         }.snp.makeConstraints { make in
             make.left.centerY.equalToSuperview()
         }
+    }
+    
+    func setSellButton() {
+        sellButton.then {
+            $0.setTitle("매도하기", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: TransactionCell.fontSize, weight: .bold)
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = Const.Color.primary
+            $0.layer.cornerRadius = 5.0
+        }.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(12.0)
+            make.width.equalToSuperview().multipliedBy(0.15)
+        }
+    }
+    
+    func setSellButtonCommand(command: @escaping (() -> Void)) {
+        sellButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { _ in
+                command()
+            }).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
