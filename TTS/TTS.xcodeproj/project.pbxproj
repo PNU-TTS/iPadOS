@@ -57,6 +57,7 @@
 		9F2654D328CDC67D00DC62AE /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654D228CDC67D00DC62AE /* Icon.swift */; };
 		9F2654D728CDDA2B00DC62AE /* ConfirmTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */; };
 		9F2654DA28CDDB7200DC62AE /* ConfirmTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654D928CDDB7200DC62AE /* ConfirmTransactionCell.swift */; };
+		9F2654DC28CDECC000DC62AE /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2654DB28CDECC000DC62AE /* LocalAuthentication.framework */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -162,6 +163,7 @@
 		9F2654D228CDC67D00DC62AE /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionVC.swift; sourceTree = "<group>"; };
 		9F2654D928CDDB7200DC62AE /* ConfirmTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionCell.swift; sourceTree = "<group>"; };
+		9F2654DB28CDECC000DC62AE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F2654DC28CDECC000DC62AE /* LocalAuthentication.framework in Frameworks */,
 				9AE1D26D9F0B16879B490240 /* Pods_TTS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,6 +502,7 @@
 		D03B167EBE870588809989F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9F2654DB28CDECC000DC62AE /* LocalAuthentication.framework */,
 				F8522230136EBF9646E2342F /* Pods_TTS.framework */,
 				4AF377D2052D49AD1E9B7EB6 /* Pods_TTS_TTSUITests.framework */,
 				5F1143D4CC6D19DFE83180F4 /* Pods_TTSTests.framework */,
