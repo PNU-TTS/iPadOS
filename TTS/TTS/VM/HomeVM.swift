@@ -50,7 +50,6 @@ struct HomeVM: BasicVM {
     }
     
     func getData(type: Int) {
-        print(type)
         chartRepo.getChartData(type: type)
             .subscribe(onSuccess: { ChartModel in
                 self.data.accept(ChartModel)

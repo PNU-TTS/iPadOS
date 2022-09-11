@@ -45,6 +45,10 @@ class HomeVC: UIViewController {
         setChartView()
         setAllTransactionsTable()
         setBinding()
+        ChartRepository().getChartData(type: 2)
+            .subscribe(onSuccess: { ChartModel in
+                self.setChartData(dataPoints: ChartModel.xData, values: ChartModel.yData)
+            }).disposed(by: disposeBag)
     }
     
     func setChartView() {
@@ -63,7 +67,6 @@ class HomeVC: UIViewController {
             make.height.equalTo(350)
             make.width.equalToSuperview().offset(-50)
         }
-        
         setButtons()
         setChart()
     }
@@ -148,12 +151,11 @@ class HomeVC: UIViewController {
         }).disposed(by: disposeBag)
         
         output.chartData.subscribe(onNext: { chartData in
-            self.setChart(dataPoints: chartData.xData, values: chartData.yData)
-            
+            self.setChartData(dataPoints: chartData.xData, values: chartData.yData)
         }).disposed(by: disposeBag)
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChartData(dataPoints: [String], values: [Double]) {
         // 데이터 생성
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
@@ -190,6 +192,6 @@ class HomeVC: UIViewController {
         lineChartView.data = chartData
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints) // X축 레이블 포맷 지정
         lineChartView.xAxis.setLabelCount(dataPoints.count-1, force: false)
-        lineChartView.animate(yAxisDuration: 1, easing: .none)
+        lineChartView.animate(yAxisDuration: 0.25, easing: .none)
     }
 }
