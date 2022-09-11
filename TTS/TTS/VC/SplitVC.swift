@@ -10,8 +10,8 @@ import UIKit
 class SplitVC: UISplitViewController {
     
     let tableLabels: [[String]] = [
-        ["계좌잔고", "거래 시장", "판매 등록"],
-        ["승인 대기 목록", "내 거래 내역", "개인 정보"]
+        ["📈 거래 시장", "💵 판매 등록"],
+        ["⏸️ 승인 대기 목록", "🧾 내 거래 내역", "🔑 개인 정보"]
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class SplitVC: UISplitViewController {
         //        let secondVC = UIViewController()
         let secondVC = HomeVC()
         //        secondVC.view.backgroundColor = .blue
-        secondVC.title = "Home"
+//        secondVC.title = "홈 화면"
         
         self.viewControllers = [
             UINavigationController(rootViewController: menuVC),
@@ -39,17 +39,15 @@ extension SplitVC: MenuControllerDelegate {
         var vc = UIViewController()
         vc.view.backgroundColor = .blue
         switch title {
-        case "계좌잔고":
-            vc.title = "계좌잔고"
-        case "거래 시장":
+        case "📈 거래 시장":
 //            vc.title = "거래 시장"
             vc = TradeVC()
-        case "판매 등록":
+        case "💵 판매 등록":
 //            vc = SellVC(input: SellVC.Input(recBalance: 5000))
             vc = RecListVC()
-        case "승인 대기 목록":
+        case "⏸️ 승인 대기 목록":
             vc = ConfirmVC()
-        case "내 거래 내역":
+        case "🧾 내 거래 내역":
 //            vc.title = "내 거래 내역"
             vc = SupplierInfoVC()
         default:
@@ -69,13 +67,13 @@ class MenuController: UITableViewController {
     
     var delegate: MenuControllerDelegate?
     let tableLabels: [[String]] = [
-        ["계좌잔고", "거래 시장", "판매 등록"],
-        ["승인 대기 목록", "내 거래 내역", "개인 정보"]
+        ["📈 거래 시장", "💵 판매 등록", "⏸️ 승인 대기 목록"],
+        ["🧾 내 거래 내역", "🔑 개인 정보"]
     ]
     
     override init(style: UITableView.Style) {
         super.init(style: style)
-        title = "Menu"
+        title = "메뉴"
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -92,9 +90,9 @@ class MenuController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Trade"
+            return "인증서 거래"
         default:
-            return "Account"
+            return "계정 관리"
         }
     }
     
@@ -105,6 +103,7 @@ class MenuController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = tableLabels[indexPath.section][indexPath.row]
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
         cell.accessoryType = .disclosureIndicator
         return cell
     }
