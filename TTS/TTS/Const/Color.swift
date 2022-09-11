@@ -9,7 +9,11 @@ import UIKit
 
 extension Const {
     struct Color {
-        static let primary: UIColor = .blue.withAlphaComponent(0.5)
+        static let primary: UIColor = UIColor(red: 15/255, green: 76/255, blue: 129/255, alpha: 0.8)
+        
+        static let textColor: UIColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1.0)
+        
+        static let backgroundColor: UIColor = UIColor(red: 249/255, green: 249/255, blue: 249/255, alpha: 1.0)
         
         static let semanticRed1 = UIColor(named: "SemanticRed1")!
         static let semanticGreen1 = UIColor(named: "SemanticGreen1")!

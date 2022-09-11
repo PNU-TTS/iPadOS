@@ -53,6 +53,8 @@
 		9F2654CB28CA057D00DC62AE /* RecListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654CA28CA057D00DC62AE /* RecListVC.swift */; };
 		9F2654CD28CA080700DC62AE /* RecListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654CC28CA080700DC62AE /* RecListVM.swift */; };
 		9F2654CF28CA08B300DC62AE /* RecListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654CE28CA08B300DC62AE /* RecListRepository.swift */; };
+		9F2654D128CDC13000DC62AE /* RecSellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654D028CDC13000DC62AE /* RecSellVC.swift */; };
+		9F2654D328CDC67D00DC62AE /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654D228CDC67D00DC62AE /* Icon.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -154,6 +156,8 @@
 		9F2654CA28CA057D00DC62AE /* RecListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecListVC.swift; sourceTree = "<group>"; };
 		9F2654CC28CA080700DC62AE /* RecListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecListVM.swift; sourceTree = "<group>"; };
 		9F2654CE28CA08B300DC62AE /* RecListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecListRepository.swift; sourceTree = "<group>"; };
+		9F2654D028CDC13000DC62AE /* RecSellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecSellVC.swift; sourceTree = "<group>"; };
+		9F2654D228CDC67D00DC62AE /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -330,6 +334,7 @@
 				9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */,
 				784908DA28C99E8F00E32A77 /* TradeVC.swift */,
 				9F2654CA28CA057D00DC62AE /* RecListVC.swift */,
+				9F2654D028CDC13000DC62AE /* RecSellVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -370,6 +375,7 @@
 			children = (
 				9F19442D28C46AFC009FD556 /* Const.swift */,
 				9F19442F28C46B09009FD556 /* Color.swift */,
+				9F2654D228CDC67D00DC62AE /* Icon.swift */,
 			);
 			path = Const;
 			sourceTree = "<group>";
@@ -751,6 +757,7 @@
 				9F19441928C22521009FD556 /* LoginRepository.swift in Sources */,
 				9F2654CB28CA057D00DC62AE /* RecListVC.swift in Sources */,
 				9F19442B28C46AB7009FD556 /* BalanceView.swift in Sources */,
+				9F2654D128CDC13000DC62AE /* RecSellVC.swift in Sources */,
 				9F2FC74728C72CEF008D2DA9 /* DateTimeConverter.swift in Sources */,
 				AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */,
 				9F2FC74128C72511008D2DA9 /* QueryBySupplierModel.swift in Sources */,
@@ -780,6 +787,7 @@
 				784908DE28C9A11700E32A77 /* TradeHeader.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
 				9F2654CF28CA08B300DC62AE /* RecListRepository.swift in Sources */,
+				9F2654D328CDC67D00DC62AE /* Icon.swift in Sources */,
 				784908D228C969AA00E32A77 /* ConfirmVC.swift in Sources */,
 				9F2654C428CA054700DC62AE /* RecModel.swift in Sources */,
 				784908DB28C99E8F00E32A77 /* TradeVC.swift in Sources */,

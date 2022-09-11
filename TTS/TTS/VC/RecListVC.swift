@@ -8,6 +8,7 @@
 import UIKit
 
 import RxSwift
+import RxGesture
 import Then
 import SnapKit
 
@@ -54,7 +55,12 @@ class RecListVC: UIViewController {
         repository.getCertificateBysypplier(id: 1)
             .subscribe(onSuccess: { recList in
                 recList.forEach { rec in
-                    self.recTable.addArrangedSubview(RecCell(input: rec.Certificate))
+                    let cell = RecCell(input: rec.Certificate)
+                    cell.setSellButtonCommand {
+                        let nextVC = RecSellVC()
+                        self.present(nextVC, animated: true)
+                    }
+                    self.recTable.addArrangedSubview(cell)
                 }
             }).disposed(by: disposeBag)
     }
