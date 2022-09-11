@@ -47,7 +47,7 @@ class HomeVC: UIViewController {
         setBinding()
         ChartRepository().getChartData(type: 2)
             .subscribe(onSuccess: { ChartModel in
-                self.setChartData(dataPoints: ChartModel.xData, values: ChartModel.yData)
+                self.setChartData(dataPoints: ChartModel.xData, values: ChartModel.yData, limit: ChartModel.average)
             }).disposed(by: disposeBag)
     }
     
@@ -105,17 +105,7 @@ class HomeVC: UIViewController {
         }
     }
     func setChart() {
-        lineChartView.then {
-            let ll = ChartLimitLine(limit: 10.0, label: "average")
-            ll.labelPosition = .leftTop
-            ll.drawLabelEnabled = true
-            ll.lineColor = .gray.withAlphaComponent(0.3)
-            ll.lineDashLengths = [5, 5, 0]
-            ll.valueTextColor = .gray
-            $0.leftAxis.addLimitLine(ll)
-            
-            $0.animate(yAxisDuration: 1)
-        }.snp.makeConstraints { make in
+        lineChartView.snp.makeConstraints { make in
             make.top.equalTo(dailyChartButton.snp.bottom).offset(5)
             make.leading.trailing.bottom.equalToSuperview()
         }
@@ -151,11 +141,11 @@ class HomeVC: UIViewController {
         }).disposed(by: disposeBag)
         
         output.chartData.subscribe(onNext: { chartData in
-            self.setChartData(dataPoints: chartData.xData, values: chartData.yData)
+            self.setChartData(dataPoints: chartData.xData, values: chartData.yData, limit: chartData.average)
         }).disposed(by: disposeBag)
     }
     
-    func setChartData(dataPoints: [String], values: [Double]) {
+    func setChartData(dataPoints: [String], values: [Double], limit: Double) {
         // 데이터 생성
         var dataEntries: [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
@@ -189,6 +179,14 @@ class HomeVC: UIViewController {
         let chartData = LineChartData(dataSet: chartDataSet)
         chartData.setDrawValues(false)      // value 표시 유무
         
+        let ll = ChartLimitLine(limit: limit, label: "average")
+        ll.labelPosition = .leftTop
+        ll.drawLabelEnabled = true
+        ll.lineColor = .gray.withAlphaComponent(0.3)
+        ll.lineDashLengths = [5, 5, 0]
+        ll.valueTextColor = .gray
+        lineChartView.leftAxis.addLimitLine(ll)
+
         lineChartView.data = chartData
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints) // X축 레이블 포맷 지정
         lineChartView.xAxis.setLabelCount(dataPoints.count-1, force: false)
