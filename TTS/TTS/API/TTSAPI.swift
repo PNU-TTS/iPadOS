@@ -49,6 +49,8 @@ extension TTSAPI: TargetType {
         switch self {
         case .login:
             return Data(TokenModel.sampleData.utf8)
+        case .userVerify:
+            return Data(UserModel.sampleData.utf8)
         default:
             return Data()
         }
