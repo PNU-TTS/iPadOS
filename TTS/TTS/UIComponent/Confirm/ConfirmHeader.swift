@@ -24,7 +24,7 @@ class ConfirmHeader: UIView {
     
     init() {
         super.init(frame: .zero)
-        self.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        self.backgroundColor = .lightGray.withAlphaComponent(0.15)
         setView()
     }
     
@@ -54,7 +54,7 @@ class ConfirmHeader: UIView {
     
     func setTimeStamp() {
         timeStamp.then {
-            $0.text = "거래 일시"
+            $0.text = "요청 일시"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
             $0.textAlignment = .center
@@ -66,7 +66,11 @@ class ConfirmHeader: UIView {
         
     func setReceiver() {
         receiver.then {
-            $0.text = "구매자"
+            if ProfileDB.shared.get().is_supplier {
+                $0.text = "구매자"
+            } else {
+                $0.text = "판매자"
+            }
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
             $0.textAlignment = .center
