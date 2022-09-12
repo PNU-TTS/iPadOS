@@ -23,7 +23,6 @@ enum FabricAPI {
     case queryTransactionByBuyer(input: QueryByBuyerModel)
     case queryNotConfirmedBySupplier(input: QueryBySupplierModel)
     case queryNotConfirmedByBuyer(input: QueryByBuyerModel)
-    case queryChartData(type: Int)
 }
 
 extension FabricAPI: TargetType {
@@ -77,15 +76,13 @@ extension FabricAPI: TargetType {
         case .queryNotConfirmedByBuyer:
             return "/query/transaction/by-buyer/non-confirmed/"
             
-        case .queryChartData(let type):
-            return "/query/chart/\(type)"
         }
     }
     
     var method: Method {
         switch self {
         case .createTransaction, .executeTransaction, .approveTransaction,
-                .queryTransactionBySupplier, .queryTransactionByBuyer, .registerCertificate, .queryNotConfirmedBySupplier, .queryNotConfirmedByBuyer, .queryChartData:
+                .queryTransactionBySupplier, .queryTransactionByBuyer, .registerCertificate, .queryNotConfirmedBySupplier, .queryNotConfirmedByBuyer:
             return .post
         default:
             return .get
@@ -94,14 +91,12 @@ extension FabricAPI: TargetType {
     
     var sampleData: Data {
         switch self {
-        case .queryAllTransactions, .queryTransactionBySupplier, .queryTransactionByBuyer, .queryNotConfirmedBySupplier, .queryNotConfirmedByBuyer:
+        case .queryAllTransactions, .queryExecutedTransactions,
+                .queryTransactionBySupplier, .queryTransactionByBuyer, .queryNotConfirmedBySupplier, .queryNotConfirmedByBuyer:
             return Data(TransactionModel.sampleData.utf8)
             
         case .queryCertificateBySupplier:
             return Data(RecModel.sampleData.utf8)
-            
-        case .queryChartData:
-            return Data(ChartModel.sampleData.utf8)
             
         default:
             return Data()
@@ -150,9 +145,6 @@ extension FabricAPI: TargetType {
             
         case .queryNotConfirmedByBuyer(let input):
             return .requestJSONEncodable(input)
-            
-        case .queryChartData:
-            return .requestPlain
         }
     }
     

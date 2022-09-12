@@ -23,7 +23,6 @@
 		784908E628CDD76600E32A77 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908E528CDD76600E32A77 /* HomeVM.swift */; };
 		784908E828CDE14200E32A77 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908E728CDE14200E32A77 /* ChartView.swift */; };
 		784908EA28CDE63C00E32A77 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908E928CDE63C00E32A77 /* ChartModel.swift */; };
-		784908EE28CDEFD100E32A77 /* ChartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784908ED28CDEFD100E32A77 /* ChartRepository.swift */; };
 		7851BD3C28BB2D91006086CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3B28BB2D91006086CB /* AppDelegate.swift */; };
 		7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD3D28BB2D91006086CB /* SceneDelegate.swift */; };
 		7851BD4528BB2D94006086CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7851BD4428BB2D94006086CB /* Assets.xcassets */; };
@@ -64,6 +63,7 @@
 		9F2654DC28CDECC000DC62AE /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2654DB28CDECC000DC62AE /* LocalAuthentication.framework */; };
 		9F2654DE28CDFB8700DC62AE /* UIColorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */; };
 		9F2654E028CEE3F300DC62AE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654DF28CEE3F300DC62AE /* UserModel.swift */; };
+		9F2654E228CF0C5300DC62AE /* ChartConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E128CF0C5300DC62AE /* ChartConverter.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -131,7 +131,6 @@
 		784908E528CDD76600E32A77 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		784908E728CDE14200E32A77 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		784908E928CDE63C00E32A77 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
-		784908ED28CDEFD100E32A77 /* ChartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRepository.swift; sourceTree = "<group>"; };
 		7851BD3828BB2D91006086CB /* TTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7851BD3B28BB2D91006086CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7851BD3D28BB2D91006086CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +175,7 @@
 		9F2654DB28CDECC000DC62AE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorUtility.swift; sourceTree = "<group>"; };
 		9F2654DF28CEE3F300DC62AE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		9F2654E128CF0C5300DC62AE /* ChartConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartConverter.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -411,6 +411,7 @@
 				9F19443428C49B01009FD556 /* UIViewUtility.swift */,
 				9F2FC74628C72CEF008D2DA9 /* DateTimeConverter.swift */,
 				9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */,
+				9F2654E128CF0C5300DC62AE /* ChartConverter.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -465,7 +466,6 @@
 				9F2FC74A28C74322008D2DA9 /* CertificateRepository.swift */,
 				9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */,
 				9F2654CE28CA08B300DC62AE /* RecListRepository.swift */,
-				784908ED28CDEFD100E32A77 /* ChartRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -775,7 +775,6 @@
 				784908E228C9A23300E32A77 /* TradeVM.swift in Sources */,
 				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
 				784908D428C96AD900E32A77 /* ConfirmVM.swift in Sources */,
-				784908EE28CDEFD100E32A77 /* ChartRepository.swift in Sources */,
 				9F2654B028C8FB4E00DC62AE /* BasePaddingLabel.swift in Sources */,
 				9F2FC75428C8E64F008D2DA9 /* SupplierModel.swift in Sources */,
 				AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */,
@@ -827,6 +826,7 @@
 				9F2654E028CEE3F300DC62AE /* UserModel.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				9F2654D728CDDA2B00DC62AE /* ConfirmTransactionVC.swift in Sources */,
+				9F2654E228CF0C5300DC62AE /* ChartConverter.swift in Sources */,
 				9F2654DE28CDFB8700DC62AE /* UIColorUtility.swift in Sources */,
 				784908DE28C9A11700E32A77 /* TradeHeader.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
