@@ -14,7 +14,8 @@ import RxGesture
 
 extension LoginVC {
     static let componentWidthRatio: CGFloat = 0.5
-    static let offset: CGFloat = 25.0
+    static let offset: CGFloat = 15.0
+    static let componentHeight: CGFloat = 63.0
 }
 
 class LoginVC: UIViewController {
@@ -76,30 +77,38 @@ class LoginVC: UIViewController {
     func setEmailField() {
         emailField.then {
             $0.placeholder = "이메일"
+            $0.leftViewMode = .always
+            $0.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
             $0.keyboardType = .emailAddress
             $0.textContentType = .emailAddress
             $0.autocapitalizationType = .none
-            $0.borderStyle = .roundedRect
-            $0.font = UIFont.systemFont(ofSize: 30.0, weight: .light)
+            $0.layer.cornerRadius = 8
+            $0.font = UIFont.systemFont(ofSize: 28.0, weight: .light)
+            $0.backgroundColor = .systemGroupedBackground
         }.snp.makeConstraints { make in
             make.top.equalTo(logoLabel.snp.bottom).offset(40.0)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(LoginVC.componentWidthRatio)
+            make.height.equalTo(LoginVC.componentHeight)
         }
     }
     
     func setPasswordField() {
         passwordField.then {
             $0.placeholder = "비밀번호"
+            $0.leftViewMode = .always
+            $0.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
             $0.autocapitalizationType = .none
             $0.textContentType = .password
             $0.isSecureTextEntry = true
-            $0.borderStyle = .roundedRect
-            $0.font = UIFont.systemFont(ofSize: 30.0, weight: .light)
+            $0.layer.cornerRadius = 8
+            $0.font = UIFont.systemFont(ofSize: 28.0, weight: .light)
+            $0.backgroundColor = .systemGroupedBackground
         }.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(emailField)
             make.top.equalTo(emailField.snp.bottom).offset(LoginVC.offset)
+            make.height.equalTo(LoginVC.componentHeight)
         }
     }
     
@@ -109,7 +118,7 @@ class LoginVC: UIViewController {
             $0.titleLabel?.font = UIFont.systemFont(ofSize: 30.0, weight: .medium)
             $0.backgroundColor = Const.Color.primary
             $0.tintColor = .white
-            $0.layer.cornerRadius = 5.0
+            $0.layer.cornerRadius = 8.0
         }.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(passwordField.snp.bottom).offset(LoginVC.offset)
