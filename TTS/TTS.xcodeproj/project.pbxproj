@@ -62,6 +62,8 @@
 		9F2654D728CDDA2B00DC62AE /* ConfirmTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */; };
 		9F2654DA28CDDB7200DC62AE /* ConfirmTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654D928CDDB7200DC62AE /* ConfirmTransactionCell.swift */; };
 		9F2654DC28CDECC000DC62AE /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F2654DB28CDECC000DC62AE /* LocalAuthentication.framework */; };
+		9F2654DE28CDFB8700DC62AE /* UIColorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */; };
+		9F2654E028CEE3F300DC62AE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654DF28CEE3F300DC62AE /* UserModel.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -172,6 +174,8 @@
 		9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionVC.swift; sourceTree = "<group>"; };
 		9F2654D928CDDB7200DC62AE /* ConfirmTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionCell.swift; sourceTree = "<group>"; };
 		9F2654DB28CDECC000DC62AE /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorUtility.swift; sourceTree = "<group>"; };
+		9F2654DF28CEE3F300DC62AE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 				9F2FC75328C8E64F008D2DA9 /* SupplierModel.swift */,
 				9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */,
 				784908E928CDE63C00E32A77 /* ChartModel.swift */,
+				9F2654DF28CEE3F300DC62AE /* UserModel.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 			children = (
 				9F19443428C49B01009FD556 /* UIViewUtility.swift */,
 				9F2FC74628C72CEF008D2DA9 /* DateTimeConverter.swift */,
+				9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -818,8 +824,10 @@
 				784908D928C96E8000E32A77 /* ConfirmHeader.swift in Sources */,
 				AF73620628C5D0A8003B72D0 /* SupplierProfileVC.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
+				9F2654E028CEE3F300DC62AE /* UserModel.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				9F2654D728CDDA2B00DC62AE /* ConfirmTransactionVC.swift in Sources */,
+				9F2654DE28CDFB8700DC62AE /* UIColorUtility.swift in Sources */,
 				784908DE28C9A11700E32A77 /* TradeHeader.swift in Sources */,
 				9F19442428C23310009FD556 /* LoginVM.swift in Sources */,
 				9F2654CF28CA08B300DC62AE /* RecListRepository.swift in Sources */,
@@ -1004,7 +1012,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F3WHK97G9Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1032,7 +1040,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F3WHK97G9Z;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TTS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

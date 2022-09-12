@@ -9,6 +9,7 @@ import UIKit
 
 extension Const {
     struct Icon {
+        static let volt: UIImage = UIImage.init(systemName: "bolt.square.fill")!
         static let won: UIImage = UIImage.init(systemName: "wonsign.circle.fill")!
         static let upArrow: UIImage = UIImage.init(systemName: "arrow.up.right.circle.fill")!
         static let downArrow: UIImage = UIImage.init(systemName: "arrow.down.right.circle.fill")!
