@@ -59,7 +59,7 @@ class TransactionHeader: UIView {
         timeStamp.then {
             $0.text = "거래 일시"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.325)
             make.top.bottom.equalToSuperview().inset(12.0)
@@ -70,7 +70,7 @@ class TransactionHeader: UIView {
         sender.then {
             $0.text = "공급자"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.1)
         }
@@ -80,7 +80,7 @@ class TransactionHeader: UIView {
         receiver.then {
             $0.text = "구매자"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.1)
         }
@@ -90,7 +90,7 @@ class TransactionHeader: UIView {
         pricePerREC.then {
             $0.text = "개당 금액"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -100,7 +100,7 @@ class TransactionHeader: UIView {
         quantity.then {
             $0.text = "거래 수량"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -110,7 +110,7 @@ class TransactionHeader: UIView {
         status.then {
             $0.text = "거래 상태"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.175)
         }

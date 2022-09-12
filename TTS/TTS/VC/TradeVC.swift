@@ -15,32 +15,43 @@ class TradeVC: UIViewController {
     private var viewModel = ConfirmVM()
     private var disposeBag = DisposeBag()
     
-    lazy var tradeTableHeader = TradeHeader()
-    lazy var tradeTable = UIScrollView()
-    lazy var stackView = UIStackView()
+    private var titleLabel = UILabel()
+    private var tradeTableHeader = TradeHeader()
+    private var tradeTable = UIScrollView()
+    private var stackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = Const.Color.backgroundColor
         
         setView()
-        setBinding()
-
-        // Do any additional setup after loading the view.
     }
     
 
     func setView() {
-        [tradeTableHeader, tradeTable].forEach {
+        [titleLabel, tradeTableHeader, tradeTable].forEach {
             view.addSubview($0)
         }
+        setTitle()
         setTradeTable()
+        setBinding()
+    }
+    
+    func setTitle() {
+        titleLabel.then {
+            $0.text = "📈 거래 시장"
+            $0.font = UIFont.systemFont(ofSize: 40.0, weight: .bold)
+            $0.textColor = Const.Color.textColor
+        }.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30.0)
+            make.left.equalToSuperview().inset(10.0)
+        }
     }
     
     func setTradeTable() {
         tradeTableHeader.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(10.0)
-            make.top.equalToSuperview().offset(100)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20.0)
         }
         
         tradeTable.addSubview(stackView)
