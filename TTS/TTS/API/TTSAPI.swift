@@ -10,21 +10,27 @@ import Moya
 enum TTSAPI {
     case queryAllTransactions
     case login(input: LoginModel)
+    case userVerify
     
     case getSupplierInfo(id: Int)
 }
 
 extension TTSAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://127.0.0.1:8000")!
+        return URL(string: "http://192.168.0.44:8000")!
     }
     
     var path: String {
         switch self {
         case .queryAllTransactions:
             return "/query/allTransactions"
+            
         case .login:
             return "/account/login/"
+            
+        case .userVerify:
+            return "/user/"
+            
         case .getSupplierInfo(let id):
             return "/powerplant/\(id)"
         }
@@ -32,11 +38,10 @@ extension TTSAPI: TargetType {
     
     var method: Method {
         switch self {
-        case .queryAllTransactions, .getSupplierInfo:
-            return .get
-            
         case .login:
             return .post
+        default:
+            return .get
         }
     }
     
@@ -57,6 +62,9 @@ extension TTSAPI: TargetType {
         case .login(let input):
             return .requestJSONEncodable(input)
             
+        case .userVerify:
+            return .requestPlain
+            
         case .getSupplierInfo:
             return .requestPlain
         }
@@ -67,6 +75,6 @@ extension TTSAPI: TargetType {
         if token == "" {
             return [:]
         }
-        return ["Authentication":"Token \(token)"]
+        return ["Authorization":"Token \(token)"]
     }
 }
