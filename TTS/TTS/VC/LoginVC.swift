@@ -19,6 +19,10 @@ extension LoginVC {
 
 class LoginVC: UIViewController {
     private var disposeBag = DisposeBag()
+    
+    private var logoView = UIView()
+    private var logoImage = UIImageView()
+    private var logoLabel = UILabel()
     private var emailField = UITextField()
     private var passwordField = UITextField()
     private var loginButton = UIButton()
@@ -27,13 +31,46 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         self.view.backgroundColor = .white
-        [emailField, passwordField, loginButton].forEach {
+        [logoView, emailField, passwordField, loginButton].forEach {
             self.view.addSubview($0)
         }
+        setLogoView()
         setEmailField()
         setPasswordField()
         setLoginButton()
         setBinding()
+    }
+    
+    func setLogoView() {
+        [logoImage, logoLabel].forEach {
+            logoView.addSubview($0)
+        }
+        
+        logoView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(300.0)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.5)
+        }
+        
+        logoImage.then {
+            $0.image = Const.Icon.volt
+            $0.tintColor = Const.Color.primary
+        }.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(125.0)
+            make.height.width.equalTo(100.0)
+            make.centerY.equalToSuperview()
+        }
+        
+        logoLabel.then {
+            $0.text = "신재생 에너지\n거래 플랫폼"
+            $0.textColor = Const.Color.primary
+            $0.font = UIFont.systemFont(ofSize: 50.0, weight: .bold)
+            $0.numberOfLines = 2
+            $0.textAlignment = .center
+        }.snp.makeConstraints { make in
+            make.left.equalTo(logoImage.snp.right).offset(10.0)
+            make.top.bottom.equalToSuperview()
+        }
     }
     
     func setEmailField() {
@@ -43,8 +80,10 @@ class LoginVC: UIViewController {
             $0.textContentType = .emailAddress
             $0.autocapitalizationType = .none
             $0.borderStyle = .roundedRect
+            $0.font = UIFont.systemFont(ofSize: 30.0, weight: .light)
         }.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.top.equalTo(logoLabel.snp.bottom).offset(40.0)
+            make.centerX.equalToSuperview()
             make.width.equalToSuperview().multipliedBy(LoginVC.componentWidthRatio)
         }
     }
@@ -56,6 +95,7 @@ class LoginVC: UIViewController {
             $0.textContentType = .password
             $0.isSecureTextEntry = true
             $0.borderStyle = .roundedRect
+            $0.font = UIFont.systemFont(ofSize: 30.0, weight: .light)
         }.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(emailField)
@@ -66,6 +106,7 @@ class LoginVC: UIViewController {
     func setLoginButton() {
         loginButton.then {
             $0.setTitle("로그인", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 30.0, weight: .medium)
             $0.backgroundColor = Const.Color.primary
             $0.tintColor = .white
             $0.layer.cornerRadius = 5.0
@@ -91,8 +132,6 @@ class LoginVC: UIViewController {
         output.isLoginSuccess
             .subscribe(onNext: { result in
                 if result {
-                    ProfileDB.shared.save(profile: ProfileData(email: self.emailField.text!))
-                    
                     let nextVC = SplitVC()
                     nextVC.modalTransitionStyle = .crossDissolve
                     nextVC.modalPresentationStyle = .fullScreen
