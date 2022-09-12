@@ -80,7 +80,7 @@ class HomeVC: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(titleLabel.snp.bottom).offset(20.0)
             make.height.equalTo(350)
-            make.width.equalToSuperview().offset(-50)
+            make.left.right.equalToSuperview().inset(10.0)
         }
         setButtons()
         setChart()
@@ -120,9 +120,12 @@ class HomeVC: UIViewController {
         }
     }
     func setChart() {
+        lineChartView.extraRightOffset = 30
+        
         lineChartView.snp.makeConstraints { make in
             make.top.equalTo(dailyChartButton.snp.bottom).offset(5)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
         }
     }
     

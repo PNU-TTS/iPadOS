@@ -13,7 +13,7 @@ class ChartView: LineChartView {
     let chartLabelSize = CGFloat(15)
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: .zero)
         
         setConfig()
     }
