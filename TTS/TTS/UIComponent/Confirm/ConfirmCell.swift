@@ -25,7 +25,8 @@ class ConfirmCell: UIView {
     private var receiver = UILabel()
     private var pricePerREC = UILabel()
     private var quantity = UILabel()
-//    private var status = UILabel()
+    private var status = UIView()
+    private var confirm = UIView()
     private var confirmButton = UIButton()
     
     private var input: TransactionModel.InnerModel
@@ -45,12 +46,24 @@ class ConfirmCell: UIView {
         setReceiver()
         setPricePerREC()
         setQuantity()
-        setConfirmButton()
     }
     
     func setCell() {
-        [timeStamp, receiver, pricePerREC, quantity, confirmButton].forEach {
+        [
+            timeStamp,
+            receiver,
+            pricePerREC,
+            quantity
+        ].forEach {
             cell.addArrangedSubview($0)
+        }
+        
+        if ProfileDB.shared.get().is_supplier {
+            cell.addArrangedSubview(confirm)
+            setConfirm()
+        } else {
+            cell.addArrangedSubview(status)
+            setStatus()
         }
         
         cell.then {
@@ -82,6 +95,7 @@ class ConfirmCell: UIView {
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.2)
+            make.top.bottom.equalTo(timeStamp)
         }
     }
     
@@ -93,6 +107,7 @@ class ConfirmCell: UIView {
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
+            make.top.bottom.equalTo(timeStamp)
         }
     }
     
@@ -104,17 +119,61 @@ class ConfirmCell: UIView {
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
+            make.top.bottom.equalTo(timeStamp)
         }
     }
     
-    func setConfirmButton() {
+    func setStatus() {
+        let statusLabel = BasePaddingLabel()
+        status.snp.makeConstraints { make in
+            make.top.bottom.equalTo(timeStamp)
+            make.width.equalToSuperview().multipliedBy(0.175)
+        }
+        
+        status.addSubview(statusLabel)
+        
+        var text = "거래 대금 확인 중"
+        var textColor = Const.Color.semanticYellow2
+        var backgroundColor = Const.Color.semanticYellow1
+        if input.buyer == nil {
+            text = "미체결"
+            textColor = Const.Color.semanticRed2
+            backgroundColor = Const.Color.semanticRed1
+        } else if input.is_confirmed {
+            text = "거래 완료"
+            textColor = Const.Color.semanticGreen2
+            backgroundColor = Const.Color.semanticGreen1
+        }
+        
+        statusLabel.then {
+            $0.text = text
+            $0.textColor = textColor
+            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize, weight: .bold)
+            $0.backgroundColor = backgroundColor
+            $0.layer.cornerRadius = 5.0
+            $0.layer.masksToBounds = true
+
+        }.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+    }
+    
+    func setConfirm() {
+        confirm.snp.makeConstraints { make in
+            make.height.equalTo(quantity)
+            make.width.equalToSuperview().multipliedBy(0.175)
+        }
+        confirm.addSubview(confirmButton)
+        
         confirmButton.then {
-            $0.setTitle("승인", for: .normal)
+            $0.setTitle("승인하기", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: TransactionCell.fontSize, weight: .bold)
+            $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = Const.Color.primary
-            $0.tintColor = .white
             $0.layer.cornerRadius = 5.0
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.175)
+            make.top.bottom.centerX.equalToSuperview()
+            make.width.equalToSuperview().multipliedBy(0.8)
         }
     }
     

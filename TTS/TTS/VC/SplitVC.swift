@@ -9,7 +9,7 @@ import UIKit
 
 class SplitVC: UISplitViewController {
     
-    let tableLabels: [[String]] = [
+    var tableLabels: [[String]] = [
         ["📈 거래 시장", "💵 판매 등록"],
         ["⏸️ 승인 대기 목록", "🧾 내 거래 내역", "🔑 개인 정보"]
     ]
@@ -17,6 +17,18 @@ class SplitVC: UISplitViewController {
         super.viewDidLoad()
         
         self.preferredDisplayMode = .oneBesideSecondary
+        
+        if ProfileDB.shared.get().is_supplier {
+            tableLabels = [
+                ["📈 거래 시장", "💵 판매 등록"],
+                ["⏸️ 승인 대기 목록", "🧾 내 거래 내역", "🔑 개인 정보"]
+            ]
+        } else {
+            tableLabels = [
+                ["📈 거래 시장"],
+                ["⏸️ 승인 대기 목록", "🧾 내 거래 내역", "🔑 개인 정보"]
+            ]
+        }
         
         let menuVC = MenuController(style: .insetGrouped)
         menuVC.delegate = self
@@ -66,7 +78,7 @@ protocol MenuControllerDelegate {
 class MenuController: UITableViewController {
     
     var delegate: MenuControllerDelegate?
-    let tableLabels: [[String]] = [
+    var tableLabels: [[String]] = [
         ["📈 거래 시장", "💵 판매 등록", "⏸️ 승인 대기 목록"],
         ["🧾 내 거래 내역", "🔑 개인 정보"]
     ]
@@ -74,6 +86,19 @@ class MenuController: UITableViewController {
     override init(style: UITableView.Style) {
         super.init(style: style)
         title = "메뉴"
+        
+        if ProfileDB.shared.get().is_supplier {
+            tableLabels = [
+                ["📈 거래 시장", "💵 판매 등록", "⏸️ 승인 대기 목록"],
+                ["🧾 내 거래 내역", "🔑 개인 정보"]
+            ]
+        } else {
+            tableLabels = [
+                ["📈 거래 시장", "⏸️ 승인 대기 목록"],
+                ["🧾 내 거래 내역", "🔑 개인 정보"]
+            ]
+        }
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
