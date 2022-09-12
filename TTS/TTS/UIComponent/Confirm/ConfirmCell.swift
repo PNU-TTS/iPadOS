@@ -77,7 +77,7 @@ class ConfirmCell: UIView {
     
     func setTimeStamp() {
         timeStamp.then {
-            $0.text = "\(DateTimeConverter.fromInt(input: input.registeredDate))"
+            $0.text = "\(DateTimeConverter.fromIntToString(input: input.registeredDate))"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize)
             $0.textAlignment = .center

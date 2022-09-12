@@ -74,7 +74,7 @@ class RecCell: UIView {
     
     func setExpireDate() {
         expireDate.then {
-            $0.text = "\(DateTimeConverter.fromInt(input: input.expire_date))"
+            $0.text = "\(DateTimeConverter.fromIntToString(input: input.expire_date))"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
         }.snp.makeConstraints { make in
