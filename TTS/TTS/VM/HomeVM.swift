@@ -11,7 +11,6 @@ import RxRelay
 struct HomeVM: BasicVM {
     internal var disposeBag = DisposeBag()
     private let transactionRepo = TransactionRepository()
-    private let chartRepo = ChartRepository()
     
     let data = PublishRelay<ChartModel>()
     
@@ -30,17 +29,17 @@ struct HomeVM: BasicVM {
         
         input.isDailyTapped
             .subscribe { _ in
-                getData(type: 0)
+                getData(type: .day)
             }.disposed(by: disposeBag)
         
         input.isWeeklyTapped
             .subscribe { _ in
-                getData(type: 1)
+                getData(type: .week)
             }.disposed(by: disposeBag)
         
         input.isMonthlyTapped
             .subscribe { _ in
-                getData(type: 2)
+                getData(type: .month)
             }.disposed(by: disposeBag)
         
         return Output(
@@ -49,10 +48,15 @@ struct HomeVM: BasicVM {
         )
     }
     
-    func getData(type: Int) {
-        chartRepo.getChartData(type: type)
-            .subscribe(onSuccess: { ChartModel in
-                self.data.accept(ChartModel)
+    func getData(type: ChartType) {
+        transactionRepo.getExecutedTransaction()
+            .subscribe(onSuccess: { transactions in
+                switch type {
+                case .month:
+                    self.data.accept(ChartConverter.getMonthly(input: transactions))
+                default:
+                    self.data.accept(ChartConverter.getDaily(input: transactions))
+                }
             }).disposed(by: disposeBag)
     }
 }
