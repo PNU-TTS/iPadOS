@@ -18,7 +18,8 @@ class RecListVC: UIViewController {
     private var titleLabel = UILabel()
     
     private var recHeader = RecHeader()
-    private var recTable = UIStackView()
+    private var recTable = UIScrollView()
+    private var stackView = UIStackView()
     
     private var repository = RecListRepository()
     
@@ -54,13 +55,21 @@ class RecListVC: UIViewController {
             make.left.right.equalToSuperview().inset(10.0)
         }
         
-        recTable.then {
+        recTable.addSubview(stackView)
+        
+        recTable.snp.makeConstraints { make in
+            make.left.right.equalTo(recHeader)
+            make.top.equalTo(recHeader.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        
+        stackView.then {
             $0.axis = .vertical
             $0.spacing = 1.0
             $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
         }.snp.makeConstraints { make in
-            make.left.right.equalTo(recHeader)
-            make.top.equalTo(recHeader.snp.bottom)
+            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview()
         }
     }
     
@@ -73,7 +82,7 @@ class RecListVC: UIViewController {
                         let nextVC = RecSellVC()
                         self.present(nextVC, animated: true)
                     }
-                    self.recTable.addArrangedSubview(cell)
+                    self.stackView.addArrangedSubview(cell)
                 }
             }).disposed(by: disposeBag)
     }

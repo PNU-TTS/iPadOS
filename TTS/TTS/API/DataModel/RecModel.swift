@@ -38,6 +38,102 @@ extension RecModel {
             "is_jeju": false,
             "supply_date": 2736262,
             "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_123",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": true,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_456",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": false,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_123",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": true,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_456",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": false,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_123",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": true,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_456",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": false,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_123",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": true,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_456",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": false,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_123",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": true,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_456",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": false,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_123",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": true,
+            "supply_date": 2736262,
+            "expire_date": 3838243
+        }},
+        {"Certificate": {
+            "id": "CERTIFICATE_456",
+            "supplier": "1",
+            "quantity": 100,
+            "is_jeju": false,
+            "supply_date": 2736262,
+            "expire_date": 3838243
         }}
     ]
     """
