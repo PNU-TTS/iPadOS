@@ -15,6 +15,8 @@ import SnapKit
 class RecListVC: UIViewController {
     private var disposeBag = DisposeBag()
     
+    private var titleLabel = UILabel()
+    
     private var recHeader = RecHeader()
     private var recTable = UIStackView()
     
@@ -27,18 +29,29 @@ class RecListVC: UIViewController {
     }
     
     func setView() {
-        [recHeader, recTable].forEach {
+        [titleLabel, recHeader, recTable].forEach {
             view.addSubview($0)
         }
-        
+        setTitle()
         setRecTable()
         setBinding()
     }
     
+    func setTitle() {
+        titleLabel.then {
+            $0.text = "💵 판매 등록"
+            $0.font = UIFont.systemFont(ofSize: 40.0, weight: .bold)
+            $0.textColor = Const.Color.textColor
+        }.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30.0)
+            make.left.equalToSuperview().inset(10.0)
+        }
+    }
+    
     func setRecTable() {
         recHeader.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20.0)
             make.left.right.equalToSuperview().inset(10.0)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(30.0)
         }
         
         recTable.then {
