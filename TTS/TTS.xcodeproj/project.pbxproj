@@ -31,6 +31,7 @@
 		7851BD5328BB2D94006086CB /* TTSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5228BB2D94006086CB /* TTSTests.swift */; };
 		7851BD5D28BB2D94006086CB /* TTSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5C28BB2D94006086CB /* TTSUITests.swift */; };
 		7851BD5F28BB2D94006086CB /* TTSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */; };
+		785F7D0D28CEE64D0075FAED /* BuyerConfirmWaitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7D0C28CEE64D0075FAED /* BuyerConfirmWaitVC.swift */; };
 		9AE1D26D9F0B16879B490240 /* Pods_TTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8522230136EBF9646E2342F /* Pods_TTS.framework */; };
 		9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441028C220D7009FD556 /* TransactionModel.swift */; };
 		9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441228C22145009FD556 /* TransactionRepository.swift */; };
@@ -141,6 +142,7 @@
 		7851BD5828BB2D94006086CB /* TTSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7851BD5C28BB2D94006086CB /* TTSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITests.swift; sourceTree = "<group>"; };
 		7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		785F7D0C28CEE64D0075FAED /* BuyerConfirmWaitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerConfirmWaitVC.swift; sourceTree = "<group>"; };
 		85721C8EF9BD5353EC1E21C8 /* Pods-TTS-TTSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS-TTSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTS-TTSUITests/Pods-TTS-TTSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F19441028C220D7009FD556 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		9F19441228C22145009FD556 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				9F2654CA28CA057D00DC62AE /* RecListVC.swift */,
 				9F2654D028CDC13000DC62AE /* RecSellVC.swift */,
 				9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */,
+				785F7D0C28CEE64D0075FAED /* BuyerConfirmWaitVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -784,6 +787,7 @@
 				784908D728C96E7600E32A77 /* ConfirmCell.swift in Sources */,
 				9F19443028C46B09009FD556 /* Color.swift in Sources */,
 				9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */,
+				785F7D0D28CEE64D0075FAED /* BuyerConfirmWaitVC.swift in Sources */,
 				784908E028C9A12400E32A77 /* TradeCell.swift in Sources */,
 				9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */,
 				9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */,
