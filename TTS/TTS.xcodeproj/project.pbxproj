@@ -32,6 +32,7 @@
 		7851BD5D28BB2D94006086CB /* TTSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5C28BB2D94006086CB /* TTSUITests.swift */; };
 		7851BD5F28BB2D94006086CB /* TTSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */; };
 		785F7D0D28CEE64D0075FAED /* BuyerConfirmWaitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7D0C28CEE64D0075FAED /* BuyerConfirmWaitVC.swift */; };
+		785F7D0F28CEE7170075FAED /* BuyerConfirmWaitVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7D0E28CEE7170075FAED /* BuyerConfirmWaitVM.swift */; };
 		9AE1D26D9F0B16879B490240 /* Pods_TTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8522230136EBF9646E2342F /* Pods_TTS.framework */; };
 		9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441028C220D7009FD556 /* TransactionModel.swift */; };
 		9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441228C22145009FD556 /* TransactionRepository.swift */; };
@@ -143,6 +144,7 @@
 		7851BD5C28BB2D94006086CB /* TTSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITests.swift; sourceTree = "<group>"; };
 		7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		785F7D0C28CEE64D0075FAED /* BuyerConfirmWaitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerConfirmWaitVC.swift; sourceTree = "<group>"; };
+		785F7D0E28CEE7170075FAED /* BuyerConfirmWaitVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerConfirmWaitVM.swift; sourceTree = "<group>"; };
 		85721C8EF9BD5353EC1E21C8 /* Pods-TTS-TTSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS-TTSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTS-TTSUITests/Pods-TTS-TTSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F19441028C220D7009FD556 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		9F19441228C22145009FD556 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				784908E128C9A23300E32A77 /* TradeVM.swift */,
 				9F2654CC28CA080700DC62AE /* RecListVM.swift */,
 				784908E528CDD76600E32A77 /* HomeVM.swift */,
+				785F7D0E28CEE7170075FAED /* BuyerConfirmWaitVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -779,6 +782,7 @@
 				9F2654DA28CDDB7200DC62AE /* ConfirmTransactionCell.swift in Sources */,
 				9F2FC75C28C8F20A008D2DA9 /* RecVC.swift in Sources */,
 				783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */,
+				785F7D0F28CEE7170075FAED /* BuyerConfirmWaitVM.swift in Sources */,
 				784908E828CDE14200E32A77 /* ChartView.swift in Sources */,
 				9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */,
 				9F19443528C49B01009FD556 /* UIViewUtility.swift in Sources */,

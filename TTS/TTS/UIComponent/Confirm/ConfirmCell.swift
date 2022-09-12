@@ -109,11 +109,13 @@ class ConfirmCell: UIView {
     
     func setConfirmButton() {
         confirmButton.then {
-            $0.setTitle("승인", for: .normal)
+            $0.setTitle("승인하기", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: TransactionCell.fontSize, weight: .bold)
+            $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = Const.Color.primary
-            $0.tintColor = .white
             $0.layer.cornerRadius = 5.0
         }.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview().inset(12.0)
             make.width.equalToSuperview().multipliedBy(0.175)
         }
     }

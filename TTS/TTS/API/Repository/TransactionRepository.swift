@@ -27,7 +27,11 @@ class TransactionRepository: BaseRepository<FabricAPI> {
             .request(.queryNotConfirmedBySupplier(input: QueryBySupplierModel(supplier: supplier)))
             .map([TransactionModel].self)
     }
-
     
+    func getNotConfirmedByBuyer(buyer: Int) -> Single<[TransactionModel]> {
+        return getProvider(mode: .test, debug: true).rx
+            .request(.queryNotConfirmedByBuyer(input: QueryByBuyerModel(buyer: buyer)))
+            .map([TransactionModel].self)
+    }
 }
 

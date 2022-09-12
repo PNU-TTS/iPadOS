@@ -22,6 +22,7 @@ enum FabricAPI {
     case queryTransactionBySupplier(input: QueryBySupplierModel)
     case queryTransactionByBuyer(input: QueryByBuyerModel)
     case queryNotConfirmedBySupplier(input: QueryBySupplierModel)
+    case queryNotConfirmedByBuyer(input: QueryByBuyerModel)
     case queryChartData(type: Int)
 }
 
@@ -73,6 +74,9 @@ extension FabricAPI: TargetType {
         case .queryNotConfirmedBySupplier:
             return "/query/transaction/by-supplier/non-confirmed/"
             
+        case .queryNotConfirmedByBuyer:
+            return "/query/transaction/by-buyer/non-confirmed/"
+            
         case .queryChartData(let type):
             return "/query/chart/\(type)"
         }
@@ -81,7 +85,7 @@ extension FabricAPI: TargetType {
     var method: Method {
         switch self {
         case .createTransaction, .executeTransaction, .approveTransaction,
-                .queryTransactionBySupplier, .queryTransactionByBuyer, .registerCertificate, .queryNotConfirmedBySupplier, .queryChartData:
+                .queryTransactionBySupplier, .queryTransactionByBuyer, .registerCertificate, .queryNotConfirmedBySupplier, .queryNotConfirmedByBuyer, .queryChartData:
             return .post
         default:
             return .get
@@ -90,7 +94,7 @@ extension FabricAPI: TargetType {
     
     var sampleData: Data {
         switch self {
-        case .queryAllTransactions, .queryTransactionBySupplier, .queryTransactionByBuyer, .queryNotConfirmedBySupplier:
+        case .queryAllTransactions, .queryTransactionBySupplier, .queryTransactionByBuyer, .queryNotConfirmedBySupplier, .queryNotConfirmedByBuyer:
             return Data(TransactionModel.sampleData.utf8)
             
         case .queryCertificateBySupplier:
@@ -142,6 +146,9 @@ extension FabricAPI: TargetType {
             return .requestJSONEncodable(input)
             
         case .queryNotConfirmedBySupplier(let input):
+            return .requestJSONEncodable(input)
+            
+        case .queryNotConfirmedByBuyer(let input):
             return .requestJSONEncodable(input)
             
         case .queryChartData:
