@@ -21,6 +21,7 @@ class HomeVC: UIViewController {
     private var disposeBag = DisposeBag()
     private let chartRepo = ChartRepository()
     
+    private var titleLabel = UILabel()
     private var dailyChartButton = UIButton()
     private var weeklyChartButton = UIButton()
     private var monthlyChartButton = UIButton()
@@ -32,17 +33,16 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .white
-        self.title = "home"
+        self.view.backgroundColor = Const.Color.backgroundColor
         
         setView()
     }
     
     func setView() {
-        [viewChart, allTransactionHeader, allTransactionsTable].forEach {
+        [titleLabel, viewChart, allTransactionHeader, allTransactionsTable].forEach {
             view.addSubview($0)
         }
+        setTitle()
         setChartView()
         setAllTransactionsTable()
         setBinding()
@@ -50,6 +50,17 @@ class HomeVC: UIViewController {
             .subscribe(onSuccess: { ChartModel in
                 self.setChartData(dataPoints: ChartModel.xData, values: ChartModel.yData, limit: ChartModel.average)
             }).disposed(by: disposeBag)
+    }
+    
+    func setTitle() {
+        titleLabel.then {
+            $0.text = "🏠 홈 화면"
+            $0.font = UIFont.systemFont(ofSize: 40.0, weight: .bold)
+            $0.textColor = Const.Color.textColor
+        }.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30.0)
+            make.left.equalToSuperview().inset(10.0)
+        }
     }
     
     func setChartView() {
@@ -64,7 +75,7 @@ class HomeVC: UIViewController {
         
         viewChart.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(100)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20.0)
             make.height.equalTo(350)
             make.width.equalToSuperview().offset(-50)
         }

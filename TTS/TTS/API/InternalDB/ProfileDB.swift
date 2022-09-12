@@ -7,12 +7,8 @@
 
 import UIKit
 
-struct ProfileData: Codable {
-    let email: String
-}
-
 class ProfileDB: InternalDB {
-    typealias DataType = ProfileData
+    typealias DataType = UserModel
     
     var key = "Profile"
     
@@ -20,12 +16,12 @@ class ProfileDB: InternalDB {
     
     private init() {}
     
-    func get() -> ProfileData {
-        return _get() ?? ProfileData(email: "-")
+    func get() -> DataType {
+        return _get() ?? DataType(id: -1, email: "-", is_supplier: false)
     }
     
-    func save(profile: ProfileData) {
-        _save(data: profile)
+    func save(data: DataType) {
+        _save(data: data)
     }
 }
 

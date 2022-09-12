@@ -16,4 +16,10 @@ class LoginRepository: BaseRepository<TTSAPI> {
             .map(TokenModel.self)
     }
     
+    func verifyUser() -> Single<UserModel> {
+        return getProvider(mode: .test, debug: true).rx
+            .request(.userVerify)
+            .map(UserModel.self)
+    }
+    
 }

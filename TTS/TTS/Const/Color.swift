@@ -9,7 +9,7 @@ import UIKit
 
 extension Const {
     struct Color {
-        static let primary: UIColor = UIColor(red: 15/255, green: 76/255, blue: 129/255, alpha: 0.8)
+        static let primary: UIColor = UIColor(rgb: 0x499DD0)
         
         static let textColor: UIColor = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1.0)
         
