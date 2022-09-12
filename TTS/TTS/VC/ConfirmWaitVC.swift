@@ -11,9 +11,10 @@ import SnapKit
 import RxSwift
 
 class ConfirmWaitVC: UIViewController {
-    
-    private var viewModel = ConfirmVM()
     private var disposeBag = DisposeBag()
+    private var viewModel = ConfirmVM()
+    
+    private var titleLabel = UILabel()
     
     lazy var confirmTableHeader = ConfirmHeader()
     lazy var confirmTable = UIStackView()
@@ -25,17 +26,29 @@ class ConfirmWaitVC: UIViewController {
     }
     
     func setView() {
-        [confirmTableHeader, confirmTable].forEach {
+        [titleLabel, confirmTableHeader, confirmTable].forEach {
             view.addSubview($0)
         }
+        setTitle()
         setConfirmTable()
         setBinding()
     }
     
+    func setTitle() {
+        titleLabel.then {
+            $0.text = "⏸️ 승인 대기 목록"
+            $0.textColor = Const.Color.textColor
+            $0.font = UIFont.systemFont(ofSize: 40.0, weight: .bold)
+        }.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(30.0)
+            make.left.equalToSuperview().inset(10.0)
+        }
+    }
+    
     func setConfirmTable() {
         confirmTableHeader.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(20.0)
             make.left.right.equalToSuperview().inset(10.0)
-            make.top.equalToSuperview().offset(100)
         }
         
         confirmTable.then {
