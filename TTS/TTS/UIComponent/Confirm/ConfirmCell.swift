@@ -49,6 +49,14 @@ class ConfirmCell: UIView {
     }
     
     func setCell() {
+        cell.then {
+            $0.axis = .horizontal
+            $0.alignment = .firstBaseline
+        }.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(10.0)
+        }
+        
         [
             timeStamp,
             receiver,
@@ -65,21 +73,13 @@ class ConfirmCell: UIView {
             cell.addArrangedSubview(status)
             setStatus()
         }
-        
-        cell.then {
-            $0.axis = .horizontal
-            $0.alignment = .firstBaseline
-        }.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.left.right.equalToSuperview().inset(10.0)
-        }
     }
     
     func setTimeStamp() {
         timeStamp.then {
             $0.text = "\(DateTimeConverter.fromInt(input: input.registeredDate))"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.325)
@@ -91,7 +91,7 @@ class ConfirmCell: UIView {
         receiver.then {
             $0.text = "한국전력"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.2)
@@ -103,7 +103,7 @@ class ConfirmCell: UIView {
         pricePerREC.then {
             $0.text = "\(input.price)원"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
@@ -115,7 +115,7 @@ class ConfirmCell: UIView {
         quantity.then {
             $0.text = "\(input.quantity)개"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
@@ -148,7 +148,7 @@ class ConfirmCell: UIView {
         statusLabel.then {
             $0.text = text
             $0.textColor = textColor
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize, weight: .bold)
+            $0.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize, weight: .bold)
             $0.backgroundColor = backgroundColor
             $0.layer.cornerRadius = 5.0
             $0.layer.masksToBounds = true
@@ -167,7 +167,7 @@ class ConfirmCell: UIView {
         
         confirmButton.then {
             $0.setTitle("승인하기", for: .normal)
-            $0.titleLabel?.font = UIFont.systemFont(ofSize: TransactionCell.fontSize, weight: .bold)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize, weight: .bold)
             $0.setTitleColor(.white, for: .normal)
             $0.backgroundColor = Const.Color.primary
             $0.layer.cornerRadius = 5.0

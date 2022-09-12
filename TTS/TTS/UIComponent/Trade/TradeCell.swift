@@ -16,11 +16,12 @@ extension TradeCell {
 class TradeCell: UIView {
     private var cell = UIStackView()
     
-//    private var timeStamp = UILabel()
+    private var timeStamp = UILabel()
     private var sender = UILabel()
     private var pricePerREC = UILabel()
     private var quantity = UILabel()
 //    private var status = UILabel()
+    private var buy = UIView()
     private var buyButton = UIButton()
     
     private var input: TransactionModel.InnerModel
@@ -36,47 +37,54 @@ class TradeCell: UIView {
     func setView() {
         self.addSubview(cell)
         setCell()
-//        setTimeStamp()
+        setTimeStamp()
         setSender()
         setPricePerREC()
         setQuantity()
-        setBuyButton()
+
+        
     }
     
     func setCell() {
-        [sender, pricePerREC, quantity, buyButton].forEach {
+        [timeStamp, sender, pricePerREC, quantity].forEach {
             cell.addArrangedSubview($0)
         }
         
         cell.then {
             $0.axis = .horizontal
             $0.alignment = .firstBaseline
+            $0.distribution = .equalSpacing
         }.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
             make.left.right.equalToSuperview().inset(10.0)
         }
+        
+        if !ProfileDB.shared.get().is_supplier {
+            cell.addArrangedSubview(buy)
+            setBuy()
+        }
     }
     
-//    func setTimeStamp() {
-//        timeStamp.then {
-//            $0.text = "\(DateTimeConverter.fromInt(input: input.registeredDate))"
-//            $0.textColor = .darkGray
-//            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
-//            $0.textAlignment = .center
-//        }.snp.makeConstraints { make in
-//            make.width.equalToSuperview().multipliedBy(0.325)
-//            make.top.bottom.equalToSuperview().inset(12.0)
-//        }
-//    }
+    func setTimeStamp() {
+        timeStamp.then {
+            $0.text = "\(DateTimeConverter.fromInt(input: input.registeredDate))"
+            $0.textColor = .darkGray
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
+            $0.textAlignment = .center
+        }.snp.makeConstraints { make in
+            make.width.equalToSuperview().multipliedBy(0.325)
+            make.top.bottom.equalToSuperview().inset(12.0)
+        }
+    }
         
     func setSender() {
         sender.then {
             $0.text = "한국전력"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().multipliedBy(0.2)
             make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
@@ -85,10 +93,11 @@ class TradeCell: UIView {
         pricePerREC.then {
             $0.text = "\(input.price)원"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().multipliedBy(0.15)
+            make.top.bottom.equalTo(sender)
         }
     }
     
@@ -96,35 +105,33 @@ class TradeCell: UIView {
         quantity.then {
             $0.text = "\(input.quantity)개"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().multipliedBy(0.15)
+            make.top.bottom.equalTo(sender)
         }
     }
     
-//    func setStatus() {
-//        var text = "거래 대금 확인 중"
-//        if input.buyer == nil {
-//            text = "미체결"
-//        }
-//        status.then {
-//            $0.text = text
-//            $0.textColor = .darkGray
-//            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
-//        }.snp.makeConstraints { make in
-//            make.width.equalToSuperview().multipliedBy(0.175)
-//        }
-//    }
-    
-    func setBuyButton() {
-        buyButton.then {
-            $0.setTitle("승인", for: .normal)
-            $0.backgroundColor = Const.Color.primary
-            $0.tintColor = .white
-            $0.layer.cornerRadius = 5.0
-        }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.25)
+    func setBuy() {
+        buy.snp.makeConstraints { make in
+            make.height.equalTo(quantity)
+            make.width.equalToSuperview().multipliedBy(0.175)
+        }
+        
+        if !ProfileDB.shared.get().is_supplier {
+            buy.addSubview(buyButton)
+            
+            buyButton.then {
+                $0.setTitle("구매하기", for: .normal)
+                $0.titleLabel?.font = UIFont.systemFont(ofSize: TradeCell.fontSize, weight: .bold)
+                $0.setTitleColor(.white, for: .normal)
+                $0.backgroundColor = Const.Color.primary
+                $0.layer.cornerRadius = 5.0
+            }.snp.makeConstraints { make in
+                make.top.bottom.centerX.equalToSuperview()
+                make.width.equalToSuperview().multipliedBy(0.8)
+            }
         }
 
     }

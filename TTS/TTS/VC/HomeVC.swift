@@ -193,20 +193,21 @@ class HomeVC: UIViewController {
             $0.fillAlpha = 0.8
             $0.drawFilledEnabled = true
             $0.drawHorizontalHighlightIndicatorEnabled = false
-            $0.highlightColor = .systemRed
+//            $0.highlightColor = .systemRed
+            $0.highlightEnabled = false
         }
         
         // 데이터 삽입
         let chartData = LineChartData(dataSet: chartDataSet)
         chartData.setDrawValues(false)      // value 표시 유무
         
-        let ll = ChartLimitLine(limit: limit, label: "average")
-        ll.labelPosition = .leftTop
-        ll.drawLabelEnabled = true
-        ll.lineColor = .gray.withAlphaComponent(0.3)
-        ll.lineDashLengths = [5, 5, 0]
-        ll.valueTextColor = .gray
-        lineChartView.leftAxis.addLimitLine(ll)
+//        let ll = ChartLimitLine(limit: limit, label: "average")
+//        ll.labelPosition = .leftTop
+//        ll.drawLabelEnabled = true
+//        ll.lineColor = .gray.withAlphaComponent(0.3)
+//        ll.lineDashLengths = [5, 5, 0]
+//        ll.valueTextColor = .gray
+//        lineChartView.leftAxis.addLimitLine(ll)
 
         lineChartView.data = chartData
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints) // X축 레이블 포맷 지정

@@ -56,7 +56,7 @@ class ConfirmHeader: UIView {
         timeStamp.then {
             $0.text = "요청 일시"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.325)
@@ -72,7 +72,7 @@ class ConfirmHeader: UIView {
                 $0.text = "판매자"
             }
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.2)
@@ -83,7 +83,7 @@ class ConfirmHeader: UIView {
         pricePerREC.then {
             $0.text = "개당 금액"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
@@ -94,7 +94,7 @@ class ConfirmHeader: UIView {
         quantity.then {
             $0.text = "거래 수량"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
@@ -105,7 +105,7 @@ class ConfirmHeader: UIView {
         confirm.then {
             $0.text = "거래 승인"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: ConfirmHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.175)
