@@ -62,6 +62,171 @@ extension TransactionModel {
             "supplier": "2",
             "buyer": "1",
             "is_confirmed": true
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_2",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": null,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": null,
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_3",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": 234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_4",
+            "price": "3848",
+            "quantity": "37",
+            "registeredDate": 234234235,
+            "executedDate": 435234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": true
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_2",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": null,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": null,
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_3",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": 234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_4",
+            "price": "3848",
+            "quantity": "37",
+            "registeredDate": 234234235,
+            "executedDate": 435234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": true
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_2",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": null,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": null,
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_3",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": 234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_4",
+            "price": "3848",
+            "quantity": "37",
+            "registeredDate": 234234235,
+            "executedDate": 435234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": true
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_2",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": null,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": null,
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_3",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": 234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_4",
+            "price": "3848",
+            "quantity": "37",
+            "registeredDate": 234234235,
+            "executedDate": 435234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": true
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_2",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": null,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": null,
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_3",
+            "price": "123",
+            "quantity": "123",
+            "registeredDate": 123123,
+            "executedDate": 234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": false
+        }},
+        { "Transaction": {
+            "id": "TRANSACTION_4",
+            "price": "3848",
+            "quantity": "37",
+            "registeredDate": 234234235,
+            "executedDate": 435234234,
+            "target": "CERTIFICATE_23782374",
+            "supplier": "2",
+            "buyer": "1",
+            "is_confirmed": true
         }}
     ]
     """

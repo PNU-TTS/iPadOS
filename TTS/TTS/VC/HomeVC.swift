@@ -29,7 +29,8 @@ class HomeVC: UIViewController {
     private var viewChart = UIView()
     private var lineChartView = ChartView()
     private var allTransactionHeader = TransactionHeader()
-    private var allTransactionsTable = UIStackView()
+    private var allTransactionTable = UIScrollView()
+    private var stackView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class HomeVC: UIViewController {
     }
     
     func setView() {
-        [titleLabel, viewChart, allTransactionHeader, allTransactionsTable].forEach {
+        [titleLabel, viewChart, allTransactionHeader, allTransactionTable].forEach {
             view.addSubview($0)
         }
         setTitle()
@@ -129,13 +130,21 @@ class HomeVC: UIViewController {
             make.top.equalTo(viewChart.snp.bottom).offset(30.0)
         }
         
-        allTransactionsTable.then {
+        allTransactionTable.addSubview(stackView)
+        
+        allTransactionTable.snp.makeConstraints { make in
+            make.left.right.equalTo(allTransactionHeader)
+            make.top.equalTo(allTransactionHeader.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        
+        stackView.then {
             $0.axis = .vertical
             $0.spacing = 1.0
             $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
         }.snp.makeConstraints { make in
-            make.left.right.equalTo(allTransactionHeader)
-            make.top.equalTo(allTransactionHeader.snp.bottom)
+            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview()
         }
     }
     
@@ -148,7 +157,7 @@ class HomeVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.allTransactionsTable.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
+                self.stackView.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
             }
         }).disposed(by: disposeBag)
         

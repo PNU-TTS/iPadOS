@@ -16,7 +16,8 @@ class TradeVC: UIViewController {
     private var disposeBag = DisposeBag()
     
     lazy var tradeTableHeader = TradeHeader()
-    lazy var tradeTable = UIStackView()
+    lazy var tradeTable = UIScrollView()
+    lazy var stackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,13 +43,21 @@ class TradeVC: UIViewController {
             make.top.equalToSuperview().offset(100)
         }
         
-        tradeTable.then {
+        tradeTable.addSubview(stackView)
+        
+        tradeTable.snp.makeConstraints { make in
+            make.left.right.equalTo(tradeTableHeader)
+            make.top.equalTo(tradeTableHeader.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        
+        stackView.then {
             $0.axis = .vertical
             $0.spacing = 1.0
             $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
         }.snp.makeConstraints { make in
-            make.left.right.equalTo(tradeTableHeader)
-            make.top.equalTo(tradeTableHeader.snp.bottom)
+            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview()
         }
     }
     
@@ -58,7 +67,7 @@ class TradeVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.tradeTable.addArrangedSubview(TradeCell(input: transaciton.Transaction))
+                self.stackView.addArrangedSubview(TradeCell(input: transaciton.Transaction))
             }
         }).disposed(by: disposeBag)
         

@@ -17,7 +17,8 @@ class ConfirmWaitVC: UIViewController {
     private var titleLabel = UILabel()
     
     lazy var confirmTableHeader = ConfirmHeader()
-    lazy var confirmTable = UIStackView()
+    lazy var confirmTable = UIScrollView()
+    lazy var stackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +52,21 @@ class ConfirmWaitVC: UIViewController {
             make.left.right.equalToSuperview().inset(10.0)
         }
         
-        confirmTable.then {
+        confirmTable.addSubview(stackView)
+        
+        confirmTable.snp.makeConstraints { make in
+            make.left.right.equalTo(confirmTableHeader)
+            make.top.equalTo(confirmTableHeader.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        
+        stackView.then {
             $0.axis = .vertical
             $0.spacing = 1.0
             $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
         }.snp.makeConstraints { make in
-            make.left.right.equalTo(confirmTableHeader)
-            make.top.equalTo(confirmTableHeader.snp.bottom)
+            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview()
         }
     }
     
@@ -71,7 +80,7 @@ class ConfirmWaitVC: UIViewController {
                 nextVC.setConfirmButtomCommand {
                     self.present(ConfirmTransactionVC(), animated: true)
                 }
-                self.confirmTable.addArrangedSubview(nextVC)
+                self.stackView.addArrangedSubview(nextVC)
             }
         }).disposed(by: disposeBag)
         

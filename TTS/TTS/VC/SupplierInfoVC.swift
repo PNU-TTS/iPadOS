@@ -26,7 +26,8 @@ class SupplierInfoVC: UIViewController {
     private var recSoldView: PriceView
     
     private var transactionHeader = TransactionHeader()
-    private var transactionTable = UIStackView()
+    private var transactionTable = UIScrollView()
+    private var stackView = UIStackView()
     
     private var viewModel = SupplierInfoVM()
     
@@ -103,13 +104,21 @@ class SupplierInfoVC: UIViewController {
             make.top.equalTo(balanceView.snp.bottom).offset(30.0)
         }
         
-        transactionTable.then {
+        transactionTable.addSubview(stackView)
+        
+        transactionTable.snp.makeConstraints { make in
+            make.left.right.equalTo(transactionHeader)
+            make.top.equalTo(transactionHeader.snp.bottom)
+            make.bottom.equalToSuperview()
+        }
+        
+        stackView.then {
             $0.axis = .vertical
             $0.spacing = 1.0
             $0.backgroundColor = .lightGray.withAlphaComponent(0.5)
         }.snp.makeConstraints { make in
-            make.left.right.equalTo(transactionHeader)
-            make.top.equalTo(transactionHeader.snp.bottom)
+            make.top.bottom.equalToSuperview()
+            make.width.equalToSuperview()
         }
 
     }
@@ -119,7 +128,7 @@ class SupplierInfoVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.transactionTable.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
+                self.stackView.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
             }
         }).disposed(by: disposeBag)
     }
