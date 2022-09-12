@@ -5,6 +5,7 @@
 //  Created by Lee Jun Young on 2022/09/02.
 //
 
+import Moya
 import RxSwift
 import RxCocoa
 import RxRelay
@@ -60,8 +61,11 @@ struct LoginVM: BasicVM {
     
     func login() {
         repository.login(input: LoginModel(email: self.emailRelay.value!, password: self.passwordRelay.value!))
-            .subscribe(onSuccess: { token in
+            .flatMap { token -> Single<UserModel> in
                 TokenDB.shared.save(data: token)
+                return repository.verifyUser()
+            }.subscribe(onSuccess: { result in
+                ProfileDB.shared.save(data: result)
                 self.isLoginSuccess.accept(true)
             }).disposed(by: disposeBag)
     }
