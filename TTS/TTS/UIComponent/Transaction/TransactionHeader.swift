@@ -75,7 +75,7 @@ class TransactionHeader: UIView {
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.1)
+            make.width.equalToSuperview().multipliedBy(0.125)
         }
     }
     
@@ -86,7 +86,7 @@ class TransactionHeader: UIView {
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.1)
+            make.width.equalToSuperview().multipliedBy(0.125)
         }
     }
     
@@ -108,7 +108,7 @@ class TransactionHeader: UIView {
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.15)
+            make.width.equalToSuperview().multipliedBy(0.1)
         }
     }
     

@@ -19,7 +19,7 @@ extension UserModel {
     {
         "id": 1,
         "email": "admin@admin.com",
-        "is_supplier": true
+        "is_supplier": false
     }
     """
 }
