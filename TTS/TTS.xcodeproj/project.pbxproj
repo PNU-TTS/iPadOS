@@ -30,6 +30,7 @@
 		7851BD5328BB2D94006086CB /* TTSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5228BB2D94006086CB /* TTSTests.swift */; };
 		7851BD5D28BB2D94006086CB /* TTSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5C28BB2D94006086CB /* TTSUITests.swift */; };
 		7851BD5F28BB2D94006086CB /* TTSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */; };
+		785F7D1128D0B08C0075FAED /* RecBuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7D1028D0B08C0075FAED /* RecBuyVC.swift */; };
 		9AE1D26D9F0B16879B490240 /* Pods_TTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8522230136EBF9646E2342F /* Pods_TTS.framework */; };
 		9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441028C220D7009FD556 /* TransactionModel.swift */; };
 		9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441228C22145009FD556 /* TransactionRepository.swift */; };
@@ -142,6 +143,7 @@
 		7851BD5828BB2D94006086CB /* TTSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TTSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7851BD5C28BB2D94006086CB /* TTSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITests.swift; sourceTree = "<group>"; };
 		7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		785F7D1028D0B08C0075FAED /* RecBuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecBuyVC.swift; sourceTree = "<group>"; };
 		85721C8EF9BD5353EC1E21C8 /* Pods-TTS-TTSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS-TTSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTS-TTSUITests/Pods-TTS-TTSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F19441028C220D7009FD556 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		9F19441228C22145009FD556 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				9F2654CA28CA057D00DC62AE /* RecListVC.swift */,
 				9F2654D028CDC13000DC62AE /* RecSellVC.swift */,
 				9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */,
+				785F7D1028D0B08C0075FAED /* RecBuyVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -822,6 +825,7 @@
 				9F19442128C226F2009FD556 /* LoginVC.swift in Sources */,
 				784908D928C96E8000E32A77 /* ConfirmHeader.swift in Sources */,
 				AF73620628C5D0A8003B72D0 /* SupplierProfileVC.swift in Sources */,
+				785F7D1128D0B08C0075FAED /* RecBuyVC.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
 				9F2654E028CEE3F300DC62AE /* UserModel.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,

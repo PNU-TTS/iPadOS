@@ -6,6 +6,9 @@
 //
 
 import UIKit
+
+import RxSwift
+import RxGesture
 import Then
 import SnapKit
 
@@ -14,6 +17,8 @@ extension TradeCell {
 }
 
 class TradeCell: UIView {
+    private var disposeBag = DisposeBag()
+    
     private var cell = UIStackView()
     
     private var timeStamp = UILabel()
@@ -133,7 +138,14 @@ class TradeCell: UIView {
                 make.width.equalToSuperview().multipliedBy(0.8)
             }
         }
-
+    }
+    
+    func setBuyButtonCommand(command: @escaping (() -> Void)) {
+        buyButton.rx.tapGesture()
+            .when(.recognized)
+            .subscribe(onNext: { _ in
+                command()
+            }).disposed(by: disposeBag)
     }
     
     
