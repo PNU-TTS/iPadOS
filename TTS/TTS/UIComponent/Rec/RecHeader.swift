@@ -26,6 +26,7 @@ class RecHeader: UIView {
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .lightGray.withAlphaComponent(0.15)
+        self.layer.cornerRadius = 8.0
         setView()
     }
     
@@ -57,7 +58,8 @@ class RecHeader: UIView {
         recId.then {
             $0.text = "인증서 ID"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: RecHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.25)
             make.top.bottom.equalToSuperview().inset(12.0)
@@ -68,7 +70,8 @@ class RecHeader: UIView {
         expireDate.then {
             $0.text = "만료 일자"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: RecHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.3)
         }
@@ -78,7 +81,8 @@ class RecHeader: UIView {
         quantity.then {
             $0.text = "수량"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: RecHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -88,7 +92,8 @@ class RecHeader: UIView {
         is_jeju.then {
             $0.text = "발전 지역"
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: RecHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -98,7 +103,7 @@ class RecHeader: UIView {
         sellButton.then {
             $0.text = ""
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+            $0.font = UIFont.systemFont(ofSize: RecHeader.fontSize)
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }

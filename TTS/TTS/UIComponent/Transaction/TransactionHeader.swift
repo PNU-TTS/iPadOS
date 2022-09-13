@@ -27,6 +27,7 @@ class TransactionHeader: UIView {
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .lightGray.withAlphaComponent(0.15)
+        self.layer.cornerRadius = 8.0
         setView()
     }
     
@@ -60,6 +61,7 @@ class TransactionHeader: UIView {
             $0.text = "거래 일시"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.325)
             make.top.bottom.equalToSuperview().inset(12.0)
@@ -71,6 +73,7 @@ class TransactionHeader: UIView {
             $0.text = "공급자"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.1)
         }
@@ -81,6 +84,7 @@ class TransactionHeader: UIView {
             $0.text = "구매자"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.1)
         }
@@ -91,6 +95,7 @@ class TransactionHeader: UIView {
             $0.text = "개당 금액"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -101,6 +106,7 @@ class TransactionHeader: UIView {
             $0.text = "거래 수량"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -111,6 +117,7 @@ class TransactionHeader: UIView {
             $0.text = "거래 상태"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionHeader.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.175)
         }
