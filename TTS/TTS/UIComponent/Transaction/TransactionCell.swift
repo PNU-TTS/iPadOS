@@ -64,6 +64,7 @@ class TransactionCell: UIView {
             $0.text = "\(DateTimeConverter.fromIntToString(input: input.registeredDate))"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.325)
             make.top.bottom.equalToSuperview().inset(12.0)
@@ -75,6 +76,7 @@ class TransactionCell: UIView {
             $0.text = "남부발전"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.1)
         }
@@ -85,6 +87,7 @@ class TransactionCell: UIView {
             $0.text = "한국전력"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.1)
         }
@@ -95,6 +98,7 @@ class TransactionCell: UIView {
             $0.text = "\(input.price)원"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -105,6 +109,7 @@ class TransactionCell: UIView {
             $0.text = "\(input.quantity)개"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.15)
         }
@@ -141,7 +146,7 @@ class TransactionCell: UIView {
             $0.layer.masksToBounds = true
 
         }.snp.makeConstraints { make in
-            make.left.centerY.equalToSuperview()
+            make.center.equalToSuperview()
         }
     }
     

@@ -25,6 +25,7 @@ class TradeHeader: UIView {
     init() {
         super.init(frame: .zero)
         self.backgroundColor = .lightGray.withAlphaComponent(0.15)
+        self.layer.cornerRadius = 8.0
         setView()
     }
     

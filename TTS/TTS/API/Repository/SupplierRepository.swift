@@ -11,7 +11,7 @@ import RxSwift
 class SupplierRepository: BaseRepository<TTSAPI> {
     
     func getSupplierInfo(id: Int) -> Single<SupplierModel> {
-        return getProvider(mode: .real, debug: true).rx
+        return getProvider(mode: .test, debug: true).rx
             .request(.getSupplierInfo(id: id))
             .map(SupplierModel.self)
     }

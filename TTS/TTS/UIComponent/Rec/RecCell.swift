@@ -66,6 +66,7 @@ class RecCell: UIView {
             $0.text = input.id
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.25)
             make.top.bottom.equalToSuperview().inset(12.0)
@@ -77,6 +78,7 @@ class RecCell: UIView {
             $0.text = "\(DateTimeConverter.fromIntToString(input: input.expire_date))"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.3)
             make.top.bottom.equalToSuperview().inset(12.0)
@@ -88,6 +90,7 @@ class RecCell: UIView {
             $0.text = "\(input.quantity)개"
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
+            $0.textAlignment = .center
         }.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(12.0)
             make.width.equalToSuperview().multipliedBy(0.15)
@@ -121,9 +124,8 @@ class RecCell: UIView {
             $0.backgroundColor = backgroundColor
             $0.layer.cornerRadius = 5.0
             $0.layer.masksToBounds = true
-
         }.snp.makeConstraints { make in
-            make.left.centerY.equalToSuperview()
+            make.center.equalToSuperview()
         }
     }
     
