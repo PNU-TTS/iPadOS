@@ -8,6 +8,7 @@
 import UIKit
 import Then
 import SnapKit
+import RxSwift
 
 import RxSwift
 
@@ -179,6 +180,18 @@ class RecBuyVC: UIViewController {
                 }).disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
     }
+    
+    func updatePriceViews() {
+        repository.getPriceAvgMaxMin()
+            .subscribe { arr in
+                self.averageView.update(value: arr[0])
+                self.highPriceView.update(value: arr[1])
+                self.lowPriceView.update(value: arr[2])
+            } onFailure: { err in
+                print(err)
+            }.disposed(by: disposeBag)
+    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

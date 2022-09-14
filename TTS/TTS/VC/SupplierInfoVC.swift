@@ -124,7 +124,7 @@ class SupplierInfoVC: UIViewController {
     }
     
     func setBinding() {
-        let output = viewModel.transform(input: SupplierInfoVM.Input(id: 1))
+        let output = viewModel.transform(input: SupplierInfoVM.Input(id: ProfileDB.shared.get().id))
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
