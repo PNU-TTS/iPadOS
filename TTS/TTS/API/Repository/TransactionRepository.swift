@@ -39,7 +39,7 @@ class TransactionRepository: BaseRepository<FabricAPI> {
                 let sum = txs.reduce(0) { partialResult, tx in
                     partialResult + tx.Transaction.price
                 }
-                let avg = Double(sum) / Double(txs.count)
+                let avg = txs.count > 0 ? (Double(sum) / Double(txs.count)) : 0
                 let maxVal = txs.max { tx1, tx2 in
                     tx1.Transaction.price > tx2.Transaction.price
                 }?.Transaction.price
