@@ -84,7 +84,6 @@ class TradeVC: UIViewController {
                 }
                 self.stackView.addArrangedSubview(cell)
             }
-        }).disposed(by: disposeBag)   
+        }).disposed(by: disposeBag)
     }
-
 }
