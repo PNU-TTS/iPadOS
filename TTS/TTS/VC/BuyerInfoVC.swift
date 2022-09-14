@@ -139,8 +139,8 @@ class BuyerInfoVC: UIViewController {
                             self.stackView.addArrangedSubview(
                                 TransactionCell(
                                     input: data,
-                                    supplier: buyer.name,
-                                    buyer: supplier.name
+                                    supplier: supplier.name,
+                                    buyer: buyer.name
                                 ))
                         }).disposed(by: self.disposeBag)
                 } else {

@@ -112,7 +112,7 @@ extension BuyerProfileVC {
                 self.profileView = ProfileCard(
                     input: ProfileCard.Input(
                         name: username,
-                        role: "의무 공급자",
+                        role: "공급 의무자",
                         company: result.name,
                         email: ProfileDB.shared.get().email)
                 )

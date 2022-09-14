@@ -97,12 +97,17 @@ class HomeVC: UIViewController {
     }
     
     func setLoadingIndicView() {
-//        loadingIndicatorView.then {
-//            $0.center = self.view.center
-//            $0.color = UIColor.red
-//        }.snp.makeConstraints { make in
-//            <#code#>
-//        }
+        loadingIndicatorView.then {
+            $0.center = self.view.center
+            $0.color = Const.Color.primary
+            $0.startAnimating()
+            $0.hidesWhenStopped = true
+//            $0.stopAnimating()
+        }.snp.makeConstraints { make in
+            make.top.equalTo(allTransactionHeader.snp.bottom)
+            make.left.right.equalTo(allTransactionHeader)
+            make.height.equalTo(100)
+        }
     }
     
     func setButtons() {
@@ -181,6 +186,7 @@ class HomeVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
+                self.loadingIndicatorView.stopAnimating()
                 let data = transaciton.Transaction
                 
                 let supplierInfo = self.supplierRepository.getSupplierInfo(id: Int(data.supplier)!).asObservable()
@@ -193,8 +199,8 @@ class HomeVC: UIViewController {
                             self.stackView.addArrangedSubview(
                                 TransactionCell(
                                     input: data,
-                                    supplier: buyer.name,
-                                    buyer: supplier.name
+                                    supplier: supplier.name,
+                                    buyer: buyer.name
                                 ))
                         }).disposed(by: self.disposeBag)
                 } else {
