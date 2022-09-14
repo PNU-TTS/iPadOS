@@ -59,19 +59,21 @@ class RecBuyVC: UIViewController {
         
         transactionDate = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(
             title: "거래 등록 일시",
-            content: "2022년 01월 01일 19:02:34"))
+            content: DateTimeConverter.fromIntToString(input: input.registeredDate)))
         
-        supplierInfo = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "구매자", content: "한국 전력"))
+        supplierInfo = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "판매자", content: "한국 전력"))
         
-        pricePerRec = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "인증서 개당 가격", content: "26,323 원"))
+        pricePerRec = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "인증서 개당 가격", content: "\(input.price.getFormattedString()) 원"))
         
-        transactionVolume = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "거래 수량", content: "1,242 개"))
+        transactionVolume = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "거래 수량", content: "\(input.quantity.getFormattedString()) 개"))
         
-        totalPrice = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "총 거래 대금", content: "2,312,463 원"))
+        totalPrice = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "총 거래 대금", content: "\((input.price * input.quantity).getFormattedString()) 원"))
         
         bankAccount = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "입금 계좌", content: "부산은행 112-3723-4838-47"))
         
         super.init(nibName: nil, bundle: nil)
+        
+        updatePriceViews()
     }
     
     override func viewDidLoad() {
@@ -100,7 +102,7 @@ class RecBuyVC: UIViewController {
     
     func setTitle() {
         titleLabel.then {
-            $0.text = "인증서 매도"
+            $0.text = "인증서 매수"
             $0.font = UIFont.systemFont(ofSize: 40.0, weight: .bold)
             $0.textColor = Const.Color.textColor
         }.snp.makeConstraints { make in
