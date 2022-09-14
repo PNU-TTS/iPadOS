@@ -96,6 +96,7 @@
 		AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */; };
 		AFC0CFF028C4DD01006F9823 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFEF28C4DD01006F9823 /* PriceView.swift */; };
 		AFCE8FFC28D1D57A0069F226 /* IntUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE8FFB28D1D57A0069F226 /* IntUtility.swift */; };
+		AFCE8FFE28D1DCCF0069F226 /* BuyerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE8FFD28D1DCCF0069F226 /* BuyerProfileVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellInputView.swift; sourceTree = "<group>"; };
 		AFC0CFEF28C4DD01006F9823 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		AFCE8FFB28D1D57A0069F226 /* IntUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntUtility.swift; sourceTree = "<group>"; };
+		AFCE8FFD28D1DCCF0069F226 /* BuyerProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerProfileVC.swift; sourceTree = "<group>"; };
 		EE7E8794368D33EAE474CCDC /* Pods-TTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS.release.xcconfig"; path = "Target Support Files/Pods-TTS/Pods-TTS.release.xcconfig"; sourceTree = "<group>"; };
 		F8522230136EBF9646E2342F /* Pods_TTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -368,6 +370,7 @@
 				9F2654D028CDC13000DC62AE /* RecSellVC.swift */,
 				9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */,
 				785F7D1028D0B08C0075FAED /* RecBuyVC.swift */,
+				AFCE8FFD28D1DCCF0069F226 /* BuyerProfileVC.swift */,
 				785F7D1228D1D8D10075FAED /* BuyerInfoVC.swift */,
 			);
 			path = VC;
@@ -861,6 +864,7 @@
 				AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */,
 				9F2FC75828C8E7AE008D2DA9 /* SupplierRepository.swift in Sources */,
 				9F2FC74528C726DD008D2DA9 /* SupplierInfoVM.swift in Sources */,
+				AFCE8FFE28D1DCCF0069F226 /* BuyerProfileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

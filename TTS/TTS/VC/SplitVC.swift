@@ -67,7 +67,11 @@ extension SplitVC: MenuControllerDelegate {
                 vc = BuyerInfoVC()
             }
         default:
-            vc = SupplierProfileVC(id: ProfileDB.shared.get().id)
+            if ProfileDB.shared.get().is_supplier {
+                vc = SupplierProfileVC(id: ProfileDB.shared.get().id)
+            } else {
+                vc = BuyerProfileVC(id: ProfileDB.shared.get().id)
+            }
         }
         
         (self.viewControllers.last as? UINavigationController)?.pushViewController(vc, animated: true)
