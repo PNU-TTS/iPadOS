@@ -21,6 +21,12 @@ struct DateTimeConverter {
         return Date(timeIntervalSince1970: TimeInterval(input))
     }
     
+    static func fromDateToHour(input: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd일 HH시"
+        return dateFormatter.string(from: input)
+    }
+    
     static func fromDateToDay(input: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd"

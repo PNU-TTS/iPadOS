@@ -15,8 +15,8 @@ struct HomeVM: BasicVM {
     let data = PublishRelay<ChartModel>()
     
     struct Input {
+        let isHourlyTapped: Observable<UITapGestureRecognizer>
         let isDailyTapped: Observable<UITapGestureRecognizer>
-        let isWeeklyTapped: Observable<UITapGestureRecognizer>
         let isMonthlyTapped: Observable<UITapGestureRecognizer>
     }
     
@@ -27,14 +27,14 @@ struct HomeVM: BasicVM {
     
     func transform(input: Input) -> Output {
         
+        input.isHourlyTapped
+            .subscribe { _ in
+                getData(type: .hour)
+            }.disposed(by: disposeBag)
+        
         input.isDailyTapped
             .subscribe { _ in
                 getData(type: .day)
-            }.disposed(by: disposeBag)
-        
-        input.isWeeklyTapped
-            .subscribe { _ in
-                getData(type: .week)
             }.disposed(by: disposeBag)
         
         input.isMonthlyTapped
@@ -52,10 +52,12 @@ struct HomeVM: BasicVM {
         transactionRepo.getExecutedTransaction()
             .subscribe(onSuccess: { transactions in
                 switch type {
+                case .hour:
+                    self.data.accept(ChartConverter.getHourly(input: transactions))
+                case .day:
+                    self.data.accept(ChartConverter.getDaily(input: transactions))
                 case .month:
                     self.data.accept(ChartConverter.getMonthly(input: transactions))
-                default:
-                    self.data.accept(ChartConverter.getDaily(input: transactions))
                 }
             }).disposed(by: disposeBag)
     }
