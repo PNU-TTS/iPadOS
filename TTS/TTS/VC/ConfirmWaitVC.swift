@@ -13,6 +13,8 @@ import RxSwift
 class ConfirmWaitVC: UIViewController {
     private var disposeBag = DisposeBag()
     private var viewModel = ConfirmVM()
+    private var buyerRepository = BuyerRepository()
+    private var supplierRepository = SupplierRepository()
     
     private var titleLabel = UILabel()
     
@@ -73,14 +75,32 @@ class ConfirmWaitVC: UIViewController {
     func setBinding() {
         let output = viewModel.transform(input: ConfirmVM.Input(id: 1))
         
-        
         output.transactions.subscribe(onNext: { transactions in
-            transactions.forEach { transaciton in
-                let nextVC = ConfirmCell(input: transaciton.Transaction)
-                nextVC.setConfirmButtomCommand {
-                    self.present(ConfirmTransactionVC(txID: transaciton.Transaction.id), animated: true)
-                }
-                self.stackView.addArrangedSubview(nextVC)
+            transactions.forEach { transaction in
+                let data = transaction.Transaction
+                
+                
+                let buyerInfo = self.buyerRepository.getBuyerInfo(id: Int(data.buyer!)!).asObservable()
+                
+                let supplierInfo = self.supplierRepository.getSupplierInfo(id: Int(data.supplier)!).asObservable()
+                
+                Observable.combineLatest(buyerInfo, supplierInfo)
+                    .subscribe(onNext: { (buyer, supplier) in
+                        let cell = ConfirmCell(
+                            input: transaction.Transaction,
+                            buyer: buyer.name)
+                        self.stackView.addArrangedSubview(cell)
+                        
+                        let bank = supplier.bank_account
+                        
+                        cell.setConfirmButtomCommand {
+                            self.present(ConfirmTransactionVC(input: ConfirmTransactionVC.Input(
+                                transaction: data,
+                                buyer: buyer.name,
+                                bankAccount: "\(bank.bank.name) \(bank.number)")), animated: true)
+                            
+                        }
+                    }).disposed(by: self.disposeBag)
             }
         }).disposed(by: disposeBag)
         
