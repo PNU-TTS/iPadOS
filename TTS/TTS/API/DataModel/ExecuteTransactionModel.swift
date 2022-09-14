@@ -8,6 +8,6 @@
 import Foundation
 
 struct ExecuteTransactionModel: Encodable {
-    var id: Int
+    var id: String
     var buyer: Int
 }
