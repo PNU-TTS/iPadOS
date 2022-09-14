@@ -67,6 +67,8 @@ struct LoginVM: BasicVM {
             }.subscribe(onSuccess: { result in
                 ProfileDB.shared.save(data: result)
                 self.isLoginSuccess.accept(true)
+            }, onFailure: { result in
+                self.isLoginSuccess.accept(false)
             }).disposed(by: disposeBag)
     }
 }

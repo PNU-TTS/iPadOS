@@ -145,6 +145,11 @@ class LoginVC: UIViewController {
                     nextVC.modalTransitionStyle = .crossDissolve
                     nextVC.modalPresentationStyle = .fullScreen
                     self.present(nextVC, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "로그인 실패", message: "로그인에 실패하였습니다.", preferredStyle: .alert)
+                    let okAction = UIAlertAction(title: "확인", style: .default)
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true)
                 }
             }).disposed(by: disposeBag)
     }
