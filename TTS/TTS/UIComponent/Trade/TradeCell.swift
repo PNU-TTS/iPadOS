@@ -25,7 +25,6 @@ class TradeCell: UIView {
     private var sender = UILabel()
     private var pricePerREC = UILabel()
     private var quantity = UILabel()
-//    private var status = UILabel()
     private var buy = UIView()
     private var buyButton = UIButton()
     
@@ -46,8 +45,6 @@ class TradeCell: UIView {
         setSender()
         setPricePerREC()
         setQuantity()
-
-        
     }
     
     func setCell() {
@@ -84,7 +81,7 @@ class TradeCell: UIView {
         
     func setSender() {
         sender.then {
-            $0.text = "한국전력"
+            $0.text = input.supplier
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center

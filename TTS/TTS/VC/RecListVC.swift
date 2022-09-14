@@ -74,7 +74,7 @@ class RecListVC: UIViewController {
     }
     
     func setBinding() {
-        repository.getCertificateBysypplier(id: 1)
+        repository.getCertificateBysypplier(id: ProfileDB.shared.get().id)
             .subscribe(onSuccess: { recList in
                 recList.forEach { rec in
                     let cell = RecCell(input: rec.Certificate)
