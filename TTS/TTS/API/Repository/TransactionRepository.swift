@@ -26,6 +26,25 @@ class TransactionRepository: BaseRepository<FabricAPI> {
             .request(.approveTransaction(input: input))
     }
     
+    func getPriceAvgMaxMin() -> Single<[Int]> {
+        return getProvider(mode: .real, debug: true).rx
+            .request(.queryExecutedTransactions)
+            .map([TransactionModel].self)
+            .map { txs in
+                let sum = txs.reduce(0) { partialResult, tx in
+                    partialResult + tx.Transaction.price
+                }
+                let avg = Double(sum) / Double(txs.count)
+                let maxVal = txs.max { tx1, tx2 in
+                    tx1.Transaction.price > tx2.Transaction.price
+                }?.Transaction.price
+                let minVal = txs.max { tx1, tx2 in
+                    tx1.Transaction.price < tx2.Transaction.price
+                }?.Transaction.price
+                return [Int(avg), maxVal ?? 0, minVal ?? 0]
+            }
+    }
+    
     func getExecutedTransaction() -> Single<[TransactionModel]> {
         return getProvider(mode: .test, debug: true).rx
             .request(.queryExecutedTransactions)
