@@ -25,9 +25,13 @@ class TransactionCell: UIView {
     private var status = UIView()
     
     private var input: TransactionModel.InnerModel
+    private var supplier: String
+    private var buyer: String
     
-    init(input: TransactionModel.InnerModel) {
+    init(input: TransactionModel.InnerModel, supplier: String, buyer: String) {
         self.input = input
+        self.supplier = supplier
+        self.buyer = buyer
         
         super.init(frame: .zero)
         self.backgroundColor = .white
@@ -73,7 +77,7 @@ class TransactionCell: UIView {
     
     func setSender() {
         sender.then {
-            $0.text = input.supplier
+            $0.text = self.supplier
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
             $0.textAlignment = .center
@@ -84,7 +88,11 @@ class TransactionCell: UIView {
     
     func setReceiver() {
         receiver.then {
-            $0.text = input.buyer
+            if self.buyer != "nil" {
+                $0.text = self.buyer
+            } else {
+                $0.text = "."
+            }
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
             $0.textAlignment = .center

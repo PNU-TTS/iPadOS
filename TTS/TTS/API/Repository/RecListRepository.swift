@@ -11,7 +11,7 @@ import RxSwift
 class RecListRepository: BaseRepository<FabricAPI> {
     
     func getCertificateBysypplier(id: Int) -> Single<[RecModel]> {
-        return getProvider(mode: .test, debug: true).rx
+        return getProvider(mode: .real, debug: true).rx
             .request(.queryCertificateBySupplier(id: id))
             .map([RecModel].self)
     }

@@ -20,6 +20,8 @@ class HomeVC: UIViewController {
     private var viewModel = HomeVM()
     private var disposeBag = DisposeBag()
     private var repository = TransactionRepository()
+    private var buyerRepository = BuyerRepository()
+    private var supplierRepository = SupplierRepository()
     
     private var titleLabel = UILabel()
     private var hourlyChartButton = UIButton()
@@ -32,6 +34,8 @@ class HomeVC: UIViewController {
     private var allTransactionTable = UIScrollView()
     private var stackView = UIStackView()
     
+    private var loadingIndicatorView = UIActivityIndicatorView(style: .large)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Const.Color.backgroundColor
@@ -40,12 +44,18 @@ class HomeVC: UIViewController {
     }
     
     func setView() {
-        [titleLabel, viewChart, allTransactionHeader, allTransactionTable].forEach {
+        [titleLabel,
+         viewChart,
+         allTransactionHeader,
+         loadingIndicatorView,
+         allTransactionTable
+        ].forEach {
             view.addSubview($0)
         }
         setTitle()
         setChartView()
         setAllTransactionsTable()
+        setLoadingIndicView()
         setBinding()
         
         repository.getExecutedTransaction()
@@ -84,6 +94,15 @@ class HomeVC: UIViewController {
         }
         setButtons()
         setChart()
+    }
+    
+    func setLoadingIndicView() {
+//        loadingIndicatorView.then {
+//            $0.center = self.view.center
+//            $0.color = UIColor.red
+//        }.snp.makeConstraints { make in
+//            <#code#>
+//        }
     }
     
     func setButtons() {
@@ -162,7 +181,33 @@ class HomeVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.stackView.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
+                let data = transaciton.Transaction
+                
+                let supplierInfo = self.supplierRepository.getSupplierInfo(id: Int(data.supplier)!).asObservable()
+                
+                if data.buyer != nil {
+                    let buyerInfo = self.buyerRepository.getBuyerInfo(id: Int(data.buyer!)!).asObservable()
+                    
+                    Observable.combineLatest(buyerInfo,supplierInfo)
+                        .subscribe(onNext: { (buyer, supplier) in
+                            self.stackView.addArrangedSubview(
+                                TransactionCell(
+                                    input: data,
+                                    supplier: buyer.name,
+                                    buyer: supplier.name
+                                ))
+                        }).disposed(by: self.disposeBag)
+                } else {
+                    supplierInfo.subscribe(onNext: { supplier in
+                            self.stackView.addArrangedSubview(
+                                TransactionCell(
+                                    input: data,
+                                    supplier: "nil",
+                                    buyer: supplier.name
+                                )
+                            )
+                    }).disposed(by: self.disposeBag)
+                }
             }
         }).disposed(by: disposeBag)
         
