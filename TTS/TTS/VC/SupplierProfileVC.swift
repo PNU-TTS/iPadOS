@@ -114,7 +114,7 @@ extension SupplierProfileVC {
                         name: username,
                         role: "발전 사업자",
                         company: result.name,
-                        walletID: "feswjfhdsifweiun")
+                        email: ProfileDB.shared.get().email)
                 )
                 self.setProfileView()
                 self.setStackView()

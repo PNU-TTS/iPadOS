@@ -17,7 +17,7 @@ extension ProfileCard {
     static let sampleInput = Input(name: "사용자",
                                    role: "발전사업자",
                                    company: "부산 풍력 발전소",
-                                   walletID: "asdgsed35es4sd4gr5eyhsegfd3hgre15")
+                                   email: "asdgsed35es4sd4gr5eyhsegfd3hgre15")
 }
 
 class ProfileCard: UIView {
@@ -25,7 +25,7 @@ class ProfileCard: UIView {
         var name: String
         var role: String
         var company: String
-        var walletID: String
+        var email: String
     }
     
     var input: Input
@@ -34,7 +34,7 @@ class ProfileCard: UIView {
     lazy var nameLabel = UILabel()
     lazy var roleLabel = UILabel()
     lazy var companyLabel = UILabel()
-    lazy var walletIDLabel = UILabel()
+    lazy var emailLabel = UILabel()
     
     init(input: Input) {
         self.input = input
@@ -58,7 +58,7 @@ extension ProfileCard {
         addSubview(nameLabel)
         addSubview(roleLabel)
         addSubview(companyLabel)
-        addSubview(walletIDLabel)
+        addSubview(emailLabel)
         
         setProfileImageView()
         setNameLabel()
@@ -116,8 +116,8 @@ extension ProfileCard {
     }
     
     func setWalletIDLabel() {
-        walletIDLabel.then {
-            $0.text = "wallet ID: \(input.walletID)"
+        emailLabel.then {
+            $0.text = input.email
             $0.textColor = .gray
             $0.font = UIFont.systemFont(ofSize: Const.Font.big, weight: .light)
         }.snp.makeConstraints { make in
