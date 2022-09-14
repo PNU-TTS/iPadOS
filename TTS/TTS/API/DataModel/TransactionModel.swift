@@ -15,13 +15,13 @@ struct TransactionModel: Decodable {
         var price: Int
         var quantity: Int
         
-        var registeredDate: Int
-        var executedDate: Int?
+        @IntWrapper var registeredDate: Int
+        @OptionalIntWrapper var executedDate: Int?
         
         var supplier: String
         var buyer: String?
         
-        var is_confirmed: Bool
+        @BoolWrapper var is_confirmed: Bool
     }
     var Transaction: InnerModel
 }

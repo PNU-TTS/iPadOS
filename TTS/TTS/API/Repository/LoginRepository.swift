@@ -11,13 +11,13 @@ import RxSwift
 class LoginRepository: BaseRepository<TTSAPI> {
     
     func login(input: LoginModel) -> Single<TokenModel> {
-        return getProvider(mode: .test, debug: true).rx
+        return getProvider(mode: .real, debug: true).rx
             .request(.login(input: input))
             .map(TokenModel.self)
     }
     
     func verifyUser() -> Single<UserModel> {
-        return getProvider(mode: .test, debug: true).rx
+        return getProvider(mode: .real, debug: true).rx
             .request(.userVerify)
             .map(UserModel.self)
     }

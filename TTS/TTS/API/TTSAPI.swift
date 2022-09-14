@@ -80,10 +80,15 @@ extension TTSAPI: TargetType {
     }
     
     var headers: [String : String]? {
-        let token = TokenDB.shared.get().key
-        if token == "" {
+        switch self {
+        case .login:
             return [:]
+        default:
+            let token = TokenDB.shared.get().key
+            if token == "" {
+                return [:]
+            }
+            return ["Authorization":"Token \(token)"]
         }
-        return ["Authorization":"Token \(token)"]
     }
 }

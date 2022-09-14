@@ -69,6 +69,7 @@
 		9F2654E228CF0C5300DC62AE /* ChartConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E128CF0C5300DC62AE /* ChartConverter.swift */; };
 		9F2654E428D1BFFC00DC62AE /* BuyerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E328D1BFFC00DC62AE /* BuyerRepository.swift */; };
 		9F2654E628D1C02500DC62AE /* BuyerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E528D1C02500DC62AE /* BuyerInfo.swift */; };
+		9F2654E828D1FE3900DC62AE /* BoolWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E728D1FE3900DC62AE /* BoolWrapper.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -187,6 +188,7 @@
 		9F2654E128CF0C5300DC62AE /* ChartConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartConverter.swift; sourceTree = "<group>"; };
 		9F2654E328D1BFFC00DC62AE /* BuyerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerRepository.swift; sourceTree = "<group>"; };
 		9F2654E528D1C02500DC62AE /* BuyerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerInfo.swift; sourceTree = "<group>"; };
+		9F2654E728D1FE3900DC62AE /* BoolWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolWrapper.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -500,6 +502,7 @@
 			isa = PBXGroup;
 			children = (
 				9F2FC75128C8C858008D2DA9 /* IntWrapper.swift */,
+				9F2654E728D1FE3900DC62AE /* BoolWrapper.swift */,
 			);
 			path = PropertyWrapper;
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 				9F2FC74D28C8BD35008D2DA9 /* CreateTransactionModel.swift in Sources */,
 				9F2FC74328C72565008D2DA9 /* QueryByBuyerModel.swift in Sources */,
 				9F2FC74F28C8BD8F008D2DA9 /* ApproveTransactionModel.swift in Sources */,
+				9F2654E828D1FE3900DC62AE /* BoolWrapper.swift in Sources */,
 				9F2654CD28CA080700DC62AE /* RecListVM.swift in Sources */,
 				9F2654C828CA057900DC62AE /* RecHeader.swift in Sources */,
 				9F2654E628D1C02500DC62AE /* BuyerInfo.swift in Sources */,
