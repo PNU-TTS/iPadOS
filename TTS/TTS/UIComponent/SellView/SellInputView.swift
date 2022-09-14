@@ -19,11 +19,13 @@ extension SellInputView {
 
 class SellInputView: UIView {
     struct Input {
+        var certificateId: String
         var recBalance: Int
     }
     
     var input: Input
-    var disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
+    private var repository = TransactionRepository()
     
     let numberFormatter = NumberFormatter().then {
         $0.numberStyle = .decimal
@@ -170,16 +172,29 @@ extension SellInputView {
             make.height.equalTo(SupplierInfoVC.balanceViewHeight * 1.25)
             make.width.equalToSuperview().multipliedBy(0.5).inset(SellInputView.horizontalInset)
         }
-        
+    }
+    
+    func setButtonCommand(command: @escaping () -> Void) {
         buyButton.rx.tap
             .subscribe { [weak self] _ in
                 guard let self = self else { return }
-                if self.totalTextField.textField.text == "0" {
-                    return
-                }
-                if let total = Int(self.totalTextField.textField.text?.replacingOccurrences(of: ",", with: "") ?? "-") {
-                    print(total)
-                }
+                if self.totalTextField.textField.text == "0" { return }
+                let quantity = Int(self.amountTextField.textField.text?.replacingOccurrences(of: ",", with: "") ?? "0")!
+                let price = Int(self.priceTextField.textField.text?.replacingOccurrences(of: ",", with: "") ?? "0")!
+                if quantity * price == 0 { return }
+                
+                self.repository.createTransaction(input: CreateTransactionModel(
+                    target: self.input.certificateId,
+                    price: price,
+                    quantity: quantity,
+                    supplier: ProfileDB.shared.get().id))
+                .subscribe(onSuccess: { response in
+                    if Array(200...299).contains(response.statusCode) {
+                        command()
+                    } else {
+                        
+                    }
+                }).disposed(by: self.disposeBag)
             }.disposed(by: disposeBag)
     }
     

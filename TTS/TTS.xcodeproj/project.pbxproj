@@ -89,7 +89,6 @@
 		AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620828C5E5EB003B72D0 /* ProfileCard.swift */; };
 		AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620A28C5E64C003B72D0 /* SettingCard.swift */; };
 		AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */; };
-		AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB1256B28C47110005E8C71 /* SellVC.swift */; };
 		AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */; };
 		AFC0CFF028C4DD01006F9823 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFEF28C4DD01006F9823 /* PriceView.swift */; };
 /* End PBXBuildFile section */
@@ -202,7 +201,6 @@
 		AF73620828C5E5EB003B72D0 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		AF73620A28C5E64C003B72D0 /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
 		AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDescription.swift; sourceTree = "<group>"; };
-		AFB1256B28C47110005E8C71 /* SellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellVC.swift; sourceTree = "<group>"; };
 		AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellInputView.swift; sourceTree = "<group>"; };
 		AFC0CFEF28C4DD01006F9823 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		EE7E8794368D33EAE474CCDC /* Pods-TTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS.release.xcconfig"; path = "Target Support Files/Pods-TTS/Pods-TTS.release.xcconfig"; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 				9F19442028C226F2009FD556 /* LoginVC.swift */,
 				783A8F6C28BB2FE000C525DE /* SplitVC.swift */,
 				9F19442728C469A6009FD556 /* SupplierInfoVC.swift */,
-				AFB1256B28C47110005E8C71 /* SellVC.swift */,
 				784908D128C969AA00E32A77 /* ConfirmWaitVC.swift */,
 				AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */,
 				9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */,
@@ -776,7 +773,6 @@
 				9F2654C828CA057900DC62AE /* RecHeader.swift in Sources */,
 				784908D028C8BE2A00E32A77 /* AllTransVM.swift in Sources */,
 				784908E228C9A23300E32A77 /* TradeVM.swift in Sources */,
-				AFB1256C28C47110005E8C71 /* SellVC.swift in Sources */,
 				784908D428C96AD900E32A77 /* ConfirmVM.swift in Sources */,
 				9F2654B028C8FB4E00DC62AE /* BasePaddingLabel.swift in Sources */,
 				9F2FC75428C8E64F008D2DA9 /* SupplierModel.swift in Sources */,

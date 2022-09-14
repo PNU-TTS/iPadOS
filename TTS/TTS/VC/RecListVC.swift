@@ -78,8 +78,8 @@ class RecListVC: UIViewController {
             .subscribe(onSuccess: { recList in
                 recList.forEach { rec in
                     let cell = RecCell(input: rec.Certificate)
-                    cell.setSellButtonCommand {
-                        let nextVC = RecSellVC()
+                    cell.setSellButtonCommand { input in
+                        let nextVC = RecSellVC(input: input)
                         self.present(nextVC, animated: true)
                     }
                     self.stackView.addArrangedSubview(cell)

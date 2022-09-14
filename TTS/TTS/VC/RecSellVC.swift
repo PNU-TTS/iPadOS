@@ -10,18 +10,22 @@ import UIKit
 import Charts
 import Then
 import SnapKit
+import RxSwift
+import RxGesture
 
 class RecSellVC: UIViewController {
-    private var titleLabel = UILabel()
     
+    private var titleLabel = UILabel()
     private var averageView: PriceView
     private var highPriceView: PriceView
     private var lowPriceView: PriceView
     private var sellInputView: SellInputView
-    
     private var stackView = UIStackView()
-    
-    init() {
+
+    private var input: RecModel.InnerModel
+    init(input: RecModel.InnerModel) {
+        self.input = input
+        
         self.averageView = PriceView(input: PriceView.Input(
             icon: Const.Icon.won,
             amount: 10000,
@@ -40,7 +44,9 @@ class RecSellVC: UIViewController {
             description: "최저가",
             tintColor: Const.Color.semanticBlue2))
         
-        self.sellInputView = SellInputView(input: SellInputView.Input(recBalance: 100))
+        self.sellInputView = SellInputView(input: SellInputView.Input(
+            certificateId: input.id,
+            recBalance: input.quantity))
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -91,6 +97,10 @@ class RecSellVC: UIViewController {
         sellInputView.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(30.0)
             make.left.right.equalToSuperview()
+        }
+        
+        sellInputView.setButtonCommand {
+            self.dismiss(animated: true)
         }
     }
     

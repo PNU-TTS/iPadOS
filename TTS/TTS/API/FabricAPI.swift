@@ -27,7 +27,7 @@ enum FabricAPI {
 
 extension FabricAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://192.168.0.19:8080")!
+        return URL(string: "http://192.168.0.23:8080")!
     }
     
     var path: String {
@@ -69,12 +69,11 @@ extension FabricAPI: TargetType {
         case .queryTransactionByBuyer:
             return "/transaction/query-by-buyer/"
             
-            // add API
         case .queryNotConfirmedBySupplier:
-            return "/query/transaction/by-supplier/non-confirmed/"
+            return "/transaction/query-non-confirmed-by-supplier/"
             
         case .queryNotConfirmedByBuyer:
-            return "/query/transaction/by-buyer/non-confirmed/"
+            return "/transaction/query-non-confirmed-by-buyer/"
             
         }
     }
