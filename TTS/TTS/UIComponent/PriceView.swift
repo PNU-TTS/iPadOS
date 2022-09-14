@@ -37,6 +37,10 @@ class PriceView: UIView {
         setView()
     }
     
+    func update(value: Int) {
+        label.text = "\(numberFormatter.string(from: NSNumber(value: value))!) \(input.unit)"
+    }
+    
     func setView() {
         [iconView, label, descriptionLabel].forEach {
             self.addSubview($0)

@@ -14,6 +14,8 @@ import RxSwift
 import RxGesture
 
 class RecSellVC: UIViewController {
+    private var repository = TransactionRepository()
+    private var disposeBag = DisposeBag()
     
     private var titleLabel = UILabel()
     private var averageView: PriceView
@@ -49,6 +51,8 @@ class RecSellVC: UIViewController {
             recBalance: input.quantity))
         
         super.init(nibName: nil, bundle: nil)
+        
+        updatePriceViews()
     }
     
     override func viewDidLoad() {
@@ -102,6 +106,17 @@ class RecSellVC: UIViewController {
         sellInputView.setButtonCommand {
             self.dismiss(animated: true)
         }
+    }
+    
+    func updatePriceViews() {
+        repository.getPriceAvgMaxMin()
+            .subscribe { arr in
+                self.averageView.update(value: arr[0])
+                self.highPriceView.update(value: arr[1])
+                self.lowPriceView.update(value: arr[2])
+            } onFailure: { err in
+                print(err)
+            }.disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
