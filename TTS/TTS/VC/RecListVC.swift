@@ -20,6 +20,7 @@ class RecListVC: UIViewController {
     private var recHeader = RecHeader()
     private var recTable = UIScrollView()
     private var stackView = UIStackView()
+    private var loadingIndicatorView = UIActivityIndicatorView(style: .large)
     
     private var repository = RecListRepository()
     
@@ -30,11 +31,12 @@ class RecListVC: UIViewController {
     }
     
     func setView() {
-        [titleLabel, recHeader, recTable].forEach {
+        [titleLabel, recHeader, recTable, loadingIndicatorView].forEach {
             view.addSubview($0)
         }
         setTitle()
         setRecTable()
+        setLoadingIndicView()
         setBinding()
     }
     
@@ -48,6 +50,21 @@ class RecListVC: UIViewController {
             make.left.equalToSuperview().inset(10.0)
         }
     }
+    
+    func setLoadingIndicView() {
+        loadingIndicatorView.then {
+            $0.center = self.view.center
+            $0.color = Const.Color.primary
+            $0.startAnimating()
+            $0.hidesWhenStopped = true
+            //            $0.stopAnimating()
+        }.snp.makeConstraints { make in
+            make.top.equalTo(recHeader.snp.bottom)
+            make.left.right.equalTo(recHeader)
+            make.height.equalTo(100)
+        }
+    }
+    
     
     func setRecTable() {
         recHeader.snp.makeConstraints { make in
@@ -76,6 +93,7 @@ class RecListVC: UIViewController {
     func setBinding() {
         repository.getCertificateBysypplier(id: ProfileDB.shared.get().id)
             .subscribe(onSuccess: { recList in
+                self.loadingIndicatorView.stopAnimating()
                 recList.forEach { rec in
                     let cell = RecCell(input: rec.Certificate)
                     cell.setSellButtonCommand { input in

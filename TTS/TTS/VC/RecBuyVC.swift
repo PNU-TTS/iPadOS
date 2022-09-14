@@ -23,7 +23,6 @@ class RecBuyVC: UIViewController {
     private var averageView: PriceView
     private var highPriceView: PriceView
     private var lowPriceView: PriceView
-//    private var sellInputView: SellInputView
     
     private var transactionDate: ConfirmTransactionCell
     private var supplierInfo: ConfirmTransactionCell

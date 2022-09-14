@@ -21,6 +21,8 @@ class ConfirmWaitVC: UIViewController {
     lazy var confirmTableHeader = ConfirmHeader()
     lazy var confirmTable = UIScrollView()
     lazy var stackView = UIStackView()
+    
+    private var loadingIndicatorView = UIActivityIndicatorView(style: .large)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +31,12 @@ class ConfirmWaitVC: UIViewController {
     }
     
     func setView() {
-        [titleLabel, confirmTableHeader, confirmTable].forEach {
+        [titleLabel, confirmTableHeader, confirmTable, loadingIndicatorView].forEach {
             view.addSubview($0)
         }
         setTitle()
         setConfirmTable()
+        setLoadingIndicView()
         setBinding()
     }
     
@@ -47,6 +50,21 @@ class ConfirmWaitVC: UIViewController {
             make.left.equalToSuperview().inset(10.0)
         }
     }
+    
+    func setLoadingIndicView() {
+        loadingIndicatorView.then {
+            $0.center = self.view.center
+            $0.color = Const.Color.primary
+            $0.startAnimating()
+            $0.hidesWhenStopped = true
+//            $0.stopAnimating()
+        }.snp.makeConstraints { make in
+            make.top.equalTo(confirmTableHeader.snp.bottom)
+            make.left.right.equalTo(confirmTableHeader)
+            make.height.equalTo(100)
+        }
+    }
+
     
     func setConfirmTable() {
         confirmTableHeader.snp.makeConstraints { make in
@@ -77,6 +95,7 @@ class ConfirmWaitVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaction in
+                self.loadingIndicatorView.stopAnimating()
                 let data = transaction.Transaction
                 
                 

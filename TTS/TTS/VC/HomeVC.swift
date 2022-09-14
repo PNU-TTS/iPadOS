@@ -33,7 +33,6 @@ class HomeVC: UIViewController {
     private var allTransactionHeader = TransactionHeader()
     private var allTransactionTable = UIScrollView()
     private var stackView = UIStackView()
-    
     private var loadingIndicatorView = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {

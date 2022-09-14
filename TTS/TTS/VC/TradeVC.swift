@@ -20,6 +20,7 @@ class TradeVC: UIViewController {
     private var tradeTableHeader = TradeHeader()
     private var tradeTable = UIScrollView()
     private var stackView = UIStackView()
+    private var loadingIndicatorView = UIActivityIndicatorView(style: .large)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +31,12 @@ class TradeVC: UIViewController {
     
 
     func setView() {
-        [titleLabel, tradeTableHeader, tradeTable].forEach {
+        [titleLabel, tradeTableHeader, tradeTable, loadingIndicatorView].forEach {
             view.addSubview($0)
         }
         setTitle()
         setTradeTable()
+        setLoadingIndicView()
         setBinding()
     }
     
@@ -48,6 +50,21 @@ class TradeVC: UIViewController {
             make.left.equalToSuperview().inset(10.0)
         }
     }
+    
+    func setLoadingIndicView() {
+        loadingIndicatorView.then {
+            $0.center = self.view.center
+            $0.color = Const.Color.primary
+            $0.startAnimating()
+            $0.hidesWhenStopped = true
+//            $0.stopAnimating()
+        }.snp.makeConstraints { make in
+            make.top.equalTo(tradeTableHeader.snp.bottom)
+            make.left.right.equalTo(tradeTableHeader)
+            make.height.equalTo(100)
+        }
+    }
+
     
     func setTradeTable() {
         tradeTableHeader.snp.makeConstraints { make in
@@ -78,6 +95,7 @@ class TradeVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaction in
+                self.loadingIndicatorView.stopAnimating()
                 let data = transaction.Transaction
                 
                 let supplierInfo = self.repository.getSupplierInfo(id: Int(data.supplier)!).asObservable()

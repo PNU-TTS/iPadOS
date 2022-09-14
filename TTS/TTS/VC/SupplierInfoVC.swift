@@ -14,7 +14,6 @@ import SnapKit
 extension SupplierInfoVC {
     static let balanceViewHeight: CGFloat = 110
     static let balanceViewWidth: CGFloat = 260
-    
 }
 
 class SupplierInfoVC: UIViewController {
@@ -32,6 +31,7 @@ class SupplierInfoVC: UIViewController {
     private var stackView = UIStackView()
     
     private var viewModel = SupplierInfoVM()
+    private var loadingIndicatorView = UIActivityIndicatorView(style: .large)
     
     init() {
         self.balanceView = PriceView(input: PriceView.Input(
@@ -61,12 +61,13 @@ class SupplierInfoVC: UIViewController {
     }
     
     func setView() {
-        [titleLabel, balanceView, recSoldView, transactionHeader, transactionTable].forEach {
+        [titleLabel, balanceView, recSoldView, transactionHeader, transactionTable, loadingIndicatorView].forEach {
             view.addSubview($0)
         }
         setTitleLabel()
         setBalanceView()
         setRecSoldView()
+        setLoadingIndicView()
         setTransactionTable()
         setBinding()
     }
@@ -100,6 +101,21 @@ class SupplierInfoVC: UIViewController {
         }
     }
     
+    func setLoadingIndicView() {
+        loadingIndicatorView.then {
+            $0.center = self.view.center
+            $0.color = Const.Color.primary
+            $0.startAnimating()
+            $0.hidesWhenStopped = true
+//            $0.stopAnimating()
+        }.snp.makeConstraints { make in
+            make.top.equalTo(transactionHeader.snp.bottom)
+            make.left.right.equalTo(transactionHeader)
+            make.height.equalTo(100)
+        }
+    }
+
+    
     func setTransactionTable() {
         transactionHeader.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(10.0)
@@ -130,6 +146,7 @@ class SupplierInfoVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
+                self.loadingIndicatorView.stopAnimating()
                 let data = transaciton.Transaction
                 
                 let supplierInfo = self.supplierRepository.getSupplierInfo(id: Int(data.supplier)!).asObservable()

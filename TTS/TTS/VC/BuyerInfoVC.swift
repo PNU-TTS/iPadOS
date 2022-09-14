@@ -21,6 +21,7 @@ class BuyerInfoVC: UIViewController {
     private var transactionHeader = TransactionHeader()
     private var transactionTable = UIScrollView()
     private var stackView = UIStackView()
+    private var loadingIndicatorView = UIActivityIndicatorView(style: .large)
     
     private var viewModel = BuyerInfoVM()
     
@@ -44,7 +45,7 @@ class BuyerInfoVC: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = Const.Color.backgroundColor
@@ -66,6 +67,7 @@ class BuyerInfoVC: UIViewController {
         setBalanceView()
         setRecSoldView()
         setTransactionTable()
+        setLoadingIndicView()
         setBinding()
     }
     
@@ -95,6 +97,20 @@ class BuyerInfoVC: UIViewController {
             make.top.equalTo(balanceView)
             make.height.equalTo(SupplierInfoVC.balanceViewHeight)
             make.width.equalTo(SupplierInfoVC.balanceViewWidth)
+        }
+    }
+    
+    func setLoadingIndicView() {
+        loadingIndicatorView.then {
+            $0.center = self.view.center
+            $0.color = Const.Color.primary
+            $0.startAnimating()
+            $0.hidesWhenStopped = true
+            //            $0.stopAnimating()
+        }.snp.makeConstraints { make in
+            make.top.equalTo(transactionHeader.snp.bottom)
+            make.left.right.equalTo(transactionHeader)
+            make.height.equalTo(100)
         }
     }
     
@@ -136,6 +152,7 @@ class BuyerInfoVC: UIViewController {
                     
                     Observable.combineLatest(buyerInfo,supplierInfo)
                         .subscribe(onNext: { (buyer, supplier) in
+                            self.loadingIndicatorView.stopAnimating()
                             self.stackView.addArrangedSubview(
                                 TransactionCell(
                                     input: data,
@@ -145,13 +162,14 @@ class BuyerInfoVC: UIViewController {
                         }).disposed(by: self.disposeBag)
                 } else {
                     supplierInfo.subscribe(onNext: { supplier in
-                            self.stackView.addArrangedSubview(
-                                TransactionCell(
-                                    input: data,
-                                    supplier: "nil",
-                                    buyer: supplier.name
-                                )
+                        self.loadingIndicatorView.stopAnimating()
+                        self.stackView.addArrangedSubview(
+                            TransactionCell(
+                                input: data,
+                                supplier: "nil",
+                                buyer: supplier.name
                             )
+                        )
                     }).disposed(by: self.disposeBag)
                 }
             }

@@ -89,7 +89,6 @@
 		9F2FC75628C8E66A008D2DA9 /* BankAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */; };
 		9F2FC75828C8E7AE008D2DA9 /* SupplierRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */; };
 		9F2FC75A28C8ED00008D2DA9 /* ProfileDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75928C8ED00008D2DA9 /* ProfileDB.swift */; };
-		9F2FC75C28C8F20A008D2DA9 /* RecVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */; };
 		AF73620628C5D0A8003B72D0 /* SupplierProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */; };
 		AF73620928C5E5EB003B72D0 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620828C5E5EB003B72D0 /* ProfileCard.swift */; };
 		AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73620A28C5E64C003B72D0 /* SettingCard.swift */; };
@@ -208,7 +207,6 @@
 		9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountModel.swift; sourceTree = "<group>"; };
 		9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierRepository.swift; sourceTree = "<group>"; };
 		9F2FC75928C8ED00008D2DA9 /* ProfileDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDB.swift; sourceTree = "<group>"; };
-		9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecVC.swift; sourceTree = "<group>"; };
 		AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupplierProfileVC.swift; sourceTree = "<group>"; };
 		AF73620828C5E5EB003B72D0 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		AF73620A28C5E64C003B72D0 /* SettingCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCard.swift; sourceTree = "<group>"; };
@@ -366,7 +364,6 @@
 				9F19442728C469A6009FD556 /* SupplierInfoVC.swift */,
 				784908D128C969AA00E32A77 /* ConfirmWaitVC.swift */,
 				AF73620528C5D0A8003B72D0 /* SupplierProfileVC.swift */,
-				9F2FC75B28C8F20A008D2DA9 /* RecVC.swift */,
 				784908DA28C99E8F00E32A77 /* TradeVC.swift */,
 				9F2654CA28CA057D00DC62AE /* RecListVC.swift */,
 				9F2654D028CDC13000DC62AE /* RecSellVC.swift */,
@@ -801,7 +798,6 @@
 				9F2FC75428C8E64F008D2DA9 /* SupplierModel.swift in Sources */,
 				AF73620B28C5E64C003B72D0 /* SettingCard.swift in Sources */,
 				9F2654DA28CDDB7200DC62AE /* ConfirmTransactionCell.swift in Sources */,
-				9F2FC75C28C8F20A008D2DA9 /* RecVC.swift in Sources */,
 				783A8F7128BDC06A00C525DE /* HomeVC.swift in Sources */,
 				784908E828CDE14200E32A77 /* ChartView.swift in Sources */,
 				9F19443228C499A2009FD556 /* RecSoldView.swift in Sources */,
