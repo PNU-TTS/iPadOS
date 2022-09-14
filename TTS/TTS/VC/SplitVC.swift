@@ -63,7 +63,11 @@ extension SplitVC: MenuControllerDelegate {
 //            vc.title = "내 거래 내역"
             vc = SupplierInfoVC()
         default:
-            vc = SupplierProfileVC(id: 1)
+            if ProfileDB.shared.get().is_supplier {
+                vc = SupplierProfileVC(id: ProfileDB.shared.get().id)
+            } else {
+                vc = BuyerProfileVC(id: ProfileDB.shared.get().id)
+            }
         }
         
         (self.viewControllers.last as? UINavigationController)?.pushViewController(vc, animated: true)
