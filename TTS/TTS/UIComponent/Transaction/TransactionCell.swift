@@ -73,7 +73,7 @@ class TransactionCell: UIView {
     
     func setSender() {
         sender.then {
-            $0.text = "남부발전"
+            $0.text = input.supplier
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
             $0.textAlignment = .center
@@ -84,7 +84,7 @@ class TransactionCell: UIView {
     
     func setReceiver() {
         receiver.then {
-            $0.text = "한국전력"
+            $0.text = input.buyer
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
             $0.textAlignment = .center
