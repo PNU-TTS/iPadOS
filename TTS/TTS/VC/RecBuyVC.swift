@@ -13,7 +13,8 @@ import RxSwift
 import RxSwift
 
 class RecBuyVC: UIViewController {
-    private let repository = TransactionRepository()
+    private let txRepository = TransactionRepository()
+    private let supplierRepository = SupplierRepository()
     private let disposeBag = DisposeBag()
     
     private var titleLabel = UILabel()
@@ -74,6 +75,7 @@ class RecBuyVC: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         updatePriceViews()
+        updateInfoViews()
     }
     
     override func viewDidLoad() {
@@ -170,7 +172,7 @@ class RecBuyVC: UIViewController {
         buyButton.rx.tap
             .subscribe { [weak self] _ in
                 guard let self = self else { return }
-                self.repository.executeTransaction(
+                self.txRepository.executeTransaction(
                     input: ExecuteTransactionModel(id: self.input.id,
                                                    buyer: ProfileDB.shared.get().id))
                 .subscribe(onSuccess: { response in
@@ -184,13 +186,24 @@ class RecBuyVC: UIViewController {
     }
     
     func updatePriceViews() {
-        repository.getPriceAvgMaxMin()
+        txRepository.getPriceAvgMaxMin()
             .subscribe { arr in
                 self.averageView.update(value: arr[0])
                 self.highPriceView.update(value: arr[1])
                 self.lowPriceView.update(value: arr[2])
             } onFailure: { err in
                 print(err)
+            }.disposed(by: disposeBag)
+    }
+    
+    func updateInfoViews() {
+        supplierRepository.getSupplierInfo(id: Int(input.supplier)!)
+            .asObservable()
+            .subscribe { supplierModel in
+                if let supplierModel = supplierModel.element {
+                    self.supplierInfo.update(content: supplierModel.name)
+                    self.bankAccount.update(content: supplierModel.bank_account.getString())
+                }
             }.disposed(by: disposeBag)
     }
 
