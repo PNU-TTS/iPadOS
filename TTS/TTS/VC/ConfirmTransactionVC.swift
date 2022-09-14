@@ -37,7 +37,12 @@ class ConfirmTransactionVC: UIViewController {
     
     private var stackView = UIStackView()
     
-    init() {
+    private var txID: String
+    let txRepository = TransactionRepository()
+    
+    init(txID: String) {
+        self.txID = txID
+        
         transactionDate = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(
             title: "거래 등록 일시",
             content: "2022년 01월 01일 19:02:34"))
@@ -118,7 +123,15 @@ class ConfirmTransactionVC: UIViewController {
                 self.authContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "인증", reply: { (success, error) in
                     if !success { return }
                     DispatchQueue.main.async {
-                        self.dismiss(animated: true)
+                        self.txRepository
+                            .approveTransaction(input: ApproveTransactionModel(id: self.txID))
+                            .subscribe(onSuccess: { response in
+                                if Array(200...299).contains(response.statusCode) {
+                                    self.dismiss(animated: true)
+                                } else {
+                                    
+                                }
+                            }).disposed(by: self.disposeBag)
                     }
                 })
             }).disposed(by: disposeBag)

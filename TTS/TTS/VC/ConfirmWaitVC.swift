@@ -78,7 +78,7 @@ class ConfirmWaitVC: UIViewController {
             transactions.forEach { transaciton in
                 let nextVC = ConfirmCell(input: transaciton.Transaction)
                 nextVC.setConfirmButtomCommand {
-                    self.present(ConfirmTransactionVC(), animated: true)
+                    self.present(ConfirmTransactionVC(txID: transaciton.Transaction.id), animated: true)
                 }
                 self.stackView.addArrangedSubview(nextVC)
             }
