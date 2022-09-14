@@ -221,7 +221,8 @@ extension SellInputView {
             amountTextField.textField.text = "\(convertedAmount)"
             totalTextField.textField.text = numberFormatter.string(from: NSNumber(value: amount * price))
         } else {
-            setDefault()
+            amountTextField.textField.text = "0"
+            totalTextField.textField.text = "0"
         }
     }
     
@@ -234,7 +235,8 @@ extension SellInputView {
             priceTextField.textField.text = "\(convertedPrice)"
             totalTextField.textField.text = numberFormatter.string(from: NSNumber(value: amount * price))
         } else {
-            setDefault()
+            priceTextField.textField.text = "0"
+            totalTextField.textField.text = "0"
         }
     }
     
