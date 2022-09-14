@@ -75,13 +75,15 @@ class TradeVC: UIViewController {
     func setBinding() {
         let output = viewModel.transform(input: ConfirmVM.Input(id: 1))
         
-        
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.stackView.addArrangedSubview(TradeCell(input: transaciton.Transaction))
+                let cell = TradeCell(input: transaciton.Transaction)
+                cell.setBuyButtonCommand { input in
+                    let nextVC = RecBuyVC(input: input)
+                    self.present(nextVC, animated: true)
+                }
+                self.stackView.addArrangedSubview(cell)
             }
         }).disposed(by: disposeBag)
-        
     }
-
 }

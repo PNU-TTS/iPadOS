@@ -73,7 +73,7 @@ class RecSellVC: UIViewController {
     
     func setTitle() {
         titleLabel.then {
-            $0.text = "인증서 매도"
+            $0.text = "인증서 매수"
             $0.font = UIFont.systemFont(ofSize: 40.0, weight: .bold)
             $0.textColor = Const.Color.textColor
         }.snp.makeConstraints { make in
