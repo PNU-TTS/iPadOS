@@ -68,7 +68,7 @@ class RecCell: UIView {
             $0.font = UIFont.systemFont(ofSize: RecCell.fontSize)
             $0.textAlignment = .center
         }.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.25)
+            make.width.equalToSuperview().multipliedBy(0.3)
             make.top.bottom.equalToSuperview().inset(12.0)
         }
     }
@@ -138,15 +138,15 @@ class RecCell: UIView {
             $0.layer.cornerRadius = 5.0
         }.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview().inset(12.0)
-            make.width.equalToSuperview().multipliedBy(0.15)
+            make.width.equalToSuperview().multipliedBy(0.1)
         }
     }
     
-    func setSellButtonCommand(command: @escaping (() -> Void)) {
+    func setSellButtonCommand(command: @escaping ((_ input: RecModel.InnerModel) -> Void)) {
         sellButton.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { _ in
-                command()
+                command(self.input)
             }).disposed(by: disposeBag)
     }
     
