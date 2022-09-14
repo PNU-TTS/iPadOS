@@ -9,7 +9,12 @@ import UIKit
 import Then
 import SnapKit
 
+import RxSwift
+
 class RecBuyVC: UIViewController {
+    private let repository = TransactionRepository()
+    private let disposeBag = DisposeBag()
+    
     private var titleLabel = UILabel()
     private var subTitleLabel = UILabel()
     
@@ -155,6 +160,24 @@ class RecBuyVC: UIViewController {
             make.left.right.equalToSuperview().inset(20.0)
             make.height.equalTo(55.0)
         }
+        setButtonCommand()
+    }
+    
+    func setButtonCommand() {
+        buyButton.rx.tap
+            .subscribe { [weak self] _ in
+                guard let self = self else { return }
+                self.repository.executeTransaction(
+                    input: ExecuteTransactionModel(id: self.input.id,
+                                                   buyer: ProfileDB.shared.get().id))
+                .subscribe(onSuccess: { response in
+                    if Array(200...299).contains(response.statusCode) {
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        
+                    }
+                }).disposed(by: self.disposeBag)
+            }.disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
