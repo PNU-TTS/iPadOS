@@ -12,7 +12,7 @@ import RxSwift
 
 class TradeVC: UIViewController {
     
-    private var viewModel = ConfirmVM()
+    private var viewModel = TradeVM()
     private var disposeBag = DisposeBag()
     
     private var titleLabel = UILabel()
@@ -73,7 +73,7 @@ class TradeVC: UIViewController {
     }
     
     func setBinding() {
-        let output = viewModel.transform(input: ConfirmVM.Input(id: 1))
+        let output = viewModel.transform(input: TradeVM.Input())
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
