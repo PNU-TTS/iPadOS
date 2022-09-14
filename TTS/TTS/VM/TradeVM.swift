@@ -13,7 +13,6 @@ struct TradeVM: BasicVM {
     private let repository = TransactionRepository()
     
     struct Input {
-        var id: Int
     }
     
     struct Output {
@@ -21,6 +20,6 @@ struct TradeVM: BasicVM {
     }
     
     func transform(input: Input) -> Output {
-        return Output(transactions: repository.getNotConfirmedBySupplier(supplier: input.id).asObservable())
+        return Output(transactions: repository.getUnexecutedTransaction().asObservable())
     }
 }
