@@ -73,7 +73,7 @@ class ConfirmWaitVC: UIViewController {
     }
     
     func setBinding() {
-        let output = viewModel.transform(input: ConfirmVM.Input(id: 1))
+        let output = viewModel.transform(input: ConfirmVM.Input(id: ProfileDB.shared.get().id))
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaction in
