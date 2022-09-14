@@ -27,6 +27,10 @@ class ConfirmTransactionCell: UIView {
         setView()
     }
     
+    func update(content: String) {
+        contentLabel.text = content
+    }
+    
     func setView() {
         [titleLabel, contentLabel].forEach {
             self.addSubview($0)
