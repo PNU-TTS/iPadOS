@@ -31,6 +31,8 @@
 		7851BD5D28BB2D94006086CB /* TTSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5C28BB2D94006086CB /* TTSUITests.swift */; };
 		7851BD5F28BB2D94006086CB /* TTSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */; };
 		785F7D1128D0B08C0075FAED /* RecBuyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7D1028D0B08C0075FAED /* RecBuyVC.swift */; };
+		785F7D1328D1D8D10075FAED /* BuyerInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7D1228D1D8D10075FAED /* BuyerInfoVC.swift */; };
+		785F7D1528D1D90D0075FAED /* BuyerInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785F7D1428D1D90D0075FAED /* BuyerInfoVM.swift */; };
 		9AE1D26D9F0B16879B490240 /* Pods_TTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8522230136EBF9646E2342F /* Pods_TTS.framework */; };
 		9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441028C220D7009FD556 /* TransactionModel.swift */; };
 		9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F19441228C22145009FD556 /* TransactionRepository.swift */; };
@@ -146,6 +148,8 @@
 		7851BD5C28BB2D94006086CB /* TTSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITests.swift; sourceTree = "<group>"; };
 		7851BD5E28BB2D94006086CB /* TTSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		785F7D1028D0B08C0075FAED /* RecBuyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecBuyVC.swift; sourceTree = "<group>"; };
+		785F7D1228D1D8D10075FAED /* BuyerInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerInfoVC.swift; sourceTree = "<group>"; };
+		785F7D1428D1D90D0075FAED /* BuyerInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerInfoVM.swift; sourceTree = "<group>"; };
 		85721C8EF9BD5353EC1E21C8 /* Pods-TTS-TTSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS-TTSUITests.debug.xcconfig"; path = "Target Support Files/Pods-TTS-TTSUITests/Pods-TTS-TTSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F19441028C220D7009FD556 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
 		9F19441228C22145009FD556 /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 				9F2654D028CDC13000DC62AE /* RecSellVC.swift */,
 				9F2654D628CDDA2B00DC62AE /* ConfirmTransactionVC.swift */,
 				785F7D1028D0B08C0075FAED /* RecBuyVC.swift */,
+				785F7D1228D1D8D10075FAED /* BuyerInfoVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -379,6 +384,7 @@
 				784908E128C9A23300E32A77 /* TradeVM.swift */,
 				9F2654CC28CA080700DC62AE /* RecListVM.swift */,
 				784908E528CDD76600E32A77 /* HomeVM.swift */,
+				785F7D1428D1D90D0075FAED /* BuyerInfoVM.swift */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -805,6 +811,7 @@
 				9F19441928C22521009FD556 /* LoginRepository.swift in Sources */,
 				9F2654CB28CA057D00DC62AE /* RecListVC.swift in Sources */,
 				9F19442B28C46AB7009FD556 /* BalanceView.swift in Sources */,
+				785F7D1328D1D8D10075FAED /* BuyerInfoVC.swift in Sources */,
 				9F2654D128CDC13000DC62AE /* RecSellVC.swift in Sources */,
 				9F2FC74728C72CEF008D2DA9 /* DateTimeConverter.swift in Sources */,
 				AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */,
@@ -825,6 +832,7 @@
 				9F2FC75628C8E66A008D2DA9 /* BankAccountModel.swift in Sources */,
 				9F19441328C22145009FD556 /* TransactionRepository.swift in Sources */,
 				9F2FC74928C74235008D2DA9 /* RegisterCertificateModel.swift in Sources */,
+				785F7D1528D1D90D0075FAED /* BuyerInfoVM.swift in Sources */,
 				9F2FC73628C71F4E008D2DA9 /* DecodingError.swift in Sources */,
 				9F19442628C3375B009FD556 /* BasicVM.swift in Sources */,
 				7851BD3E28BB2D91006086CB /* SceneDelegate.swift in Sources */,
