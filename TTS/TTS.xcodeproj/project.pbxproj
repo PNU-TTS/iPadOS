@@ -93,6 +93,7 @@
 		AFB04DDE28BB52B800FFA95B /* TextFieldWithDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */; };
 		AFC0CFEE28C4D8F2006F9823 /* SellInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */; };
 		AFC0CFF028C4DD01006F9823 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC0CFEF28C4DD01006F9823 /* PriceView.swift */; };
+		AFCE8FFC28D1D57A0069F226 /* IntUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCE8FFB28D1D57A0069F226 /* IntUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,6 +208,7 @@
 		AFB04DDD28BB52B800FFA95B /* TextFieldWithDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithDescription.swift; sourceTree = "<group>"; };
 		AFC0CFED28C4D8F2006F9823 /* SellInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellInputView.swift; sourceTree = "<group>"; };
 		AFC0CFEF28C4DD01006F9823 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
+		AFCE8FFB28D1D57A0069F226 /* IntUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntUtility.swift; sourceTree = "<group>"; };
 		EE7E8794368D33EAE474CCDC /* Pods-TTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTS.release.xcconfig"; path = "Target Support Files/Pods-TTS/Pods-TTS.release.xcconfig"; sourceTree = "<group>"; };
 		F8522230136EBF9646E2342F /* Pods_TTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -417,6 +419,7 @@
 				9F2FC74628C72CEF008D2DA9 /* DateTimeConverter.swift */,
 				9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */,
 				9F2654E128CF0C5300DC62AE /* ChartConverter.swift */,
+				AFCE8FFB28D1D57A0069F226 /* IntUtility.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 				785F7D1128D0B08C0075FAED /* RecBuyVC.swift in Sources */,
 				9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */,
 				9F2654E028CEE3F300DC62AE /* UserModel.swift in Sources */,
+				AFCE8FFC28D1D57A0069F226 /* IntUtility.swift in Sources */,
 				9F19441C28C22623009FD556 /* InternalDB.swift in Sources */,
 				9F2654D728CDDA2B00DC62AE /* ConfirmTransactionVC.swift in Sources */,
 				9F2654E228CF0C5300DC62AE /* ChartConverter.swift in Sources */,
