@@ -35,7 +35,7 @@ struct DateTimeConverter {
     
     static func fromDateToMonth(input: Date) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/MM"
+        dateFormatter.dateFormat = "yy/MM"
         return dateFormatter.string(from: input)
     }
 }
