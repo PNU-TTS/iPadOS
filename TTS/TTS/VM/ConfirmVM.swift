@@ -21,7 +21,11 @@ struct ConfirmVM: BasicVM {
     }
     
     func transform(input: Input) -> Output {
-        return Output(transactions: repository.getNotConfirmedBySupplier(supplier: input.id).asObservable())
+        if ProfileDB.shared.get().is_supplier {
+            return Output(transactions: repository.getNotConfirmedBySupplier(supplier: input.id).asObservable())
+        } else {
+            return Output(transactions: repository.getNotConfirmedByBuyer(buyer: input.id).asObservable())
+        }
     }
 }
 

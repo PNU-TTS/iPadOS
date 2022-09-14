@@ -69,12 +69,11 @@ extension FabricAPI: TargetType {
         case .queryTransactionByBuyer:
             return "/transaction/query-by-buyer/"
             
-            // add API
         case .queryNotConfirmedBySupplier:
-            return "/query/transaction/by-supplier/non-confirmed/"
+            return "/transaction/query-non-confirmed-by-supplier/"
             
         case .queryNotConfirmedByBuyer:
-            return "/query/transaction/by-buyer/non-confirmed/"
+            return "/transaction/query-non-confirmed-by-buyer/"
             
         }
     }
