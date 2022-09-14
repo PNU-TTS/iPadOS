@@ -15,3 +15,9 @@ struct BankAccountModel: Decodable {
     var bank: BankModel
     var number: String
 }
+
+extension BankAccountModel {
+    func getString() -> String {
+        bank.name + " " + number
+    }
+}
