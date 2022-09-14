@@ -65,6 +65,8 @@
 		9F2654DE28CDFB8700DC62AE /* UIColorUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */; };
 		9F2654E028CEE3F300DC62AE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654DF28CEE3F300DC62AE /* UserModel.swift */; };
 		9F2654E228CF0C5300DC62AE /* ChartConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E128CF0C5300DC62AE /* ChartConverter.swift */; };
+		9F2654E428D1BFFC00DC62AE /* BuyerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E328D1BFFC00DC62AE /* BuyerRepository.swift */; };
+		9F2654E628D1C02500DC62AE /* BuyerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2654E528D1C02500DC62AE /* BuyerInfo.swift */; };
 		9F28CEE828BB324D00527716 /* TTSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEE728BB324D00527716 /* TTSAPI.swift */; };
 		9F28CEEB28BB371600527716 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEA28BB371600527716 /* BaseRepository.swift */; };
 		9F28CEED28BB380A00527716 /* MoyaInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */; };
@@ -177,6 +179,8 @@
 		9F2654DD28CDFB8700DC62AE /* UIColorUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorUtility.swift; sourceTree = "<group>"; };
 		9F2654DF28CEE3F300DC62AE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		9F2654E128CF0C5300DC62AE /* ChartConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartConverter.swift; sourceTree = "<group>"; };
+		9F2654E328D1BFFC00DC62AE /* BuyerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerRepository.swift; sourceTree = "<group>"; };
+		9F2654E528D1C02500DC62AE /* BuyerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyerInfo.swift; sourceTree = "<group>"; };
 		9F28CEE728BB324D00527716 /* TTSAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSAPI.swift; sourceTree = "<group>"; };
 		9F28CEEA28BB371600527716 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
 		9F28CEEC28BB380A00527716 /* MoyaInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaInterceptor.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 				9F2FC75528C8E66A008D2DA9 /* BankAccountModel.swift */,
 				784908E928CDE63C00E32A77 /* ChartModel.swift */,
 				9F2654DF28CEE3F300DC62AE /* UserModel.swift */,
+				9F2654E528D1C02500DC62AE /* BuyerInfo.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -466,6 +471,7 @@
 				9F2FC74A28C74322008D2DA9 /* CertificateRepository.swift */,
 				9F2FC75728C8E7AE008D2DA9 /* SupplierRepository.swift */,
 				9F2654CE28CA08B300DC62AE /* RecListRepository.swift */,
+				9F2654E328D1BFFC00DC62AE /* BuyerRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -771,6 +777,7 @@
 				9F2FC74F28C8BD8F008D2DA9 /* ApproveTransactionModel.swift in Sources */,
 				9F2654CD28CA080700DC62AE /* RecListVM.swift in Sources */,
 				9F2654C828CA057900DC62AE /* RecHeader.swift in Sources */,
+				9F2654E628D1C02500DC62AE /* BuyerInfo.swift in Sources */,
 				784908D028C8BE2A00E32A77 /* AllTransVM.swift in Sources */,
 				784908E228C9A23300E32A77 /* TradeVM.swift in Sources */,
 				784908D428C96AD900E32A77 /* ConfirmVM.swift in Sources */,
@@ -786,6 +793,7 @@
 				9F19441E28C22649009FD556 /* TokenDB.swift in Sources */,
 				9F19443828C4A9F4009FD556 /* TransactionCell.swift in Sources */,
 				784908D728C96E7600E32A77 /* ConfirmCell.swift in Sources */,
+				9F2654E428D1BFFC00DC62AE /* BuyerRepository.swift in Sources */,
 				9F19443028C46B09009FD556 /* Color.swift in Sources */,
 				9F19441128C220D7009FD556 /* TransactionModel.swift in Sources */,
 				784908E028C9A12400E32A77 /* TradeCell.swift in Sources */,

@@ -30,9 +30,11 @@ class ConfirmCell: UIView {
     private var confirmButton = UIButton()
     
     private var input: TransactionModel.InnerModel
+    private var buyer: String
     
-    init(input: TransactionModel.InnerModel) {
+    init(input: TransactionModel.InnerModel, buyer: String) {
         self.input = input
+        self.buyer = buyer
         
         super.init(frame: .zero)
         self.backgroundColor = .white
@@ -89,7 +91,7 @@ class ConfirmCell: UIView {
         
     func setReceiver() {
         receiver.then {
-            $0.text = "한국전력"
+            $0.text = buyer
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: ConfirmCell.fontSize)
             $0.textAlignment = .center

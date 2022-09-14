@@ -37,29 +37,37 @@ class ConfirmTransactionVC: UIViewController {
     
     private var stackView = UIStackView()
     
-    private var txID: String
     let txRepository = TransactionRepository()
     
-    init(txID: String) {
-        self.txID = txID
+    struct Input {
+        var transaction: TransactionModel.InnerModel
+        var buyer: String
+        var bankAccount: String
+    }
+    
+    private var input: Input
+    
+    init(input: Input) {
+        self.input = input
+        let tx = input.transaction
         
         transactionDate = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(
             title: "거래 등록 일시",
-            content: "2022년 01월 01일 19:02:34"))
+            content: DateTimeConverter.fromIntToString(input: tx.registeredDate)))
         
         executedDate = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(
             title: "거래 완료 일시",
-            content: "2022년 01월 02일 19:02:34"))
+            content: DateTimeConverter.fromIntToString(input: tx.executedDate!)))
         
-        buyerInfo = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "구매자", content: "한국 전력"))
+        buyerInfo = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "구매자", content: input.buyer))
         
-        pricePerRec = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "인증서 개당 가격", content: "26,323 원"))
+        pricePerRec = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "인증서 개당 가격", content: "\(tx.price) 원"))
         
-        transactionVolume = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "거래 수량", content: "1,242 개"))
+        transactionVolume = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "거래 수량", content: "\(tx.quantity) 개"))
         
-        totalPrice = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "총 거래 대금", content: "2,312,463 원"))
+        totalPrice = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "총 거래 대금", content: "\(tx.price * tx.quantity) 원"))
         
-        bankAccount = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "입금 계좌", content: "부산은행 112-3723-4838-47"))
+        bankAccount = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "입금 계좌", content: input.bankAccount))
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -124,7 +132,7 @@ class ConfirmTransactionVC: UIViewController {
                     if !success { return }
                     DispatchQueue.main.async {
                         self.txRepository
-                            .approveTransaction(input: ApproveTransactionModel(id: self.txID))
+                            .approveTransaction(input: ApproveTransactionModel(id: self.input.transaction.id))
                             .subscribe(onSuccess: { response in
                                 if Array(200...299).contains(response.statusCode) {
                                     self.dismiss(animated: true)

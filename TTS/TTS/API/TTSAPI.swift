@@ -13,6 +13,7 @@ enum TTSAPI {
     case userVerify
     
     case getSupplierInfo(id: Int)
+    case getBuyerInfo(id: Int)
 }
 
 extension TTSAPI: TargetType {
@@ -33,6 +34,9 @@ extension TTSAPI: TargetType {
             
         case .getSupplierInfo(let id):
             return "/powerplant/\(id)"
+            
+        case .getBuyerInfo(let id):
+            return "/buyer/\(id)"
         }
     }
     
@@ -68,6 +72,9 @@ extension TTSAPI: TargetType {
             return .requestPlain
             
         case .getSupplierInfo:
+            return .requestPlain
+            
+        case .getBuyerInfo:
             return .requestPlain
         }
     }
