@@ -12,8 +12,8 @@ struct TransactionModel: Decodable {
         var id: String
         
         var target: String
-        @IntWrapper var price: Int
-        @IntWrapper var quantity: Int
+        var price: Int
+        var quantity: Int
         
         var registeredDate: Int
         var executedDate: Int?
