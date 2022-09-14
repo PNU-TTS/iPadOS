@@ -17,9 +17,9 @@ extension UserModel {
     static let sampleData: String =
     """
     {
-        "id": 2,
+        "id": 1,
         "email": "admin@admin.com",
-        "is_supplier": false
+        "is_supplier": true
     }
     """
 }

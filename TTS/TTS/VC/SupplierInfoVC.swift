@@ -19,6 +19,8 @@ extension SupplierInfoVC {
 
 class SupplierInfoVC: UIViewController {
     private var disposeBag = DisposeBag()
+    private var buyerRepository = BuyerRepository()
+    private var supplierRepository = SupplierRepository()
     
     private var titleLabel = UILabel()
     
@@ -128,7 +130,35 @@ class SupplierInfoVC: UIViewController {
         
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
-                self.stackView.addArrangedSubview(TransactionCell(input: transaciton.Transaction))
+                let data = transaciton.Transaction
+                
+                let supplierInfo = self.supplierRepository.getSupplierInfo(id: Int(data.supplier)!).asObservable()
+                
+                if data.buyer != nil {
+                    let buyerInfo = self.buyerRepository.getBuyerInfo(id: Int(data.buyer!)!).asObservable()
+                    
+                    Observable.combineLatest(buyerInfo,supplierInfo)
+                        .subscribe(onNext: { (buyer, supplier) in
+                            self.stackView.addArrangedSubview(
+                                TransactionCell(
+                                    input: data,
+                                    supplier: buyer.name,
+                                    buyer: supplier.name
+                                ))
+                        }).disposed(by: self.disposeBag)
+                } else {
+                    supplierInfo.subscribe(onNext: { supplier in
+                            self.stackView.addArrangedSubview(
+                                TransactionCell(
+                                    input: data,
+                                    supplier: "nil",
+                                    buyer: supplier.name
+                                )
+                            )
+                    }).disposed(by: self.disposeBag)
+                }
+                
+                
             }
         }).disposed(by: disposeBag)
     }

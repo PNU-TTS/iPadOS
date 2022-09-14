@@ -18,6 +18,7 @@ extension RecCell {
 
 class RecCell: UIView {
     private var disposeBag = DisposeBag()
+    private var repository = TransactionRepository()
     
     private var cell = UIStackView()
     

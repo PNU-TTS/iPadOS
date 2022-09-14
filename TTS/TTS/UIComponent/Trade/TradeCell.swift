@@ -29,9 +29,11 @@ class TradeCell: UIView {
     private var buyButton = UIButton()
     
     private var input: TransactionModel.InnerModel
+    private var supplier: String
     
-    init(input: TransactionModel.InnerModel) {
+    init(input: TransactionModel.InnerModel, supplier: String) {
         self.input = input
+        self.supplier = supplier
         
         super.init(frame: .zero)
         self.backgroundColor = .white
@@ -81,7 +83,7 @@ class TradeCell: UIView {
         
     func setSender() {
         sender.then {
-            $0.text = input.supplier
+            $0.text = self.supplier
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TradeCell.fontSize)
             $0.textAlignment = .center

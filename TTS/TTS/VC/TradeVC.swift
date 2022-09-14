@@ -14,6 +14,7 @@ class TradeVC: UIViewController {
     
     private var viewModel = TradeVM()
     private var disposeBag = DisposeBag()
+    private var repository = SupplierRepository()
     
     private var titleLabel = UILabel()
     private var tradeTableHeader = TradeHeader()
@@ -76,13 +77,19 @@ class TradeVC: UIViewController {
         let output = viewModel.transform(input: TradeVM.Input())
         
         output.transactions.subscribe(onNext: { transactions in
-            transactions.forEach { transaciton in
-                let cell = TradeCell(input: transaciton.Transaction)
-                cell.setBuyButtonCommand { input in
-                    let nextVC = RecBuyVC(input: input)
-                    self.present(nextVC, animated: true)
-                }
-                self.stackView.addArrangedSubview(cell)
+            transactions.forEach { transaction in
+                let data = transaction.Transaction
+                
+                let supplierInfo = self.repository.getSupplierInfo(id: Int(data.supplier)!).asObservable()
+                
+                supplierInfo.subscribe(onNext: { supplier in
+                        let cell = TradeCell(input: data, supplier: supplier.name)
+                        cell.setBuyButtonCommand { input in
+                            let nextVC = RecBuyVC(input: input)
+                            self.present(nextVC, animated: true)
+                        }
+                        self.stackView.addArrangedSubview(cell)
+                }).disposed(by: self.disposeBag)
             }
         }).disposed(by: disposeBag)
     }
