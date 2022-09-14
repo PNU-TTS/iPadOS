@@ -78,8 +78,8 @@ class TradeVC: UIViewController {
         output.transactions.subscribe(onNext: { transactions in
             transactions.forEach { transaciton in
                 let cell = TradeCell(input: transaciton.Transaction)
-                cell.setBuyButtonCommand {
-                    let nextVC = RecBuyVC()
+                cell.setBuyButtonCommand { input in
+                    let nextVC = RecBuyVC(input: input)
                     self.present(nextVC, animated: true)
                 }
                 self.stackView.addArrangedSubview(cell)

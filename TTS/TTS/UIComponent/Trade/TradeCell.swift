@@ -140,14 +140,13 @@ class TradeCell: UIView {
         }
     }
     
-    func setBuyButtonCommand(command: @escaping (() -> Void)) {
+    func setBuyButtonCommand(command: @escaping ((_ input: TransactionModel.InnerModel) -> Void)) {
         buyButton.rx.tapGesture()
             .when(.recognized)
             .subscribe(onNext: { _ in
-                command()
+                command(self.input)
             }).disposed(by: disposeBag)
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

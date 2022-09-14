@@ -11,16 +11,28 @@ import SnapKit
 
 class RecBuyVC: UIViewController {
     private var titleLabel = UILabel()
+    private var subTitleLabel = UILabel()
     
     private var averageView: PriceView
     private var highPriceView: PriceView
     private var lowPriceView: PriceView
-    private var sellInputView: SellInputView
+//    private var sellInputView: SellInputView
     
-    private var stackView = UIStackView()
+    private var transactionDate: ConfirmTransactionCell
+    private var supplierInfo: ConfirmTransactionCell
+    private var pricePerRec: ConfirmTransactionCell
+    private var transactionVolume: ConfirmTransactionCell
+    private var totalPrice: ConfirmTransactionCell
+    private var bankAccount: ConfirmTransactionCell
+    
+    private var priceStackView = UIStackView()
+    private var tranInfoStackView = UIStackView()
+    private var buyButton = UIButton()
+    
+    private var input: TransactionModel.InnerModel
 
-    
-    init() {
+    init(input: TransactionModel.InnerModel) {
+        self.input = input
         self.averageView = PriceView(input: PriceView.Input(
             icon: Const.Icon.won,
             amount: 10000,
@@ -39,7 +51,20 @@ class RecBuyVC: UIViewController {
             description: "최저가",
             tintColor: Const.Color.semanticBlue2))
         
-        self.sellInputView = SellInputView(input: SellInputView.Input(recBalance: 100))
+        transactionDate = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(
+            title: "거래 등록 일시",
+            content: "2022년 01월 01일 19:02:34"))
+        
+        supplierInfo = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "구매자", content: "한국 전력"))
+        
+        pricePerRec = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "인증서 개당 가격", content: "26,323 원"))
+        
+        transactionVolume = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "거래 수량", content: "1,242 개"))
+        
+        totalPrice = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "총 거래 대금", content: "2,312,463 원"))
+        
+        bankAccount = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "입금 계좌", content: "부산은행 112-3723-4838-47"))
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,18 +73,23 @@ class RecBuyVC: UIViewController {
         self.view.backgroundColor = Const.Color.backgroundColor
         
         setView()
-
     }
     
     func setView() {
         [
             titleLabel,
-            stackView
+            priceStackView,
+            subTitleLabel,
+            tranInfoStackView,
+            buyButton
         ].forEach {
             self.view.addSubview($0)
         }
         setTitle()
-        setStackView()
+        setPriceStackView()
+        setSubTitle()
+        setTranInfoStackView()
+        setBuyButton()
     }
     
     func setTitle() {
@@ -73,12 +103,12 @@ class RecBuyVC: UIViewController {
         }
     }
     
-    func setStackView() {
+    func setPriceStackView() {
         [averageView, highPriceView, lowPriceView].forEach {
-            stackView.addArrangedSubview($0)
+            priceStackView.addArrangedSubview($0)
         }
         
-        stackView.then {
+        priceStackView.then {
             $0.axis = .horizontal
             $0.distribution = .fillEqually
             $0.spacing = 10.0
@@ -88,9 +118,46 @@ class RecBuyVC: UIViewController {
         }
     }
     
-
+    func setSubTitle() {
+        subTitleLabel.then {
+            $0.text = "구매 정보"
+            $0.font = UIFont.systemFont(ofSize: 35.0, weight: .semibold)
+            $0.textColor = Const.Color.textColor
+        }.snp.makeConstraints { make in
+            make.top.equalTo(priceStackView.snp.bottom).offset(40.0)
+            make.left.equalToSuperview().inset(20.0)
+        }
+    }
+    
+    func setTranInfoStackView() {
+        [transactionDate, supplierInfo, pricePerRec, transactionVolume, totalPrice, bankAccount].forEach {
+            tranInfoStackView.addArrangedSubview($0)
+        }
+        
+        tranInfoStackView.then {
+            $0.axis = .vertical
+            $0.spacing = 1.0
+        }.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(10.0)
+            make.left.right.equalToSuperview().inset(10.0)
+        }
+    }
+    
+    func setBuyButton() {
+        buyButton.then {
+            $0.setTitle("구매하기", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 27.0, weight: .bold)
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = Const.Color.primary
+            $0.layer.cornerRadius = 5.0
+        }.snp.makeConstraints { make in
+            make.top.equalTo(tranInfoStackView.snp.bottom).offset(20)
+            make.left.right.equalToSuperview().inset(20.0)
+            make.height.equalTo(55.0)
+        }
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
