@@ -21,6 +21,11 @@ class TransactionRepository: BaseRepository<FabricAPI> {
             .request(.createTransaction(input: input))
     }
     
+    func executeTransaction(input: ExecuteTransactionModel) -> Single<Response> {
+        return getProvider(mode: .real, debug: true).rx
+            .request(.executeTransaction(input: input))
+    }
+    
     func approveTransaction(input: ApproveTransactionModel) -> Single<Response> {
         return getProvider(mode: .real, debug: true).rx
             .request(.approveTransaction(input: input))
