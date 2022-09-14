@@ -22,8 +22,8 @@ class HomeVC: UIViewController {
     private var repository = TransactionRepository()
     
     private var titleLabel = UILabel()
+    private var hourlyChartButton = UIButton()
     private var dailyChartButton = UIButton()
-    private var weeklyChartButton = UIButton()
     private var monthlyChartButton = UIButton()
     
     private var viewChart = UIView()
@@ -69,8 +69,8 @@ class HomeVC: UIViewController {
     func setChartView() {
         [
             lineChartView,
+            hourlyChartButton,
             dailyChartButton,
-            weeklyChartButton,
             monthlyChartButton
         ].forEach { view in
             viewChart.addSubview(view)
@@ -87,8 +87,8 @@ class HomeVC: UIViewController {
     }
     
     func setButtons() {
-        dailyChartButton.then {
-            $0.setTitle("Day", for: .normal)
+        hourlyChartButton.then {
+            $0.setTitle("Hour", for: .normal)
             $0.backgroundColor = Const.Color.primary
             $0.tintColor = .white
             $0.layer.cornerRadius = 5.0
@@ -99,14 +99,14 @@ class HomeVC: UIViewController {
             make.width.equalTo(60)
         }
 
-        weeklyChartButton.then {
-            $0.setTitle("Week", for: .normal)
+        dailyChartButton.then {
+            $0.setTitle("Day", for: .normal)
             $0.backgroundColor = Const.Color.primary
             $0.tintColor = .white
             $0.layer.cornerRadius = 5.0
         }.snp.makeConstraints { make in
-            make.top.width.height.equalTo(dailyChartButton)
-            make.leading.equalTo(dailyChartButton.snp.trailing).offset(5)
+            make.top.width.height.equalTo(hourlyChartButton)
+            make.leading.equalTo(hourlyChartButton.snp.trailing).offset(5)
         }
         
         monthlyChartButton.then {
@@ -115,8 +115,8 @@ class HomeVC: UIViewController {
             $0.tintColor = .white
             $0.layer.cornerRadius = 5.0
         }.snp.makeConstraints { make in
-            make.top.width.height.equalTo(weeklyChartButton)
-            make.leading.equalTo(weeklyChartButton.snp.trailing).offset(5)
+            make.top.width.height.equalTo(dailyChartButton)
+            make.leading.equalTo(dailyChartButton.snp.trailing).offset(5)
         }
     }
     func setChart() {
@@ -155,8 +155,8 @@ class HomeVC: UIViewController {
     
     func setBinding() {
         let output = viewModel.transform(input: HomeVM.Input(
+            isHourlyTapped: hourlyChartButton.rx.tapGesture().when(.recognized).asObservable(),
             isDailyTapped: dailyChartButton.rx.tapGesture().when(.recognized).asObservable(),
-            isWeeklyTapped: weeklyChartButton.rx.tapGesture().when(.recognized).asObservable(),
             isMonthlyTapped: monthlyChartButton.rx.tapGesture().when(.recognized).asObservable()
         ))
         
