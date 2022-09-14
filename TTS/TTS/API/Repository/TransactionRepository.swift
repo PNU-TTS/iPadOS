@@ -11,13 +11,13 @@ import RxSwift
 class TransactionRepository: BaseRepository<FabricAPI> {
     
     func getAllTransactions() -> Single<[TransactionModel]> {
-        return getProvider(mode: .test, debug: false).rx
+        return getProvider(mode: .real, debug: false).rx
             .request(.queryAllTransactions)
             .map([TransactionModel].self)
     }
     
     func createTransaction(input: CreateTransactionModel) -> Single<Response> {
-        return getProvider(mode: .test, debug: true).rx
+        return getProvider(mode: .real, debug: true).rx
             .request(.createTransaction(input: input))
     }
     
@@ -46,7 +46,7 @@ class TransactionRepository: BaseRepository<FabricAPI> {
     }
     
     func getExecutedTransaction() -> Single<[TransactionModel]> {
-        return getProvider(mode: .test, debug: true).rx
+        return getProvider(mode: .real, debug: true).rx
             .request(.queryExecutedTransactions)
             .map([TransactionModel].self)
     }
@@ -58,10 +58,17 @@ class TransactionRepository: BaseRepository<FabricAPI> {
     }
     
     func getTransactionBySupplier(supplier: Int) -> Single<[TransactionModel]> {
-        return getProvider(mode: .test, debug: true).rx
+        return getProvider(mode: .real, debug: true).rx
             .request(.queryTransactionBySupplier(input: QueryBySupplierModel(supplier: supplier)))
             .map([TransactionModel].self)
     }
+    
+    func getTransactionByBuyer(buyer: Int) -> Single<[TransactionModel]> {
+        return getProvider(mode: .real, debug: true).rx
+            .request(.queryTransactionByBuyer(input: QueryByBuyerModel(buyer: buyer)))
+            .map([TransactionModel].self)
+    }
+
     
     func getNotConfirmedBySupplier(supplier: Int) -> Single<[TransactionModel]> {
         return getProvider(mode: .real, debug: true).rx
@@ -70,7 +77,7 @@ class TransactionRepository: BaseRepository<FabricAPI> {
     }
     
     func getNotConfirmedByBuyer(buyer: Int) -> Single<[TransactionModel]> {
-        return getProvider(mode: .test, debug: true).rx
+        return getProvider(mode: .real, debug: true).rx
             .request(.queryNotConfirmedByBuyer(input: QueryByBuyerModel(buyer: buyer)))
             .map([TransactionModel].self)
     }
