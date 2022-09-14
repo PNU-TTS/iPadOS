@@ -59,7 +59,7 @@ class RecBuyVC: UIViewController {
         
         transactionDate = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(
             title: "거래 등록 일시",
-            content: "2022년 01월 01일 19:02:34"))
+            content: DateTimeConverter.fromIntToString(input: input.registeredDate)))
         
         supplierInfo = ConfirmTransactionCell(input: ConfirmTransactionCell.Input(title: "판매자", content: "한국 전력"))
         
