@@ -94,8 +94,9 @@ class TradeVC: UIViewController {
         let output = viewModel.transform(input: TradeVM.Input())
         
         output.transactions.subscribe(onNext: { transactions in
+            self.loadingIndicatorView.stopAnimating()
+            
             transactions.forEach { transaction in
-                self.loadingIndicatorView.stopAnimating()
                 let data = transaction.Transaction
                 
                 let supplierInfo = self.repository.getSupplierInfo(id: Int(data.supplier)!).asObservable()

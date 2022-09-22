@@ -184,8 +184,9 @@ class HomeVC: UIViewController {
         ))
         
         output.transactions.subscribe(onNext: { transactions in
+            self.loadingIndicatorView.stopAnimating()
+            
             transactions.forEach { transaciton in
-                self.loadingIndicatorView.stopAnimating()
                 let data = transaciton.Transaction
                 
                 let supplierInfo = self.supplierRepository.getSupplierInfo(id: Int(data.supplier)!).asObservable()
