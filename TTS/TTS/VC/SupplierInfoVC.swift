@@ -147,6 +147,18 @@ class SupplierInfoVC: UIViewController {
         output.transactions.subscribe(onNext: { transactions in
             self.loadingIndicatorView.stopAnimating()
             
+            let transactions = transactions.sorted(by: {
+                $0.Transaction.registeredDate > $1.Transaction.registeredDate
+//                if let a = $0.Transaction.executedDate,
+//                   let b = $1.Transaction.executedDate {
+//                    return a > b
+//                } else if let b = $1.Transaction.executedDate {
+//                    return $0.Transaction.registeredDate > b
+//                } else {
+//                    return $0.Transaction.registeredDate > $1.Transaction.registeredDate
+//                }
+            })
+            
             transactions.forEach { transaciton in
                 let data = transaciton.Transaction
                 
@@ -169,8 +181,8 @@ class SupplierInfoVC: UIViewController {
                             self.stackView.addArrangedSubview(
                                 TransactionCell(
                                     input: data,
-                                    supplier: "nil",
-                                    buyer: supplier.name
+                                    supplier: supplier.name,
+                                    buyer: "-"
                                 )
                             )
                     }).disposed(by: self.disposeBag)

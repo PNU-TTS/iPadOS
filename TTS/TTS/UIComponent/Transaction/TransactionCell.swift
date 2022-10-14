@@ -65,7 +65,11 @@ class TransactionCell: UIView {
     
     func setTimeStamp() {
         timeStamp.then {
-            $0.text = "\(DateTimeConverter.fromIntToString(input: input.registeredDate))"
+            if let time = input.executedDate {
+                $0.text = "\(DateTimeConverter.fromIntToString(input: time))"
+            } else {
+                $0.text = "-"
+            }
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: TransactionCell.fontSize)
             $0.textAlignment = .center

@@ -96,6 +96,8 @@ class TradeVC: UIViewController {
         output.transactions.subscribe(onNext: { transactions in
             self.loadingIndicatorView.stopAnimating()
             
+            let transactions = transactions.sorted(by: { $0.Transaction.registeredDate > $1.Transaction.registeredDate })
+            
             transactions.forEach { transaction in
                 let data = transaction.Transaction
                 

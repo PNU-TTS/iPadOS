@@ -18,7 +18,7 @@ enum TTSAPI {
 
 extension TTSAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://192.168.0.35:8000")!
+        return URL(string: "http://127.0.0.1:8000")!
     }
     
     var path: String {

@@ -94,6 +94,12 @@ class RecListVC: UIViewController {
         repository.getCertificateBysypplier(id: ProfileDB.shared.get().id)
             .subscribe(onSuccess: { recList in
                 self.loadingIndicatorView.stopAnimating()
+                
+                let recList = recList.sorted(by: { $0.Certificate.expire_date > $1.Certificate.expire_date })
+                    .filter {
+                    $0.Certificate.quantity != 0
+                }
+                
                 recList.forEach { rec in
                     let cell = RecCell(input: rec.Certificate)
                     cell.setSellButtonCommand { input in
