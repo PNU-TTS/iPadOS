@@ -59,7 +59,8 @@ class BuyerInfoVC: UIViewController {
             balanceView,
             recSoldView,
             transactionHeader,
-            transactionTable
+            transactionTable,
+            loadingIndicatorView
         ].forEach {
             self.view.addSubview($0)
         }
@@ -142,6 +143,8 @@ class BuyerInfoVC: UIViewController {
         let output = viewModel.transform(input: BuyerInfoVM.Input(id: ProfileDB.shared.get().id))
         
         output.transactions.subscribe(onNext: { transactions in
+            self.loadingIndicatorView.stopAnimating()
+            
             transactions.forEach { transaciton in
                 let data = transaciton.Transaction
                 
@@ -152,7 +155,6 @@ class BuyerInfoVC: UIViewController {
                     
                     Observable.combineLatest(buyerInfo,supplierInfo)
                         .subscribe(onNext: { (buyer, supplier) in
-                            self.loadingIndicatorView.stopAnimating()
                             self.stackView.addArrangedSubview(
                                 TransactionCell(
                                     input: data,
@@ -162,7 +164,6 @@ class BuyerInfoVC: UIViewController {
                         }).disposed(by: self.disposeBag)
                 } else {
                     supplierInfo.subscribe(onNext: { supplier in
-                        self.loadingIndicatorView.stopAnimating()
                         self.stackView.addArrangedSubview(
                             TransactionCell(
                                 input: data,

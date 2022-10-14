@@ -94,10 +94,12 @@ class ConfirmWaitVC: UIViewController {
         let output = viewModel.transform(input: ConfirmVM.Input(id: ProfileDB.shared.get().id))
         
         output.transactions.subscribe(onNext: { transactions in
+            self.loadingIndicatorView.stopAnimating()
+            
+            let transactions = transactions.sorted(by: { $0.Transaction.registeredDate > $1.Transaction.registeredDate })
+            
             transactions.forEach { transaction in
-                self.loadingIndicatorView.stopAnimating()
                 let data = transaction.Transaction
-                
                 
                 let buyerInfo = self.buyerRepository.getBuyerInfo(id: Int(data.buyer!)!).asObservable()
                 
